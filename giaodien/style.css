@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+li {
+  list-style: none;
+}
+.active {
+  color: #FD7E14;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-bottom: #FD7E14 ;
+}
