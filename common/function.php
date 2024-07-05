@@ -14,4 +14,11 @@
     }
 
 
+    function convertToObjectCategory($row) {
+        $category = new Category();
+        $category -> cate_id = $row['cate_id'];
+        $category -> cate_name = $row['cate_name'];
+        $category -> cate_status = $row['cate_status'];
+        return $category;
+    }
 ?>
