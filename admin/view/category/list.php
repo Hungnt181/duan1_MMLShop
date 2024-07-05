@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/be9ed8669f.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../giaodien/style.css">
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 
         <!-- Main content -->
         <div class="shadow bg-light pb-5 mt-4 ms-4 mb-4 col-md-10">
-            <h4 class="p-3">Danh sách sản phẩm</h4>
+            <h4 class="p-3">Danh sách danh mục</h4>
             <hr>
             <div class="d-flex justify-content-between align-items-center">
                 <form action="" class="ms-4">
@@ -57,7 +57,7 @@
                         <tr>
                             <th></th>
                             <th scope="col">Stt</th>
-                            <th scope="col">Tên sản phẩm</th>
+                            <th scope="col">Tên danh mục</th>
                             <th scope="col">Trạng thái</th>
                             <th scope="col">Hành động</th>
                         </tr>
