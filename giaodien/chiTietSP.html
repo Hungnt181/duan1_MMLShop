@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết sản phẩm</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-
+    <link rel="shortcut icon" href="../img/logo_darkblue_notfull.svg" type="image/x-icon">
+    <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="chiTietSP.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://kit.fontawesome.com/6dab569175.js" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 </head>
 </head>
 
 <body>
     <header>
         <div class="logo">
-            <img src="../img/logo2.svg" alt="">
+            <a href=""><img src="../img/logo_darkblue_notfull.svg" alt=""></a>
         </div>
         <div class="search">
             <form action="">
@@ -29,7 +29,26 @@
             <ul>
                 <li><a href="">trang chủ</a></li>
                 <li><a href="">giới thiệu</a></li>
-                <li><a href="">sản phẩm</a></li>
+                <li class="box_sub_menu">
+                    <a href="">sản phẩm</a>
+                    <ul class="sub_menu">
+                        <a href="">
+                            <li>Đồ chơi</li>
+                        </a>
+                        <a href="">
+                            <li>Chiếu sáng</li>
+                        </a>
+                        <a href="">
+                            <li>Phụ kiện</li>
+                        </a>
+                        <a href="">
+                            <li>Đồng hồ</li>
+                        </a>
+                        <a href="">
+                            <li>Nội thất</li>
+                        </a>
+                    </ul>
+                </li>
                 <li><a href="">thư viện</a></li>
                 <li><a href="">tin tức</a></li>
                 <li><a href="">liên hệ</a></li>
@@ -37,9 +56,23 @@
         </div>
         <div class="tool">
             <ul>
-                <li><a href=""><i class="fa-regular fa-user"></i></a></li>
-                <li><a href=""><i class="fa-regular fa-heart"></i></a></li>
-                <li><a href=""><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <li>
+                    <a href="" class="icon_login" id="icon_login">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="number">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="item_number">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="number">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="item_number">0</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </header>
@@ -51,9 +84,9 @@
     <div class="row1">
         <ul>
             <li><a href="">Trang chủ</a></li>
-            <li><a href="#">></a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i></a></li>
             <li><a href="">Nội thất</a></li>
-            <li><a href="#">></a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i></a></li>
             <li><a href="">Bình hoa nhỏ</a></li>
         </ul>
     </div>
@@ -62,7 +95,7 @@
 
         <div class="row2">
             <div class="row2_img">
-                <img src="../img/binhhoa.jpg" alt="">
+                <img src="../img/product/binh-hoa-nho.jpg" alt="">
             </div>
 
             <div class="pro_inf">
@@ -201,7 +234,7 @@
 
         <div class="hot_products w95">
             <div class="title">Sản phẩm liên quan</div>
-            
+
             <div class="list_pro">
                 <div class="pro_item">
                     <div class="quick_act">
@@ -292,133 +325,62 @@
 
     </main>
 
-        <!-- footer -->
+    <!-- footer -->
 
-        <footer>
-            <div class="mail_voucher">
-                <h3>đừng bỏ lỡ chương trình giảm giá của chúng tôi</h3>
-                <p>Đăng ký để nhận những sản phẩm và tin tức mới nhất cập nhật hàng ngày 
-                    nhanh nhất.
+    <footer>
+        <div class="mail_voucher">
+            <h3>đừng bỏ lỡ chương trình giảm giá của chúng tôi</h3>
+            <p>Đăng ký để nhận những sản phẩm và tin tức mới nhất cập nhật hàng ngày
+                nhanh nhất.
+            </p>
+            <form action="" method="post">
+                <input type="email" placeholder="Email của bạn">
+                <button>ĐĂNG KÝ</button>
+            </form>
+        </div>
+        <div class="belowfoot w95">
+            <div class="company">
+                <a href=""><img src="../img/logo_darkblue_full.svg" alt=""></a>
+                <strong>MML - INTERIOR HOUSE STORE</strong>
+                <p>Địa chỉ: Tầng 4, Tòa nhà L (L401) - Số 02, đường Trịnh Văn Bô,
+                    Nam Từ Liêm, Hà Nội (Tòa nhà FPT Polytechnic)
                 </p>
-                <form action="" method="post">
-                    <input type="email" placeholder="Email của bạn">
-                    <button>ĐĂNG KÝ</button>
-                </form>
-            </div>
-            <div class="belowfoot w95">
-                <div class="company">
-                    <a href=""><img src="../img/logo_darkblue_full.svg" alt=""></a>
-                    <strong>MML - INTERIOR HOUSE STORE</strong>
-                    <p>Địa chỉ: Tầng 4, Tòa nhà L (L401) - Số 02, đường Trịnh Văn Bô, 
-                        Nam Từ Liêm, Hà Nội (Tòa nhà FPT Polytechnic)
-                    </p>
-                    <p>Điện thoại: 1900 1234 - 0123456789</p>
-                    <p>Email: mmlstore@gmail.com</p>
-                    <div class="social_media">
-                        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href=""><i class="fa-brands fa-twitter"></i></a>
-                        <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram"></i></a>
-                        <a href=""><i class="fa-brands fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="list_options">
-                    <div class="options_item">
-                        <h4>LIÊN KẾT</h4>
-                        <a href="">Trang chủ</a>
-                        <a href="">Giới thiệu</a>
-                        <a href="">Sản phẩm</a>
-                        <a href="">Tin tức</a>
-                        <a href="">Thư viện</a>
-                        <a href="">Liên hệ</a>
-                    </div>
-                    <div class="options_item">
-                        <h4>CHÍNH SÁCH</h4>
-                        <a href="">Hướng dẫn mua hàng</a>
-                        <a href="">Hướng dẫn đổi trả hàng</a>
-                        <a href="">Hướng dẫn thanh toán</a>
-                        <a href="">Chính sách giao hàng</a>
-                        <a href="">Chính sách bảo mật</a>
-                        <a href="">Chính sách khuyến mại</a>
-                    </div>
+                <p>Điện thoại: 1900 1234 - 0123456789</p>
+                <p>Email: mmlstore@gmail.com</p>
+                <div class="social_media">
+                    <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
-            <hr>
-            <h6>Copyright © 2024 MML. All rights reserved.</h6>
-        </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script>
-        // Lấy tất cả các nút input có class 'box_color'
-        const colorButtons = document.querySelectorAll('.box_color input[type="button"]');
-
-        // Thêm sự kiện click cho từng nút
-        colorButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Lấy giá trị 'id' của nút được chọn
-                const selectedColor = button.id;
-                console.log('Màu sắc được chọn:', selectedColor);
-
-                // Thay đổi thuộc tính border của nút được chọn
-                button.style.border = '2px solid #000'; // Thay đổi border thành 2px solid black
-
-                // Xóa border của các nút khác
-                colorButtons.forEach(btn => {
-                    if (btn !== button) {
-                        btn.style.border = 'none';
-                    }
-                });
-            });
-        });
-
-        const redButton = document.getElementById('red');
-        redButton.style.border = '2px solid #000';
-
-
-        const sizeButtons = document.querySelectorAll('.box_size input[type="button"]');
-
-
-        sizeButtons.forEach(button => {
-            button.addEventListener('click', () => {
-
-                const selectedSize = button.id;
-                console.log('Màu sắc được chọn:', selectedSize);
-
-
-                button.style.border = '2px solid #000';
-
-
-                sizeButtons.forEach(btn => {
-                    if (btn !== button) {
-                        btn.style.border = 'none';
-                    }
-                });
-            });
-        });
-
-        const sz16Button = document.getElementById('sz16');
-        sz16Button.style.border = '2px solid #000';
-
-
-
-
-
-    </script>
+            <div class="list_options">
+                <div class="options_item">
+                    <h4>LIÊN KẾT</h4>
+                    <a href="">Trang chủ</a>
+                    <a href="">Giới thiệu</a>
+                    <a href="">Sản phẩm</a>
+                    <a href="">Tin tức</a>
+                    <a href="">Thư viện</a>
+                    <a href="">Liên hệ</a>
+                </div>
+                <div class="options_item">
+                    <h4>CHÍNH SÁCH</h4>
+                    <a href="">Hướng dẫn mua hàng</a>
+                    <a href="">Hướng dẫn đổi trả hàng</a>
+                    <a href="">Hướng dẫn thanh toán</a>
+                    <a href="">Chính sách giao hàng</a>
+                    <a href="">Chính sách bảo mật</a>
+                    <a href="">Chính sách khuyến mại</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h6>Copyright © 2024 MML. All rights reserved.</h6>
+    </footer>
+    
+    <script src="chiTietSP.js"></script>
 
 </body>
 

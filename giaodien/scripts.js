@@ -14,3 +14,9 @@ document.addEventListener("mouseup", function(event) {
     }
 });
 
+// -----------jquery for angle-down icon beside sub menu---------
+$(document).ready(function(){
+    // Tìm <li> có sub
+    $('.sub_menu').parent('li').addClass('has_child');
+})
+
