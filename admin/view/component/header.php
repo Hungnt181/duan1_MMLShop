@@ -28,9 +28,12 @@
                     <div class="container-fluid">
                         <div class="navbar-nav">
                             <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
-                            <a class="nav-link" href="#">Chó Cảnh</a>
-                            <a class="nav-link" href="#">Mèo Cảnh</a>
-                            <a class="nav-link" href="#">Phụ kiện</a>
+                            <a class="nav-link" href="#">Danh Mục</a>
+                            <a class="nav-link" href="#">Sản Phẩm</a>
+                            <a class="nav-link" href="#">Đơn Hàng</a>
+                            <a class="nav-link" href="#">Tài Khoản</a>
+                            <a class="nav-link" href="#">Tin Tức</a>
+                            <a class="nav-link" href="#">Bình Luận</a>
                         </div>
                     </div>
                 </nav>

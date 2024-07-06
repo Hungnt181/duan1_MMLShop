@@ -21,4 +21,14 @@
         $category -> cate_status = $row['cate_status'];
         return $category;
     }
+
+    function convertToObjectProduct($row) {
+        $product = new Product();
+        $product -> pro_id = $row['pro_id'];
+        $product -> pro_name = $row['pro_name'];
+        $product -> pro_image = $row['pro_image'];
+        $product -> pro_description = $row['pro_description'];
+        $product -> cate_id = $row['cate_id'];
+        return $product;
+    }
 ?>
