@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 03, 2024 at 04:19 PM
+-- Generation Time: Jul 06, 2024 at 11:25 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -198,7 +198,8 @@ INSERT INTO `product` (`pro_id`, `pro_name`, `pro_image`, `pro_description`, `ca
 (13, 'Bàn cafe', 'ban-cafe.jpg', 'Bàn cafe bằng gỗ, thân thiện với môi trường, phù hợp cho trang trí nhà ở đơn giản, hiện đại', 5),
 (14, 'Tủ đầu giường', 'tu-dau-giuong.jpg', 'Tủ đầu giường phong cách cổ điển, đơn giản. Chất liệu gỗ thân thiện môi trường. Gỗ thơm dễ ngủ và điều hòa khí huyết.', 5),
 (15, 'Bình giữ nhiệt cà phê', 'binh-giu-nhiet-ca-phe.jpg', 'Bình giữ nhiệt cà phê thiết kế đơn giản dễ mang theo.', 3),
-(16, 'Đĩa xanh', 'dia-xanh.jpg', 'Đĩa xanh thiết kế đơn giản, sang trọng phù hợp cho nội thất phòng bếp. ', 3);
+(16, 'Đĩa xanh', 'dia-xanh.jpg', 'Đĩa xanh thiết kế đơn giản, sang trọng phù hợp cho nội thất phòng bếp. ', 3),
+(17, 'Test', '4658257.jpg', '', 5);
 
 -- --------------------------------------------------------
 
@@ -345,13 +346,13 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `pro_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `pro_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `product_detail`
 --
 ALTER TABLE `product_detail`
-  MODIFY `product_dt_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `product_dt_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables
@@ -387,7 +388,7 @@ ALTER TABLE `product`
 -- Constraints for table `product_detail`
 --
 ALTER TABLE `product_detail`
-  ADD CONSTRAINT `fk_prodetail_pro` FOREIGN KEY (`pro_id`) REFERENCES `product` (`pro_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `fk_prodetail_pro` FOREIGN KEY (`pro_id`) REFERENCES `product` (`pro_id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

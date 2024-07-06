@@ -1,6 +1,6 @@
 <?php
 // SQL Query for Product
-
+// -------Parents------
 class ProductQuery {
     public $pdo;
 
@@ -12,6 +12,7 @@ class ProductQuery {
         $this -> pdo = null;
     }
 
+    // -----sql for showing all of products
     public function all() {
         try {
             $sql = "select * from product";
@@ -28,9 +29,9 @@ class ProductQuery {
             echo "Lỗi: ".$e ->getMessage();
             echo "<hr>";
         }
-
     }
 
+    // -----sql for creating a new product parents
     public function createBase(Product $product) {
         try {
             $sql = "insert into product(pro_name,pro_image,pro_description,cate_id) values ('$product->pro_name','$product->pro_image','$product->pro_description','$product->cate_id')";
@@ -47,10 +48,137 @@ class ProductQuery {
         }
     }
 
+    // ------sql for showing a product parents
+    public function infoOneProduct($pro_id) {
+        try {
+            $sql = "select * from product join category on product.cate_id = category.cate_id where product.pro_id = $pro_id";
+            $data = $this->pdo->query($sql)->fetch();
+            $info = convertToObjectProduct($data);
+            return $info;
+            
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
+        }
+    }
 
+    // ------sql for editing a product parents full
+    public function updateFull(Product $product, $pro_id) {
+        try {
+            $sql = "update product set pro_name = '$product->pro_name', pro_image = '$product->pro_image', pro_description = '$product->pro_description', cate_id = $product->cate_id where pro_id = $pro_id";
+            $data = $this -> pdo -> prepare($sql);
+            return $data->execute();
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e -> getMessage();
+        }
+    }
 
+    // ------sql for editing a product parents without image
+    public function updateNoImg(Product $product, $pro_id) {
+        try {
+            $sql = "update product set pro_name = '$product->pro_name', pro_description = '$product->pro_description', cate_id = $product->cate_id where pro_id = $pro_id";
+            $data = $this -> pdo -> prepare($sql);
+            return $data->execute();
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e -> getMessage();
+        }
+    }
 
+    // -------sql for deleting a product parents (ON CASCADE) with 1 or more product details
+    public function deleteProduct($pro_id) {
+        try {
+            $sql = "delete from product where pro_id = $pro_id ";
+            $data = $this -> pdo -> prepare($sql);
+            return $data->execute();
+
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
 }
 
 
+// -----------Child-------------
+class ProductDetailQuery {
+    public $pdo;
+
+    public function __construct() {
+        $this->pdo = connectDB();
+    }
+
+    public function __destruct() {
+        $this -> pdo = null;
+    }
+
+    // ----------sql for showing all of products detail
+    public function listProductDetail($pro_id) {
+        try {
+            $sql = "select * from product_detail join product on product_detail.pro_id = product.pro_id where product_detail.pro_id = $pro_id";
+            $data = $this->pdo->query($sql)->fetchAll();
+            $dsProductDetail = [];
+
+            foreach ($data as $row) {
+                $dsProductDetail[] = convertToObjectProductDetail($row);
+            }
+
+            return $dsProductDetail;
+            
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
+        }
+    }
+
+    // -----sql for creating a new product detail
+    public function createProductDetail(ProductDetail $proDetail, $pro_id) {
+        try {
+            $sql = "insert into product_detail(pro_color,pro_size,pro_price,pro_quantity,pro_id) values ('$proDetail->pro_color','$proDetail->pro_size','$proDetail->pro_price','$proDetail->pro_quantity','$pro_id')";
+            $data = $this -> pdo -> exec($sql);
+            if ($data == 1) {
+                return "ok";
+            } else {
+                return $data;
+            }
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e -> getMessage();
+        }
+    }
+
+    // ------sql for showing a product detail
+    public function infoOneProductDetail($product_dt_id) {
+        try {
+            $sql = "select * from product_detail join product on product_detail.pro_id = product.pro_id where product_dt_id = $product_dt_id";
+            $data = $this->pdo->query($sql)->fetch();
+            $info = convertToObjectProductDetail($data);
+            return $info;
+            
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
+        }
+    }
+
+    // ------sql for editing a product detail
+    public function updateDetail(ProductDetail $proDetail, $product_dt_id) {
+        try {
+            $sql = "update product_detail set pro_color = '$proDetail->pro_color', pro_size = '$proDetail->pro_size', pro_price = '$proDetail->pro_price', pro_quantity = $proDetail->pro_quantity where product_dt_id = $product_dt_id";
+            $data = $this -> pdo -> prepare($sql);
+            return $data->execute();
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e -> getMessage();
+        }
+    }
+
+    // -----sql for deleting a product detail
+    public function delete($product_dt_id) {
+        try {
+            $sql = "delete from product_detail where product_dt_id = $product_dt_id ";
+            $data = $this -> pdo -> prepare($sql);
+            return $data->execute();
+
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+}
 ?>

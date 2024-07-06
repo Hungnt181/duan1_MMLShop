@@ -25,7 +25,7 @@
 
         <!-- Main content -->
         <div class="shadow bg-light pb-5 mt-4 ms-4 mb-4 col-md-10">
-            <h4 class="p-3">Danh sách sản phẩm</h4>
+            <h4 class="p-3">Chi tiết sản phẩm "IDP# <?php echo $_GET["pro_id"]; ?>"</h4>
             <hr>
             <div class="d-flex justify-content-between align-items-center">
                 <form action="" class="ms-4">
@@ -41,7 +41,7 @@
                 <div class="me-4">
                     <button class="btn btn-success">
                         <i class="fa-solid fa-plus"></i>
-                        <a href="index.php?act=create-product" class="text-light">Thêm</a>
+                        <a href="index.php?act=create-product-detail&pro_id=<?php echo $_GET["pro_id"]; ?>" class="text-light">Thêm loại</a>
                     </button>
                     <button class="btn btn-danger">
                         <i class="fa-solid fa-trash"></i>
@@ -57,17 +57,18 @@
                         <tr>
                             <th></th>
                             <th scope="col">Stt</th>
-                            <th scope="col">IDP</th>
-                            <th scope="col">Tên sản phẩm</th>
-                            <th scope="col">Ảnh sản phẩm</th>
-                            <th scope="col">Mô tả</th>
+                            <th scope="col">IDPD</th>
+                            <th scope="col">Bảng màu</th>
+                            <th scope="col">Kích cỡ</th>
+                            <th scope="col">Đơn giá</th>
+                            <th scope="col">Số lượng</th>
                             <th scope="col">Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $i = 1;
-                        foreach ($dsProduct as $key => $pro) {
+                        foreach ($dsProductDetail as $key => $pro_dt) {
                         ?>
 
                             <tr>
@@ -78,42 +79,35 @@
                                     <?= $i++?>
                                 </td>
                                 <td scope="row">
-                                    <?= $pro->pro_id?>
+                                    <?= $pro_dt->product_dt_id?>
                                 </td>
                                 <td>
-                                    <div style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
-                                    <?= $pro->pro_name?>
-                                    </div>
+                                    <?= $pro_dt->pro_color?>    
                                 </td>
                                 <td>
-                                    <img src="../img/product/<?= $pro->pro_image ?>" alt="" style="width:100px;">
+                                    <?= $pro_dt->pro_size ?>
                                 </td>
                                 <td>
-                                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 150px;">
-                                    <?= $pro->pro_description?>
-                                    </div>
+                                    <?= $pro_dt->pro_price?> 
                                 </td>
                                 <td>
-                                    <button class="btn" style="background: #141F46;">
-                                        <a href="index.php?act=view-product-detail&pro_id=<?= $pro->pro_id ?>" class="text-white">
-                                            <i class="fa-solid fa-circle-info"></i> Xem chi tiết
-                                        </a>
-                                    </button>
+                                    <?= $pro_dt->pro_quantity?> 
+                                </td>
+                                <td>
                                     <button class="btn btn-success ">
-                                        <a href="index.php?act=read-one-product&pro_id=<?= $pro->pro_id ?>" class="text-white">
+                                        <a href="index.php?act=update-product-detail&product_dt_id=<?= $pro_dt->product_dt_id?>&pro_id=<?php echo $_GET["pro_id"]; ?>" class="text-white">
                                             <i class="fa-solid fa-pen-to-square"></i> Sửa
                                         </a>
                                     </button>
                                     <button class="btn btn-danger">
-                                        <a onclick="return confirm('Bạn sẽ mất hết thông tin chi tiết về sản phẩm này!!!! Xác nhận xóa sản phẩm #<?= $pro->pro_id?>?')" href="index.php?act=delete-product&pro_id=<?= $pro->pro_id ?>" class="text-white">
+                                        <a onclick="return confirm('Xác nhận xóa chi tiết sản phẩm #<?= $pro_dt->product_dt_id?>?')" href="index.php?act=delete-product-detail&product_dt_id=<?= $pro_dt->product_dt_id?>&pro_id=<?php echo $_GET["pro_id"]; ?>" class="text-white">
                                             <i class="fa-solid fa-trash"></i> Xóa
                                         </a>
                                     </button>
                                 </td>
                             </tr>
                         <?php
-                        }
-
+                            }
                         ?>
                     </tbody>
                 </table>

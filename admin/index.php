@@ -23,16 +23,27 @@ $id = $_GET['id'] ?? "" ;
 
 match ($act) { 
     '' => (new CategoryController()) -> list(),
-    // -----------Sản phẩm
-    'list-product' => (new ProductController()) -> list(),
-    'create-product' => (new ProductController()) -> create(),
-    // -----------Danh mục
+    
+    // -----------PRODUCTS----------------------
+    'list-product' => (new ProductController()) -> list(), /* READ */
+    'create-product' => (new ProductController()) -> create(), /* CREATE */
+    'read-one-product' => (new ProductController()) -> readOneProduct(), /* UPDATE */
+    'delete-product' => (new ProductController()) -> deleteProduct(), /* DELETE */
+    // ---
+    'view-product-detail' => (new ProductController()) -> listProductDetail(), /* READ */
+    'create-product-detail' => (new ProductController()) -> createProductDetail(), /* CREATE */
+    'update-product-detail' => (new ProductController()) -> readOneProductDetail(), /* UPDATE */
+    'delete-product-detail' => (new ProductController()) -> deleteProductDetail(), /* DELETE */
+
+    // -----------CATEGORIES---------------------
     'list-category' => (new CategoryController()) -> list(),
     // 'create-category' => (new CategoryController()) -> create(),
     // 'update-category' => (new CategoryController()) -> update(),
-    // -----------Tài khoản
+
+    // -----------ACCOUNTS-----------------------
  
-    // -----------Hóa đơn
+
+    // -----------BILLS--------------------------
   
   };
 
