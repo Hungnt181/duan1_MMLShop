@@ -37,9 +37,10 @@ match ($act) {
 
     // -----------CATEGORIES---------------------
     'list-category' => (new CategoryController()) -> list(),
-    // 'create-category' => (new CategoryController()) -> create(),
-    // 'update-category' => (new CategoryController()) -> update(),
-
+    'create-category' => (new CategoryController()) -> create(),
+    'update-category' => (new CategoryController()) -> update(),
+    'delete-category' => (new CategoryController()) -> delete(),
+    'restore-category' => (new CategoryController()) -> restore(),
     // -----------ACCOUNTS-----------------------
  
 
