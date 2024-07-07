@@ -31,4 +31,16 @@
         $product -> cate_id = $row['cate_id'];
         return $product;
     }
+
+    function convertToObjectProductDetail($row) {
+        $proDetail = new ProductDetail();
+        $proDetail -> product_dt_id = $row['product_dt_id'];
+        $proDetail -> pro_color = $row['pro_color'];
+        $proDetail -> pro_size = $row['pro_size'];
+        $proDetail -> pro_price = $row['pro_price'];
+        $proDetail -> pro_quantity = $row['pro_quantity'];
+        $proDetail -> pro_id = $row['pro_id'];
+        $proDetail -> pro_name = $row['pro_name'];
+        return $proDetail;
+    }
 ?>
