@@ -49,7 +49,13 @@
                         <select class="form-control" name="cate_id">
                             <option value="">-- Lựa chọn --</option>
                             <?php foreach ($dsCate as $category) : ?>
-                            <option value="<?= $category->cate_id ?>"><?= $category->cate_name ?></option>
+                                <?php
+                                    if ($category->cate_status==1) {
+                                        ?>
+                                            <option value="<?= $category->cate_id ?>"><?= $category->cate_name ?></option>
+                                        <?php
+                                    }
+                                ?>
                             <?php endforeach; ?>
                         </select>
                     </div>

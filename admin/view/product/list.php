@@ -58,6 +58,7 @@
                             <th></th>
                             <th scope="col">Stt</th>
                             <th scope="col">IDP</th>
+                            <th scope="col">Danh mục</th>
                             <th scope="col">Tên sản phẩm</th>
                             <th scope="col">Ảnh sản phẩm</th>
                             <th scope="col">Mô tả</th>
@@ -80,6 +81,27 @@
                                 <td scope="row">
                                     <?= $pro->pro_id?>
                                 </td>
+
+                                <?php
+                                    if ($pro->cate_status != 1 ) { ?>
+                                        <td>
+                                        <div style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                            Danh mục không tồn tại
+                                        </div>
+                                    </td>
+                                    <?php
+                                    } else {
+                                        ?>
+                                             <td>
+                                                <div style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                                    <?= $pro->cate_name?>
+                                                </div>
+                                </td>
+                                        <?php
+                                    }
+                                ?>
+                            
+                               
                                 <td>
                                     <div style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
                                     <?= $pro->pro_name?>
