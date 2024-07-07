@@ -51,9 +51,13 @@
                         <span class="form-label">Danh mục sản phẩm:</span>
                         <select class="form-control" name="cate_id">
                             <?php foreach ($dsCate as $category) : ?>
-                            <option value="<?= $category->cate_id ?>" <?php if($category->cate_id == $info->cate_id) echo "selected"; ?>>
-                                <?= $category->cate_name ?>
-                            </option>
+                                <?php
+                                    if ($category->cate_status==1) {
+                                        ?>
+                                            <option value="<?= $category->cate_id ?>" <?= $category->cate_id == $info->cate_id ? "selected" : ''  ?>><?= $category->cate_name ?></option>
+                                        <?php
+                                    }
+                                ?>
                             <?php endforeach; ?>
                         </select>
                     </div>

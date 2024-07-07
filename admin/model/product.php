@@ -7,6 +7,8 @@ class Product {
     public $pro_image;
     public $pro_description;
     public $cate_id;
+    public $cate_name;
+    public $cate_status;
 }
 
 class ProductDetail {

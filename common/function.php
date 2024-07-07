@@ -29,6 +29,8 @@
         $product -> pro_image = $row['pro_image'];
         $product -> pro_description = $row['pro_description'];
         $product -> cate_id = $row['cate_id'];
+        $product -> cate_name = $row['cate_name'];
+        $product -> cate_status = $row['cate_status'];
         return $product;
     }
 
