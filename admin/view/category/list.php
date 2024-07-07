@@ -41,7 +41,7 @@
                 <div class="me-4">
                     <button class="btn btn-success">
                         <i class="fa-solid fa-plus"></i>
-                        <a href="" class="text-light">Thêm</a>
+                        <a href="?act=create-category" class="text-light">Thêm</a>
                     </button>
                     <button class="btn btn-danger">
                         <i class="fa-solid fa-trash"></i>
@@ -95,13 +95,18 @@
                                 </td>
                                 <td>
                                     <button class="btn btn-success ">
-                                        <a href="" class="text-white">
+                                        <a href="?act=update-category&id=<?= $cate->cate_id?>" class="text-white">
                                             <i class="fa-solid fa-pen-to-square"></i> Sửa
                                         </a>
                                     </button>
                                     <button class="btn btn-danger">
-                                        <a href="" class="text-white">
+                                        <a onclick=" return confirm('Bạn có muốn chuyển trạng thái danh mục không?')" href="?act=delete-category&id=<?= $cate->cate_id?>" class="text-white">
                                             <i class="fa-solid fa-trash"></i> Xóa
+                                        </a>
+                                    </button>
+                                    <button class="btn btn-secondary">
+                                        <a href="?act=restore-category&id=<?= $cate->cate_id?>" class="text-white">
+                                        <i class="fa-solid fa-trash-can-arrow-up"></i> Khôi phục
                                         </a>
                                     </button>
                                 </td>
