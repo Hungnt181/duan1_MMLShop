@@ -62,6 +62,7 @@
                             <th scope="col">Kích cỡ</th>
                             <th scope="col">Đơn giá</th>
                             <th scope="col">Số lượng</th>
+                            <th scope="col">Trạng thái</th>
                             <th scope="col">Hành động</th>
                         </tr>
                     </thead>
@@ -94,14 +95,32 @@
                                     <?= $pro_dt->pro_quantity?> 
                                 </td>
                                 <td>
+                                <?php
+                                    if ($pro_dt->product_dt_status == 1) {
+                                ?>
+                                <span class="badge bg-success ">Selling</span>
+                                <?php
+                                    } else {
+                                        ?>
+                                <span class="badge bg-danger">Not Selling</span>
+                                <?php
+                                    }
+                                ?>
+                            </td>
+                                <td>
                                     <button class="btn btn-success ">
                                         <a href="index.php?act=update-product-detail&product_dt_id=<?= $pro_dt->product_dt_id?>&pro_id=<?php echo $_GET["pro_id"]; ?>" class="text-white">
                                             <i class="fa-solid fa-pen-to-square"></i> Sửa
                                         </a>
                                     </button>
-                                    <button class="btn btn-danger">
+                                    <!-- <button class="btn btn-danger">
                                         <a onclick="return confirm('Xác nhận xóa chi tiết sản phẩm #<?= $pro_dt->product_dt_id?>?')" href="index.php?act=delete-product-detail&product_dt_id=<?= $pro_dt->product_dt_id?>&pro_id=<?php echo $_GET["pro_id"]; ?>" class="text-white">
                                             <i class="fa-solid fa-trash"></i> Xóa
+                                        </a>
+                                    </button> -->
+                                    <button class="btn btn-danger">
+                                        <a onclick="return confirm('Xác nhận thay đổi trạng thái chi tiết sản phẩm #<?= $pro_dt->product_dt_id?>?')" href="index.php?act=update-status-product-detail&product_dt_id=<?= $pro_dt->product_dt_id?>&pro_id=<?php echo $_GET["pro_id"]; ?>" class="text-white">
+                                        <i class="fa-solid fa-arrows-rotate"></i> Đổi trạng thái 
                                         </a>
                                     </button>
                                 </td>
