@@ -39,11 +39,35 @@
                 // echo "<pre>";
                 $dsProDetail = $this->productDetailQuery->listProductDetail($pro_id);
                 // var_dump($dsProDetail);
+
+             
             }
 
             include "view/ctsp.php";
             
         }
+
+        // public function ctsp_dt() {
+        //     $dsCategory = $this->categoryQuery->all();
+            
+        //     if (isset($_GET['id'])) {
+        //         $pro_id = $_GET['id'];
+        //         $pro_one = $this->productQuery->find($pro_id);
+        //         // var_dump($pro_one);
+        //         // echo "<pre>";
+        //         $dsProDetail = $this->productDetailQuery->listProductDetail($pro_id);
+        //         // var_dump($dsProDetail);
+
+        //         if(isset($_GET['id'])&&isset($_GET['pro_dt_id'])&&isset($_GET['color'])){
+        //             $pro_id = $_GET['id'];
+        //             $product_dt_dt_id=$_GET['pro_dt_id'];
+        //             $pro_color=$_GET['color'];
+        //         }
+        //     }
+
+        //     include "view/ctsp.php";
+            
+        // }
 
         
 
