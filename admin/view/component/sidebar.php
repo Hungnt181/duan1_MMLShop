@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 <li class="list-group-item list-group-item-action rounded-0 border-0 mt-3">
-                    <a href="">
+                    <a href="index.php?act=list-news">
                         <i class="fa-regular fa-newspaper"></i> Danh sách tin tức
                     </a>
                 </li>

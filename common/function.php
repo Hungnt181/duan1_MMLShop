@@ -45,4 +45,14 @@
         $proDetail -> pro_name = $row['pro_name'];
         return $proDetail;
     }
+
+    function convertToObjectNews($row) {
+        $news = new News();
+        $news -> news_id = $row['news_id'];
+        $news -> news_title = $row['news_title'];
+        $news -> news_img = $row['news_img'];
+        $news -> news_content = $row['news_content'];
+        return $news;
+    }
+
 ?>

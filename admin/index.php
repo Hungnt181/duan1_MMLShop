@@ -9,12 +9,15 @@
 //file trong controller
 include "controller/categoryController.php";
 include "controller/productController.php";
+include "controller/newsController.php";
 
 //file trong model
 include "model/category.php";
 include "model/categoryQuery.php"; 
 include "model/product.php";
 include "model/productQuery.php";
+include "model/news.php";
+include "model/newsQuery.php";
 
 
 // Người dùng hệ thống sẽ tưởng tác với website bằng url thông qua tham số act 
@@ -45,6 +48,13 @@ match ($act) {
  
 
     // -----------BILLS--------------------------
+
+
+    // -----------NEWS--------------------------
+    'list-news' => (new NewsController()) -> list(),
+    'create-news' => (new NewsController()) -> create(),
+    // 'update-news' => (new CategoryController()) -> update(),
+    // 'delete-news' => (new CategoryController()) -> delete(),
   
   };
 
