@@ -149,10 +149,10 @@
                                 <input type="button" value="Màu trắng" name="Màu trắng" id="white"> -->
                                 <?php
                                     $arayColor = [];
-                                     foreach ($dsProDetail as $pro_dt) {
+                                     foreach ($dsProDetail as $pro_dt_list) {
                                         
-                                        if (!in_array($pro_dt-> pro_color,$arayColor)) {
-                                            $arayColor[] =   $pro_dt-> pro_color;
+                                        if (!in_array($pro_dt_list-> pro_color,$arayColor)) {
+                                            $arayColor[] =   $pro_dt_list-> pro_color;
                                         }
                                      }
                                     //  var_dump($arayColor);
@@ -181,20 +181,20 @@
 
                                 <?php
                                     $araySize = [];
-                                     foreach ($dsProDetail as $pro_dt) {
+                                     foreach ($dsProDetail as $pro_dt_list) {
                                         
-                                        if (!in_array($pro_dt->pro_size,$araySize)) {
-                                            $araySize[] =   $pro_dt-> pro_size;
+                                        if (!in_array($pro_dt_list->pro_size,$araySize)) {
+                                            $araySize[] =   $pro_dt_list-> pro_size;
                                         }
                                      }
                                     //  var_dump($araySize);
                                 ?>
-                                <?php foreach ($araySize as $size) : ?>
-                                    <input type="button" value="<?= $size?>" name="<?= $size?>" id="<?=$size?>" 
-                                    
-                                    style="width: 100px; height: 40px; border-radius: 20px; border: 1px solid #ccc; text-align: center;
-                                     line-height: 40px; cursor: pointer; margin-right: 10px; background-color: #fff;"
-                                    >   
+                                <?php foreach ($araySize as $size) : ?>    
+                                        <input type="button" value="<?= $size?>" name="<?= $size?>" id="<?=$size?>" 
+                                        
+                                        style="width: 100px; height: 40px; border-radius: 20px; border: 1px solid #ccc; text-align: center;
+                                        line-height: 40px; cursor: pointer; margin-right: 10px; background-color: #fff;"
+                                    >                                 
                                 <?php endforeach; ?>
                                 
                             </div>
@@ -274,10 +274,7 @@
         <div class="row3">
             <h3>Thông tin sản phẩm</h3>
             <div class="pro_description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dignissimos sint possimus nemo velit quia earum, nesciunt,
-                explicabo culpa sit adipisci esse libero reiciendis omnis pariatur aspernatur eius aliquam cupiditate
-                temporibus.
+                <?= $pro_one->pro_description?>
             </div>
         </div>
 
