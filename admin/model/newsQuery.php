@@ -47,20 +47,20 @@ class NewsQuery {
     }
 
 
-    // public function show_one_cate($cate_id) {
-    //     try {
-    //         $sql = "select * from news where cate_id = $cate_id";
-    //         $data = $this->pdo->query($sql)->fetch();
+    public function show_one_cate($cate_id) {
+        try {
+            $sql = "select * from news where cate_id = $cate_id";
+            $data = $this->pdo->query($sql)->fetch();
            
-    //         $danhSach = convertToObjectnews($data);
-    //         return $data;
+            $danhSach = convertToObjectnews($data);
+            return $data;
             
-    //     } catch (Exception $e) {
-    //         echo "Lỗi: ".$e ->getMessage();
-    //         echo "<hr>";
-    //     }
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
+        }
 
-    // }
+    }
 
     // public function updateCate(news $news) {
     //     try {

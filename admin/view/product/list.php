@@ -30,7 +30,9 @@
             <div class="d-flex justify-content-between align-items-center">
                 <form action="" class="ms-4">
                     <div class="input-group input-group-sm">
-                        <input class="form-control rounded-0 mb-2" type="search" id="search" name="search" placeholder="Nhập từ khóa tìm kiếm" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        <input class="form-control rounded-0 mb-2" type="search" id="search" name="search"
+                            placeholder="Nhập từ khóa tìm kiếm" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm">
                         <div class="input-group-sm">
                             <button type="button" class="btn btn-secondary rounded-0">
                                 <i class="fa fa-search"></i>
@@ -62,6 +64,7 @@
                             <th scope="col">Tên sản phẩm</th>
                             <th scope="col">Ảnh sản phẩm</th>
                             <th scope="col">Mô tả</th>
+                            <th scope="col">Trạng thái</th>
                             <th scope="col">Hành động</th>
                         </tr>
                     </thead>
@@ -71,68 +74,96 @@
                         foreach ($dsProduct as $key => $pro) {
                         ?>
 
-                            <tr>
-                                <td>
-                                    <input type="checkbox">
-                                </td>
-                                <td scope="row">
-                                    <?= $i++?>
-                                </td>
-                                <td scope="row">
-                                    <?= $pro->pro_id?>
-                                </td>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td scope="row">
+                                <?= $i++?>
+                            </td>
+                            <td scope="row">
+                                <?= $pro->pro_id?>
+                            </td>
 
-                                <?php
+                            <?php
                                     if ($pro->cate_status != 1 ) { ?>
-                                        <td>
-                                        <div style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
-                                            Danh mục không tồn tại
-                                        </div>
-                                    </td>
-                                    <?php
+                            <td>
+                                <div
+                                    style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                    Danh mục không tồn tại
+                                </div>
+                            </td>
+                            <?php
                                     } else {
                                         ?>
-                                             <td>
-                                                <div style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
-                                                    <?= $pro->cate_name?>
-                                                </div>
-                                </td>
-                                        <?php
+                            <td>
+                                <div
+                                    style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                    <?= $pro->cate_name?>
+                                </div>
+                            </td>
+                            <?php
                                     }
                                 ?>
-                            
-                               
-                                <td>
-                                    <div style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+
+
+                            <td>
+                                <div
+                                    style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
                                     <?= $pro->pro_name?>
-                                    </div>
-                                </td>
-                                <td>
-                                    <img src="../img/product/<?= $pro->pro_image ?>" alt="" style="width:100px;">
-                                </td>
-                                <td>
-                                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 150px;">
+                                </div>
+                            </td>
+                            <td>
+                                <img src="../img/product/<?= $pro->pro_image ?>" alt="" style="width:100px;">
+                            </td>
+                            <td>
+                                <div
+                                    style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 150px;">
                                     <?= $pro->pro_description?>
-                                    </div>
-                                </td>
-                                <td>
-                                    <button class="btn" style="background: #141F46;">
-                                        <a href="index.php?act=view-product-detail&pro_id=<?= $pro->pro_id ?>" class="text-white">
-                                            <i class="fa-solid fa-circle-info"></i> Xem chi tiết
-                                        </a>
-                                    </button>
-                                    <button class="btn btn-success ">
-                                        <a href="index.php?act=read-one-product&pro_id=<?= $pro->pro_id ?>" class="text-white">
-                                            <i class="fa-solid fa-pen-to-square"></i> Sửa
-                                        </a>
-                                    </button>
-                                    <button class="btn btn-danger">
-                                        <a onclick="return confirm('Bạn sẽ mất hết thông tin chi tiết về sản phẩm này!!!! Xác nhận xóa sản phẩm #<?= $pro->pro_id?>?')" href="index.php?act=delete-product&pro_id=<?= $pro->pro_id ?>" class="text-white">
-                                            <i class="fa-solid fa-trash"></i> Xóa
-                                        </a>
-                                    </button>
-                                </td>
-                            </tr>
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                    if ($pro->pro_status == 1) {
+                                ?>
+                                <span class="badge bg-success ">Active</span>
+                                <?php
+                                    } else {
+                                        ?>
+                                <span class="badge bg-danger">Inactive</span>
+                                <?php
+                                    }
+                                ?>
+                            </td>
+                            <td>
+                                <button class="btn" style="background: #141F46;">
+                                    <a href="index.php?act=view-product-detail&pro_id=<?= $pro->pro_id ?>"
+                                        class="text-white">
+                                        <i class="fa-solid fa-circle-info"></i> Xem chi tiết
+                                    </a>
+                                </button>
+                                <button class="btn btn-success ">
+                                    <a href="index.php?act=read-one-product&pro_id=<?= $pro->pro_id ?>"
+                                        class="text-white">
+                                        <i class="fa-solid fa-pen-to-square"></i> Sửa
+                                    </a>
+                                </button>
+                                <!-- <button class="btn btn-danger">
+                                    <a onclick="return confirm('Bạn sẽ mất hết thông tin chi tiết về sản phẩm này!!!! Xác nhận xóa sản phẩm #<?= $pro->pro_id?>?')"
+                                        href="index.php?act=delete-product&pro_id=<?= $pro->pro_id ?>"
+                                        class="text-white">
+                                        <i class="fa-solid fa-trash"></i> Xóa
+                                    </a>
+                                </button> -->
+                                <button class="btn btn-danger" style="margin-top:5px;">
+                                    <a onclick="return confirm('Xác nhận đổi trạng thái sản phẩm #<?= $pro->pro_id?>?')"
+                                        href="index.php?act=update-status-product&pro_id=<?= $pro->pro_id ?>"
+                                        class="text-white">
+                                        <i class="fa-solid fa-arrows-rotate"></i> Đổi trạng thái
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
                         <?php
                         }
 
