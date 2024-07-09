@@ -58,6 +58,7 @@ class NewsController {
         include "view/news/list.php";
     }
 
+    // test
 
 }
 
