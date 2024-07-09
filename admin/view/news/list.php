@@ -79,7 +79,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <img src="../img/<?= $news->news_img ?>" alt="" style="width:100px;">
+                                    <img src="../img/<?= $news->news_img ?>" alt="" style="width:150px;">
                                 </td>
                                 <td>
                                     <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 150px;">

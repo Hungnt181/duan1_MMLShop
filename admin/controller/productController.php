@@ -93,6 +93,7 @@ class ProductController {
     }
 
     // --------------DELETE PRODUCTS----------------
+    // WARNING!!!!!!!!! NOT USE
     public function deleteProduct() {
         if(isset($_GET["pro_id"])) {
             $this -> productQuery -> deleteProduct($_GET["pro_id"]);
@@ -101,6 +102,30 @@ class ProductController {
         } else {
             echo "xóa thất bại";
         }
+    }
+    // WARNING!!!!!!!!! NOT USE
+
+    // --------------UPDATE STATUS PRODUCTS-------------
+    public function updateStatusProduct() {
+        if (isset($_GET['pro_id']) && isset($_GET['pro_id']) > 0) {
+            $pro_one = $this->productQuery->infoOneProduct($_GET['pro_id']);
+        }
+        $product = new Product();
+        $product->pro_id= $_GET['pro_id'];
+        if ($pro_one->pro_status == 1) {
+            $product->pro_status = 0;
+            $result = $this->productQuery->updateStatusProduct($product); 
+        } else {
+            $product->pro_status = 1;
+            $result = $this->productQuery->updateStatusProduct($product); 
+        }
+        if ($result == "ok") {
+            header("Location: ?act=list-product");
+        } else {
+            echo "Thay đổi trạng thái sản phẩm thất bại";
+        }
+        $dsCate = $this->categoryQuery->all();
+        include "view/product/list.php";
     }
 
 
@@ -134,6 +159,7 @@ class ProductController {
     }
 
     // -------------DELETE A PRODUCT DETAIL--------------
+    // WARNING!!!!!!!!! NOT USE
     public function deleteProductDetail() {
         if(isset($_GET["product_dt_id"]) && isset($_GET["pro_id"]) && isset($_GET["pro_id"]) > 0) {
             $this -> productDetailQuery -> delete($_GET["product_dt_id"]);
@@ -143,6 +169,7 @@ class ProductController {
             echo "xóa thất bại";
         }
     }
+    // WARNING!!!!!!!!! NOT USE
 
     // ---------------READING 1 PRODUCT DETAIL--------------
     public function readOneProductDetail() {
@@ -166,6 +193,27 @@ class ProductController {
             $result = $this -> productDetailQuery -> updateDetail($proDetail, $product_dt_id);
             
             header("Location: ?act=view-product-detail&pro_id=".$_GET["pro_id"]);      
+        }
+    }
+
+    // --------------UPDATE STATUS PRODUCT'S DETAIL-------------
+    public function updateStatusProductDetail() {
+        if (isset($_GET['product_dt_id']) && isset($_GET['product_dt_id']) > 0 && isset($_GET["pro_id"]) && isset($_GET["pro_id"]) > 0) {
+            $product_dt_one = $this->productDetailQuery->infoOneProductDetail($_GET['product_dt_id']);
+        }
+        $proDetail = new ProductDetail();
+        $proDetail->product_dt_id= $_GET['product_dt_id'];
+        if ($product_dt_one->product_dt_status == 1) {
+            $proDetail->product_dt_status = 0;
+            $result = $this->productDetailQuery->updateStatusProductDetail($proDetail); 
+        } else {
+            $proDetail->product_dt_status = 1;
+            $result = $this->productDetailQuery->updateStatusProductDetail($proDetail); 
+        }
+        if ($result == "ok") {
+            header("Location: ?act=view-product-detail&pro_id=".$_GET["pro_id"]);
+        } else {
+            echo "Thay đổi trạng thái chi tiết sản phẩm thất bại";
         }
     }
 }
