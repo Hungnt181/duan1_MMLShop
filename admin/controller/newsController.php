@@ -45,6 +45,20 @@ class NewsController {
         include "view/news/create.php";
     }
 
+    public function delete() {
+        if(isset($_GET["news_id"])) {
+            print_r($_GET["news_id"]);
+            $this -> newsQuery -> deleteNews($_GET["news_id"]);
+            // echo "Xóa sản phẩm thành công";
+            header("Location: ?act=list-news");
+        } else {
+            echo "xóa thất bại";
+        }
+        $dsNews = $this->newsQuery->all();
+        include "view/news/list.php";
+    }
+
+
 }
 
 ?>

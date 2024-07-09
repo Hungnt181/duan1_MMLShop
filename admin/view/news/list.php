@@ -93,7 +93,7 @@
                                         </a>
                                     </button>
                                     <button class="btn btn-danger">
-                                        <a onclick=" return confirm('Bạn có muốn xóa tin tức này không?')" href="?act=delete-news&id=<?= $news->news_id?>" class="text-white">
+                                        <a onclick=" return confirm('Bạn có muốn xóa tin tức này không?')" href="?act=delete-news&news_id=<?= $news->news_id?>" class="text-white">
                                             <i class="fa-solid fa-trash"></i> Xóa
                                         </a>
                                     </button>
