@@ -15,7 +15,7 @@ class ProductQuery {
     // -----sql for showing all of products
     public function all() {
         try {
-            $sql = "select * from product inner join category on product.cate_id = category.cate_id";
+            $sql = "select * from product inner join category on product.cate_id = category.cate_id order by pro_id asc";
             $data = $this->pdo->query($sql)->fetchAll();
             $dsProduct = [];
 
