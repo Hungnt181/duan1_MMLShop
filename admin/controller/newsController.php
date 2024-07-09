@@ -82,7 +82,7 @@ class NewsController {
             echo "xóa thất bại";
         }
     }
-
+    // test
 }
 
 ?>
