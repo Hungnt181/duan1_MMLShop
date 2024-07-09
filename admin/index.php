@@ -56,8 +56,8 @@ match ($act) {
     'list-news' => (new NewsController()) -> list(),
     'create-news' => (new NewsController()) -> create(),
     'update-news' => (new NewsController()) -> update(),
-    'delete-news' => (new NewsController()) -> delete(),
-  
+    'delete-news' => (new NewsController()) -> deleteNews(),
+
   };
 
 
