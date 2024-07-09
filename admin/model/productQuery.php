@@ -21,6 +21,7 @@ class ProductQuery {
 
             foreach ($data as $row) {
                 $dsProduct[] = convertToObjectProduct($row);
+                
             }
 
             return $dsProduct;
