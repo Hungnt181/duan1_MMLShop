@@ -6,6 +6,7 @@ class Product {
     public $pro_name;
     public $pro_image;
     public $pro_description;
+    public $pro_status;
     public $cate_id;
     public $cate_name;
     public $cate_status;
@@ -19,6 +20,7 @@ class ProductDetail {
     public $pro_quantity;
     public $pro_id;
     public $pro_name;
+    public $product_dt_status;
 }
 
 ?>

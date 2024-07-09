@@ -47,36 +47,52 @@ class NewsQuery {
     }
 
 
-    // public function show_one_cate($cate_id) {
-    //     try {
-    //         $sql = "select * from news where cate_id = $cate_id";
-    //         $data = $this->pdo->query($sql)->fetch();
-           
-    //         $danhSach = convertToObjectnews($data);
-    //         return $data;
+    public function show_one_news($news_id) {
+        try {
+            $sql = "select * from news where news_id = $news_id";
+            $data = $this->pdo->query($sql)->fetch();
+            $danhSachNews = convertToObjectNews($data);
+            return $danhSachNews;
             
-    //     } catch (Exception $e) {
-    //         echo "Lỗi: ".$e ->getMessage();
-    //         echo "<hr>";
-    //     }
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
+        }
 
-    // }
+    }
 
-    // public function updateCate(news $news) {
-    //     try {
-    //         $sql = "UPDATE `news` SET `cate_name`='$news->cate_name',`cate_status`='$news->cate_status' WHERE `cate_id`='$news->cate_id' ";
-    //         $data = $this->pdo->exec($sql);
-    //         if ($data == 1 || $data == 0) {
-    //             return "ok";
-    //         } else {
-    //             return $data;
-    //         }
+    public function updateNewsWithoutImg(News $news, $news_id) {
+        try {
+            $sql = "update news set news_title = '$news->news_title', news_content = '$news->news_content' where news_id = $news_id";
+            $data = $this -> pdo -> prepare($sql);
+            return $data->execute();
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
+        }
+    }
 
-    //     } catch (Exception $e) {
-    //         echo "Lỗi: ".$e ->getMessage();
-    //         echo "<hr>";
-    //     }
-    // }
+    public function updateNewsWithImg(News $news, $news_id) {
+        try {
+            $sql = "update news set news_title = '$news->news_title', news_img = '$news->news_img', news_content = '$news->news_content' where news_id = $news_id";
+            $data = $this -> pdo -> prepare($sql);
+            return $data->execute();
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
+        }
+    }
+
+    public function deleteNews($news_id) {
+        try {
+            $sql = "delete from news where news_id = $news_id ";
+            $data = $this -> pdo -> prepare($sql);
+            return $data->execute();
+
+        } catch (\Throwable $th) {
+            
+        }
+    }
         
 }
 

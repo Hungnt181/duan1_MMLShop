@@ -28,6 +28,7 @@
         $product -> pro_name = $row['pro_name'];
         $product -> pro_image = $row['pro_image'];
         $product -> pro_description = $row['pro_description'];
+        $product -> pro_status = $row['pro_status'];
         $product -> cate_id = $row['cate_id'];
         $product -> cate_name = $row['cate_name'];
         $product -> cate_status = $row['cate_status'];
@@ -43,6 +44,7 @@
         $proDetail -> pro_quantity = $row['pro_quantity'];
         $proDetail -> pro_id = $row['pro_id'];
         $proDetail -> pro_name = $row['pro_name'];
+        $proDetail -> product_dt_status = $row['product_dt_status'];
         return $proDetail;
     }
 

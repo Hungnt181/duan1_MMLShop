@@ -84,7 +84,8 @@ class ProductQuery {
         }
     }
 
-    // -------sql for deleting a product parents (ON CASCADE) with 1 or more product details
+    // -------sql for deleting a product parents (ON CASCADE) with all of product details
+    // WARNING!!!!!!!!! NOT USE
     public function deleteProduct($pro_id) {
         try {
             $sql = "delete from product where pro_id = $pro_id ";
@@ -92,11 +93,28 @@ class ProductQuery {
             return $data->execute();
 
         } catch (\Throwable $th) {
-            //throw $th;
+            
+        }
+    }
+    // WARNING!!!!!!!!! NOT USE
+
+    // -------sql for updating status of a product parents
+    public function updateStatusProduct(Product $product) {
+        try {
+            $sql = "UPDATE `product` SET `pro_status`='$product->pro_status' WHERE `pro_id`='$product->pro_id' ";
+            $data = $this->pdo->exec($sql);
+            if ($data == 1 || $data == 0) {
+                return "ok";
+            } else {
+                return $data;
+            }
+
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
         }
     }
 }
-
 
 // -----------Child-------------
 class ProductDetailQuery {
@@ -170,6 +188,7 @@ class ProductDetailQuery {
     }
 
     // -----sql for deleting a product detail
+    // WARNING!!!!!!!!! NOT USE
     public function delete($product_dt_id) {
         try {
             $sql = "delete from product_detail where product_dt_id = $product_dt_id ";
@@ -178,6 +197,24 @@ class ProductDetailQuery {
 
         } catch (\Throwable $th) {
             //throw $th;
+        }
+    }
+    // WARNING!!!!!!!!! NOT USE
+
+    // -------sql for updating status of a product detail
+    public function updateStatusProductDetail(ProductDetail $proDetail) {
+        try {
+            $sql = "UPDATE `product_detail` SET `product_dt_status`='$proDetail->product_dt_status' WHERE `product_dt_id`='$proDetail->product_dt_id' ";
+            $data = $this->pdo->exec($sql);
+            if ($data == 1 || $data == 0) {
+                return "ok";
+            } else {
+                return $data;
+            }
+
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
         }
     }
 }
