@@ -281,10 +281,6 @@
     <?php
         include "view/Component/footer.php"
     ?>
-
-    <?php
-        include "view/login.php"
-    ?>
 </body>
 
 </html>

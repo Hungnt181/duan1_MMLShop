@@ -62,7 +62,13 @@
 
         public function logout() {
             session_destroy();
-            header('Location: ?act=').'';
+            header('Location: index.php').'';
+        }
+
+        public function signup() {
+            session_unset();
+            $dsCategory = $this->categoryQuery->all();
+            include "view/signup.php";
         }
 
 
