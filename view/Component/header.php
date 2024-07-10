@@ -59,7 +59,9 @@
                     </a>
                     <?php
                         if (isset($_SESSION['acc_name'])) { ?>
-                        <p style="font-size: 12px;"><?= $_SESSION['acc_name']?></p>
+                        <a href="">
+                            <h5 id="acc_name">Xin chào <?= $_SESSION['acc_name']?></h5>
+                        </a>
                         <?php
                         }
                     ?>
