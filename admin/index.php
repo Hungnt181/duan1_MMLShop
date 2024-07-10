@@ -25,6 +25,7 @@ $act = $_GET['act'] ?? "";
 $id = $_GET['id'] ?? "" ;
 
 match ($act) { 
+  'admin' =>(new CategoryController()) -> list(),
     '' => (new CategoryController()) -> list(),
     
     // -----------PRODUCTS----------------------

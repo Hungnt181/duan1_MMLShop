@@ -45,22 +45,45 @@
                     <a href=""  >
                         <i class="fa-regular fa-user" class="icon" ></i>
                         <div class="lg">
-                            <div class="div_lg">
-                                <a href="?act=login">
-                                <h5>Đăng nhập</h5>
-                                </a>
-                            </div>
-                            <div class="div_lg">
-                                <a href="?act=logout">
-                                <h5>Đăng xuất</h5>
-                                </a>
-                            </div>
+                            <?php
+                                 if (isset($_SESSION['acc_name'])) { ?>
+                                    <div class="div_lg1">
+                                        <a href="?act=logout">
+                                        <h5>Đăng xuất</h5>
+                                        </a>
+                                     </div>
+                                    <?php
+                                    } else {
+                                        ?>
+                                        <div class="div_lg">
+                                            <a href="?act=login">
+                                            <h5>Đăng nhập</h5>
+                                            </a>
+                                     </div>
+                                     <div class="div_lg">
+                                        <a href="?act=signup">
+                                        <h5>Đăng kí</h5>
+                                        </a>
+                                     </div>
+                                        <?php
+                                    }
+                            ?>
+                
+                           
+                           
                         </div>
                     </a>
                     <?php
                         if (isset($_SESSION['acc_name'])) { ?>
                         <a href="">
                             <h5 id="acc_name">Xin chào <?= $_SESSION['acc_name']?></h5>
+                        </a>
+                        <a href="./admin/">
+                            <?php
+                                if ($_SESSION['acc_role'] == 1) { ?>
+                                    <h5 id="admin"> ADMIN </h5>
+                               <?php }
+                            ?>
                         </a>
                         <?php
                         }

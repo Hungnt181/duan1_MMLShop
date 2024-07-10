@@ -27,7 +27,7 @@
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
                         <div class="navbar-nav">
-                            <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+                            <a class="nav-link active" aria-current="page" href="../index.php">Trang chủ</a>
                             <a class="nav-link" href="#">Danh Mục</a>
                             <a class="nav-link" href="#">Sản Phẩm</a>
                             <a class="nav-link" href="#">Đơn Hàng</a>

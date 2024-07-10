@@ -36,6 +36,7 @@ match ($act) {
     '' => (new HomeController())->home(),
     'login' => (new LoginController) ->login(),
     'logout' => (new LoginController()) ->logout(),
+    'signup' => (new LoginController()) ->signup(),
     // 'dangky' => (new LoginController()) ->dangky(),
     // 'cart' =>  (new HomeController())->cart(),
     'ctsp'=> (new HomeController()) -> ctsp(),

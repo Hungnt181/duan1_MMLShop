@@ -54,7 +54,7 @@
                 <input type="password" id="password" name="password" placeholder="Mật khẩu">
                 <p class="miss_pw"><a href="">Quên mật khẩu ?</a></p>
                 <button type="submit" class="login" name="loginSubmit">Đăng Nhập</button>
-                <p class="signin"><a href="sign_in.html">Đăng kí ngay</a></p>
+                <p class="signin"><a href="?act=signup">Đăng kí ngay</a></p>
             </form>
         </div>
     </div>
