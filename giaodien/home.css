@@ -825,16 +825,21 @@ footer h6{
 
 .login-form {
     /* Ẩn form mặc định */
-    display: none; 
+   /* display: none; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Màu nền với độ trong suốt */
-    justify-content: center;
+   /* justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1000;  */
+
+    display: block;
+    width: 33%;
+    margin: 0 auto;
+    border: 1px solid;
 }
 
 .close-btn {
@@ -852,10 +857,10 @@ footer h6{
     border-radius: 3px;
     width: 500px;
     text-align: center;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    /* position: relative; */
+    /* left: 50%; */
+    /* top: 50%; */
+    /* transform: translate(-50%, -50%); */
 }
 
 .form-container h2 {
@@ -980,3 +985,46 @@ footer h6{
     0% {opacity: 0;}
     100% {opacity: 1;}
  }
+
+
+
+ /**/
+.lg {
+    margin-top: 10px;
+    width: 70px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-radius: 5px;
+    display: none;
+}
+.lg .div_lg {
+    text-align: center;
+    background-color: #ffffff;
+    height: 50%;
+} 
+.div_lg {
+    color: #141F46;
+}
+
+.icon:hover .lg{
+    display: block;
+}
+
+.lg .div_lg:hover{
+    background-color: #141F46;
+
+}
+.div_lg:hover a{
+    color: #ffffff;
+}
+
+
+.icon {
+    position: relative;
+    display: inline-block;
+  }
+  
+
+
+

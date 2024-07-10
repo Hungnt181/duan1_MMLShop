@@ -2,6 +2,13 @@ document.querySelector(".icon_login").addEventListener("click", function(event) 
     document.querySelector(".login-form").classList.add("active");
     event.preventDefault();
 });
+// document.querySelector(".icon_login").addEventListener("click", function(event) {
+//     event.preventDefault();
+//     document.querySelector(".login-form").classList.add("active");
+//     var url = window.location.href.split('?')[0] + '?act=login';
+//     window.location.href = url;
+// });
+
 
 document.querySelector(".close-btn").addEventListener("click", function() {
     document.querySelector(".login-form").classList.remove("active");   

@@ -11,7 +11,7 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="">trang chủ</a></li>
+                <li><a href="?act=">trang chủ</a></li>
                 <li><a href="">giới thiệu</a></li>
                 <li class="box_sub_menu">
                     <a href="">sản phẩm</a>
@@ -41,10 +41,28 @@
         </div>
         <div class="tool">
             <ul>
-                <li >
-                    <a href="" class="icon_login" id="icon_login">
-                        <i class="fa-regular fa-user"></i>
+                <li class="icon" >
+                    <a href=""  >
+                        <i class="fa-regular fa-user" class="icon" ></i>
+                        <div class="lg">
+                            <div class="div_lg">
+                                <a href="?act=login">
+                                <h5>Đăng nhập</h5>
+                                </a>
+                            </div>
+                            <div class="div_lg">
+                                <a href="?act=logout">
+                                <h5>Đăng xuất</h5>
+                                </a>
+                            </div>
+                        </div>
                     </a>
+                    <?php
+                        if (isset($_SESSION['acc_name'])) { ?>
+                        <p style="font-size: 12px;"><?= $_SESSION['acc_name']?></p>
+                        <?php
+                        }
+                    ?>
                 </li>
                 <li>
                     <a href="" class="number">
