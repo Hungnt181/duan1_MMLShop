@@ -51,7 +51,7 @@
         <h6>Copyright © 2024 MML. All rights reserved.</h6>
     </footer>
     <!-- form đăng ký/ đăng nhập -->
-    <div id="login-form" class="login-form">
+    <!-- <div id="login-form" class="login-form">
         <div class="form-container">
             <span class="close-btn">×</span>
             <h2>Đăng Nhập</h2>
@@ -67,13 +67,14 @@
             </div>
             <hr>
             <h6>Hoặc tài khoản</h6>
-            <form action="" method="" class="main-form">
+            <form action="" method="post" class="main-form">
                 <input type="text" id="username" name="username" placeholder="Tài khoản">
+            
                 <input type="password" id="password" name="password" placeholder="Mật khẩu">
                 <p class="miss_pw"><a href="">Quên mật khẩu ?</a></p>
-                <button type="submit" class="login">Đăng Nhập</button>
+                <button type="submit" class="login" name="loginSubmit">Đăng Nhập</button>
                 <p class="signin"><a href="sign_in.html">Đăng kí ngay</a></p>
             </form>
         </div>
-    </div>
+    </div> -->
     <script src="giaodien/scripts.js"></script>

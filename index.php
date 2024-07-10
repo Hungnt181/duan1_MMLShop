@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Nhúng các file cần dùng vào
 
 
@@ -9,6 +9,7 @@ include "common/env.php";
 include "common/function.php";
 // Nhứng troàn bộ các file controller
 include "controller/HomeController.php";
+include "controller/LoginController.php";
 include "admin/controller/categoryController.php";
 
 // Nhứng troàn bộ các file model
@@ -16,6 +17,8 @@ include "admin/controller/categoryController.php";
 
 include 'admin/model/product.php';
 include "model/productQuery.php";
+include "model/loginQuery.php";
+include "model/account.php";
 
 
 include "admin/model/category.php"; 
@@ -31,8 +34,8 @@ $id = $_GET['id']  ?? '';
 
 match ($act) {
     '' => (new HomeController())->home(),
-    // 'login' => (new LoginController()) ->login(),
-    // 'logout' => (new LoginController()) ->logout(),
+    'login' => (new LoginController) ->login(),
+    'logout' => (new LoginController()) ->logout(),
     // 'dangky' => (new LoginController()) ->dangky(),
     // 'cart' =>  (new HomeController())->cart(),
     'ctsp'=> (new HomeController()) -> ctsp(),

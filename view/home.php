@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -114,7 +113,9 @@
                         </form>
                     </div>
                     <div class="img_pro">
-                        <a href="?act=ctsp&id=<?= $pro->pro_id?>"><img src="img/product/<?= $pro->pro_image?>" alt=""></a>
+                        <a href="?act=ctsp&id=<?= $pro->pro_id?>">
+                            <img src="img/product/<?= $pro->pro_image?>" alt="">
+                        </a>
                     </div>
                     <div class="content_pro">
                         <div class="name_pro">
@@ -281,8 +282,9 @@
         include "view/Component/footer.php"
     ?>
 
-    
-    
+    <?php
+        include "view/login.php"
+    ?>
 </body>
 
 </html>
