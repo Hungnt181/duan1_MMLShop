@@ -113,7 +113,7 @@ header {
 }
 
 .tool ul li {
-    padding: 0 15px;
+    padding: 15px 15px;
 }
 
 .number{
@@ -989,21 +989,26 @@ footer h6{
 
 
  /**/
+
 .lg {
-    margin-top: 10px;
-    width: 70px;
-    height: 40px;
-    background-color: #ffffff;
-    border: 1px solid;
+    margin-top: 40px;
+    width: 90px;
+    height: 50px;
+    /* background-color: #ffffff; */
+    border: 1px solid black;
     border-radius: 5px;
     display: none;
+    position: absolute;
+    top: 10px;
+    left: -1px;
+    padding: 5px;
 }
 .lg .div_lg {
     text-align: center;
     background-color: #ffffff;
     height: 50%;
 } 
-.div_lg {
+.div_lg a {
     color: #141F46;
 }
 
@@ -1024,6 +1029,14 @@ footer h6{
     position: relative;
     display: inline-block;
   }
+
+#acc_name {
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    width: 150px;
+    color: #141F46;
+}
   
 
 
