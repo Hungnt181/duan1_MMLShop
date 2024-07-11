@@ -10,6 +10,7 @@
 include "controller/categoryController.php";
 include "controller/productController.php";
 include "controller/newsController.php";
+include "controller/accountController.php";
 
 //file trong model
 include "model/category.php";
@@ -18,6 +19,8 @@ include "model/product.php";
 include "model/productQuery.php";
 include "model/news.php";
 include "model/newsQuery.php";
+include "model/account.php";
+include "model/accountQuery.php";
 
 
 // Người dùng hệ thống sẽ tưởng tác với website bằng url thông qua tham số act 
@@ -48,7 +51,8 @@ match ($act) {
     'delete-category' => (new CategoryController()) -> delete(),
     'restore-category' => (new CategoryController()) -> restore(),
     // -----------ACCOUNTS-----------------------
- 
+    'list-account' => (new AccountController()) -> list(),
+
 
     // -----------BILLS--------------------------
 
