@@ -57,4 +57,17 @@
         return $news;
     }
 
+    function convertToObjectAccount($row) {
+        $account = new Account();
+        $account -> acc_id = $row['acc_id'];
+        $account -> acc_name = $row['acc_name'];
+        $account -> acc_password = $row['acc_password'];
+        $account -> acc_email = $row['acc_email'];
+        $account -> acc_phone = $row['acc_phone'];
+        $account -> acc_image = $row['acc_image'];
+        $account -> acc_status = $row['acc_status'];
+        $account -> acc_role = $row['acc_role'];
+        return $account;
+    }
+
 ?>
