@@ -52,6 +52,10 @@ match ($act) {
     'restore-category' => (new CategoryController()) -> restore(),
     // -----------ACCOUNTS-----------------------
     'list-account' => (new AccountController()) -> list(),
+    'create-account' => (new AccountController()) -> create(),
+    'read-one-account' => (new AccountController()) -> readOneAccount(),
+    'update-role-account' => (new AccountController()) -> updateRoleAccount(),
+    'update-status-account' => (new AccountController()) -> updateStatusAccount(),
 
 
     // -----------BILLS--------------------------
