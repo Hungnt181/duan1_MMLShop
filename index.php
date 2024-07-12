@@ -40,7 +40,7 @@ match ($act) {
     'logout' => (new LoginController()) ->logout(),
     'signup' => (new LoginController()) ->signup(),
     // 'dangky' => (new LoginController()) ->dangky(),
-    // 'cart' =>  (new HomeController())->cart(),
+    'cart' =>  (new HomeController())->cart(),
     'ctsp'=> (new HomeController()) -> ctsp(),
     // 'ctsp_dt' => (new HomeController()) -> ctsp_dt(),
     // 'deleteAllCart' => (new HomeController()) -> deleteAllCart(),

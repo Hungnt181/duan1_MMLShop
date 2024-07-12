@@ -31,10 +31,11 @@
                     </li>
                 </ul>
             </nav>
-            <div id="signin-form" class="signin-form">
+            
+            <div id="signin-form" class="signin-form" >
                 <div class="largebox">
                     <h2>Đăng Ký</h2>
-                    <form action="" method="post" class="main-form">
+                    <form action="" method="post" class="main-form" enctype="multipart/form-data">
                         <input type="text" id="username" name="acc_name" placeholder="Tài khoản *">
                         <input type="password" id="password" name="acc_password" placeholder="Mật khẩu *">
                         <input type="password" id="password" name="password" placeholder="Xác nhận mật khẩu *">
@@ -60,7 +61,7 @@
                             }
                         ?>
                         <input type="text" id="phonenumber" name="acc_phone" placeholder="Số điện thoại *">        
-                        <input type="file" id="phonenumber" name="image_upload" >        
+                        <input type="file" id="" name="image_upload" >        
                         <button type="submit" class="signin" name="submitFormSignup">Đăng Ký</button>
                         <span class="signin">
                             <h6>Bạn đã có tài khoản?</h6>

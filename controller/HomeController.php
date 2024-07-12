@@ -21,6 +21,7 @@
             $dsCategory = $this->categoryQuery->all();
 
             $dsProduct = $this->productQuery->getTop16ProductLatest();
+            
             // var_dump($dsProduct);
           
             // Hiển thị view trang chủ
@@ -37,7 +38,9 @@
                 $pro_one = $this->productQuery->find($pro_id);
                 // var_dump($pro_one);
                 // echo "<pre>";
+                $cate_id = $pro_one->cate_id;
                 $dsProDetail = $this->productDetailQuery->listProductDetail($pro_id);
+                $dsProduct_same = $this->productQuery->getProductSameCate_id($cate_id);
                 // var_dump($dsProDetail);
 
              
@@ -47,27 +50,16 @@
             
         }
 
-        // public function ctsp_dt() {
-        //     $dsCategory = $this->categoryQuery->all();
-            
-        //     if (isset($_GET['id'])) {
-        //         $pro_id = $_GET['id'];
-        //         $pro_one = $this->productQuery->find($pro_id);
-        //         // var_dump($pro_one);
-        //         // echo "<pre>";
-        //         $dsProDetail = $this->productDetailQuery->listProductDetail($pro_id);
-        //         // var_dump($dsProDetail);
+    public function cart() {
 
-        //         if(isset($_GET['id'])&&isset($_GET['pro_dt_id'])&&isset($_GET['color'])){
-        //             $pro_id = $_GET['id'];
-        //             $product_dt_dt_id=$_GET['pro_dt_id'];
-        //             $pro_color=$_GET['color'];
-        //         }
-        //     }
+            if (isset($_POST['buy'])) {
+                echo "<Pre>";
+                print_r($_POST);
+            }
 
-        //     include "view/ctsp.php";
-            
-        // }
+
+        include "view/cart.php";
+    }
 
         
 
