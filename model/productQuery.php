@@ -14,13 +14,30 @@
 
         public function getTop16ProductLatest() {
             try {
-                $sql = "select * from product inner join category on product.cate_id = category.cate_id order by pro_id asc ";
+                $sql = "select * from product inner join category on product.cate_id = category.cate_id  where product.pro_status = 1 order by pro_id asc ";
                 $data = $this ->pdo->query($sql)->fetchAll();
                 $dsProduct = [];
                 foreach ($data as $row) {
                     $dsProduct[] = convertToObjectProduct($row);
                  }
                  return $dsProduct;
+
+            } catch (Exception $e) {
+                echo "Lỗi" .$e->getMessage();
+                echo "<hr>";
+            }
+        }
+
+        public function getProductSameCate_id($cate_id) {
+            try {
+                $sql = "select * from product inner join category on product.cate_id = category.cate_id  
+                where product.cate_id = $cate_id order by pro_id asc limit 4 ";
+                $data = $this ->pdo->query($sql)->fetchAll();
+                $dsProduct_same = [];
+                foreach ($data as $row) {
+                    $dsProduct_same[] = convertToObjectProduct($row);
+                 }
+                 return $dsProduct_same;
 
             } catch (Exception $e) {
                 echo "Lỗi" .$e->getMessage();

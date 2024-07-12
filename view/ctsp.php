@@ -139,14 +139,12 @@
                 </div>
 
                 <div class="form">
-                    <form action="" method="post">
+                    <form action="?act=cart" method="post">
                         <div class="color">
                             <label for="">
                                 <h3>Màu sắc</h3>
                             </label>
                             <div class="box_color">
-                                <!-- <input type="button" value="Màu đỏ" name="Màu đỏ" id="red">
-                                <input type="button" value="Màu trắng" name="Màu trắng" id="white"> -->
                                 <?php
                                     $arayColor = [];
                                      foreach ($dsProDetail as $pro_dt_list) {
@@ -158,12 +156,9 @@
                                     //  var_dump($arayColor);
                                 ?>
                                 <?php foreach ($arayColor as $color) : ?>
-                                    <input type="button" value="<?= $color?>" name="<?= $color?>" id="<?=$color?>" 
-                                    
-                                    style="width: 100px; height: 40px; border-radius: 20px; border: 1px solid #ccc; text-align: center;
-                                     line-height: 40px; cursor: pointer; margin-right: 10px; background-color: #fff;"
-                                    
-                                    >   
+                                    <input type="radio" value="<?= $color?>" name="pro_color" id="<?=$color?>" hidden class="color">
+                                    <label id ="label" for="<?=$color?>"  style="width: 100px; height: 40px; border-radius: 20px; border: 1px solid black; text-align: center;
+                                     line-height: 40px; cursor: pointer; margin-right: 10px; background-color: #fff;"><?=$color?></label>
                                 <?php endforeach; ?>
                                 
                             </div>
@@ -175,10 +170,6 @@
                             </label>
 
                             <div class="box_size">
-                                <!-- <input type="button" value="16x16cm" name="16x16cm" id="sz16">
-                                <input type="button" value="14x14cm" name="14x14cm" id="sz14">
-                                <input type="button" value="12x12cm" name="12x12cm" id="sz12"> -->
-
                                 <?php
                                     $araySize = [];
                                      foreach ($dsProDetail as $pro_dt_list) {
@@ -190,21 +181,13 @@
                                     //  var_dump($araySize);
                                 ?>
                                 <?php foreach ($araySize as $size) : ?>    
-                                        <input type="button" value="<?= $size?>" name="<?= $size?>" id="<?=$size?>" 
-                                        
-                                        style="width: 100px; height: 40px; border-radius: 20px; border: 1px solid #ccc; text-align: center;
-                                        line-height: 40px; cursor: pointer; margin-right: 10px; background-color: #fff;"
-                                    >                                 
+                                    <input type="radio" value="<?= $size?>" name="pro_size" id="<?=$size?>" hidden class="size">
+                                    <label id="label1" for="<?=$size?>"  style="width: 100px; height: 40px; border-radius: 20px; border: 1px solid black; text-align: center;
+                                     line-height: 40px; cursor: pointer; margin-right: 10px; background-color: #fff;"><?=$size?></label>
                                 <?php endforeach; ?>
                                 
                             </div>
                         </div>
-
-                        <!-- <div class="price_detail">
-                            <label for="">
-                                <h3>Giá: </h3> <?=$dsProDetail->pro_price?>
-                            </label>
-                        </div> -->
                         <div class="contact">
                             <div class="phone">
                                 <i class="fa-solid fa-phone"></i>
@@ -213,7 +196,7 @@
 
                             <div class="buy">
                                 <a href="">
-                                    <button type="submit">MUA HÀNG</button>
+                                    <button type="submit" name='buy'>MUA HÀNG</button>
                                 </a>
                             </div>
                         </div>
@@ -221,7 +204,7 @@
                     </form>
                 </div>
 
-
+ <!-- ?act=cart&pro_id=<?= $pro_one->pro_id?>&pro_color=<?=$color?>&pro_size=<?=$size?> -->
 
                 <div class="icon">
                     <ul>
@@ -294,87 +277,31 @@
             <div class="title">Sản phẩm liên quan</div>
 
             <div class="list_pro">
-                <div class="pro_item">
-                    <div class="quick_act">
-                        <form action="">
-                            <button><i class="fa-regular fa-heart"></i></button>
-                            <button><i class="fa-solid fa-cart-shopping"></i></button>
-                            <button><i class="fa-regular fa-eye"></i></button>
-                        </form>
-                    </div>
-                    <div class="img_pro">
-                        <a href=""><img src="../img/product/binh-hoa-nho.jpg" alt=""></a>
-                    </div>
-                    <div class="content_pro">
-                        <div class="name_pro">
-                            <a href="">Bình hoa nhỏ</a>
+                <?php
+                    // var_dump($dsProduct_same);
+                    foreach ($dsProduct_same as $pro_same) : ?>
+                        <div class="pro_item">
+                        <div class="quick_act">
+                            <form action="">
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <button><i class="fa-solid fa-cart-shopping"></i></button>
+                                <button><i class="fa-regular fa-eye"></i></button>
+                            </form>
                         </div>
-                        <div class="price_pro">
-                            <p>Liên hệ <span></span></p>
+                        <div class="img_pro">
+                            <a href="?act=ctsp&id=<?= $pro_same->pro_id?>"><img src="img/product/<?=$pro_same->pro_image?>" alt=""></a>
                         </div>
-                    </div>
-                </div>
-                <div class="pro_item">
-                    <div class="quick_act">
-                        <form action="">
-                            <button><i class="fa-regular fa-heart"></i></button>
-                            <button><i class="fa-solid fa-cart-shopping"></i></button>
-                            <button><i class="fa-regular fa-eye"></i></button>
-                        </form>
-                    </div>
-                    <div class="img_pro">
-                        <a href=""><img src="../img/product/ghe-go.jpg" alt=""></a>
-                    </div>
-                    <div class="content_pro">
-                        <div class="name_pro">
-                            <a href="">Ghế gỗ</a>
+                        <div class="content_pro">
+                            <div class="name_pro">
+                                <a href="?act=ctsp&id=<?= $pro_same->pro_id?>"><?=$pro_same->pro_name?></a>
+                            </div>
+                            <div class="price_pro">
+                                <p>Liên hệ <span></span></p>
+                            </div>
                         </div>
-                        <div class="price_pro">
-                            <p>Liên hệ<span></span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="pro_item">
-                    <div class="quick_act">
-                        <form action="">
-                            <button><i class="fa-regular fa-heart"></i></button>
-                            <button><i class="fa-solid fa-cart-shopping"></i></button>
-                            <button><i class="fa-regular fa-eye"></i></button>
-                        </form>
-                    </div>
-                    <div class="img_pro">
-                        <a href=""><img src="../img/product/gau-bong.png" alt=""></a>
-                    </div>
-                    <div class="content_pro">
-                        <div class="name_pro">
-                            <a href="">Gấu bông</a>
-                        </div>
-                        <div class="price_pro">
-                            <p>250,000 <span>VND</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="pro_item">
-                    <div class="quick_act">
-                        <form action="">
-                            <button><i class="fa-regular fa-heart"></i></button>
-                            <button><i class="fa-solid fa-cart-shopping"></i></button>
-                            <button><i class="fa-regular fa-eye"></i></button>
-                        </form>
-                    </div>
-                    <div class="img_pro">
-                        <a href=""><img src="../img/product/dong-ho-go.png" alt=""></a>
-                    </div>
-                    <div class="content_pro">
-                        <div class="name_pro">
-                            <a href="">Đồng hồ gỗ</a>
-                        </div>
-                        <div class="price_pro">
-                            <p>30,000 <span>VND</span></p>
-                        </div>
-                    </div>
-                </div>
-
+                    </div> 
+                    <?php endforeach;?>
+             
                 <!-- End pro_item -->
             </div>
         </div>
@@ -390,63 +317,40 @@
     ?>
 
     <script>
-                // Lấy tất cả các nút input có class 'box_color'
-        const colorButtons = document.querySelectorAll('.box_color input[type="button"]');
+         document.addEventListener('DOMContentLoaded', function() {
+        const labels = document.querySelectorAll('.color + label');
 
-        // Thêm sự kiện click cho từng nút
-        colorButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Lấy giá trị 'id' của nút được chọn
-                // console.log("<?= $color?>");
-                const selectedColor = button.id;
-                console.log('Màu sắc được chọn:', selectedColor);
-
-                // Thay đổi thuộc tính border của nút được chọn
-                button.style.border = '2px solid #000'; // Thay đổi border thành 2px solid black
-
-                // Xóa border của các nút khác
-                colorButtons.forEach(btn => {
-                    if (btn !== button) {
-                        btn.style.border = 'none';
+        labels.forEach(function(label) {
+            label.addEventListener('click', function() {
+                const selectedColor = this.getAttribute('for');
+                labels.forEach(function(label) {
+                    if (label.getAttribute('for') === selectedColor) {
+                        label.style.border = '3px solid #141F46';
+                    } else {
+                        label.style.border = '1px solid #141F46';
                     }
                 });
             });
         });
-
-        const redButton = document.getElementById('<?=$color?>');
-         
-        redButton.style.border = '2px solid #000';
+    });
 
 
-        const sizeButtons = document.querySelectorAll('.box_size input[type="button"]');
+    document.addEventListener('DOMContentLoaded', function() {
+        const labels = document.querySelectorAll('.size + label');
 
-
-        sizeButtons.forEach(button => {
-            button.addEventListener('click', () => {
-
-                const selectedSize = button.id;
-                console.log('Màu sắc được chọn:', selectedSize);
-
-
-                button.style.border = '2px solid #000';
-
-
-                sizeButtons.forEach(btn => {
-                    if (btn !== button) {
-                        btn.style.border = 'none';
+        labels.forEach(function(label) {
+            label.addEventListener('click', function() {
+                const selectedSize = this.getAttribute('for');
+                labels.forEach(function(label) {
+                    if (label.getAttribute('for') === selectedSize) {
+                        label.style.border = '3px solid #141F46';
+                    } else {
+                        label.style.border = '1px solid #141F46';
                     }
                 });
             });
         });
-
-        const sz16Button = document.getElementById('<?=$size?>');
-        sz16Button.style.border = '2px solid #000';
-
-        // -----------jquery for angle-down icon beside sub menu---------
-        $(document).ready(function () {
-            // Tìm <li> có sub
-            $('.sub_menu').parent('li').addClass('has_child');
-        })
+    });
     </script>
 </body>
 
