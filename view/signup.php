@@ -34,28 +34,37 @@
             <div id="signin-form" class="signin-form">
                 <div class="largebox">
                     <h2>Đăng Ký</h2>
-                    <form action="" method="" class="main-form">
-                        <input type="text" id="fullname" name="fullname" placeholder="Họ và tên *">
-                        <input type="text" id="username" name="username" placeholder="Tài khoản *">
-                        <input type="password" id="password" name="password" placeholder="Mật khẩu *">
+                    <form action="" method="post" class="main-form">
+                        <input type="text" id="username" name="acc_name" placeholder="Tài khoản *">
+                        <input type="password" id="password" name="acc_password" placeholder="Mật khẩu *">
                         <input type="password" id="password" name="password" placeholder="Xác nhận mật khẩu *">
-                        <input type="email" id="email" name="email" placeholder="Email *">
-                        <input type="text" id="phonenumber" name="phonenumber" placeholder="Số điện thoại *">
-                        <select name="" id="">
-                            <option value="" selected>-- Tỉnh thành --</option>
-                        </select>
-                        <select name="" id="">
-                            <option value="" selected>-- Quận huyện --</option>
-                        </select>
-                        <select name="" id="">
-                            <option value="" selected>-- Phường xã --</option>
-                        </select>
-                        <input type="text" id="address_detail" name="address_detail" placeholder="Địa chỉ *">
-                        
-                        <button type="submit" class="signin">Đăng Ký</button>
+                        <?php
+                            if ($tb_pass !== "") { ?>
+                                <p id="tb"> 
+                                   <?=$tb_pass?>
+                                </p>
+                                <?php
+                            } else {
+                                
+                            }
+                        ?>
+                        <input type="email" id="email" name="acc_email" placeholder="Email *">
+                        <?php
+                            if ($tb !== "") { ?>
+                                <p id="tb"> 
+                                   <?=$tb?>
+                                </p>
+                                <?php
+                            } else {
+                                
+                            }
+                        ?>
+                        <input type="text" id="phonenumber" name="acc_phone" placeholder="Số điện thoại *">        
+                        <input type="file" id="phonenumber" name="image_upload" >        
+                        <button type="submit" class="signin" name="submitFormSignup">Đăng Ký</button>
                         <span class="signin">
                             <h6>Bạn đã có tài khoản?</h6>
-                            <a href="">Đăng nhập</a>
+                            <a href="?act=login">Đăng nhập</a>
                         </span>
                     </form>
                 </div>
