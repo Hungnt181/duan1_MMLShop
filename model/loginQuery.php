@@ -40,7 +40,7 @@
         public function signup(Account $account) {
             try {
                 $sql = "INSERT INTO `account`(`acc_id`, `acc_name`, `acc_password`, `acc_email`, `acc_phone`, `acc_image`, `acc_status`, `acc_role`) 
-                VALUES ('NULL','$account->acc_name','$account->acc_password','$account->acc_email','$account->acc_phone','$account->acc_image','$account->acc_status','$account->acc_role')";
+                VALUES (NULL,'$account->acc_name','$account->acc_password','$account->acc_email','$account->acc_phone','$account->acc_image','$account->acc_status','$account->acc_role')";
                 $data = $this->pdo->exec($sql);
                 if ($data == 1) {
                     return "ok";
