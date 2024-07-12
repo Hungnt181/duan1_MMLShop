@@ -66,6 +66,7 @@
                             <th scope="col">Email</th>
                             <th scope="col">Phone Number</th>
                             <th scope="col">Trạng thái</th>
+                            <th scope="col">Vai trò</th>
                             <th scope="col">Hành động</th>
                         </tr>
                     </thead>
@@ -86,7 +87,7 @@
                                 <?= $acc->acc_id?>
                             </td>
                             <td>
-                                <img src="../img/account/<?= $acc->acc_image ?>" alt="" style="width:100px;">
+                                <img src="../img/account/<?= $acc->acc_image ?>" alt="" style="width:80px;">
                             </td>
                             <td>
                                 <div
@@ -108,7 +109,7 @@
                             </td>
                             <td>
                                 <div
-                                    style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 150px;">
+                                    style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
                                     <?= $acc->acc_phone?>
                                 </div>
                             </td>
@@ -126,16 +127,30 @@
                                 ?>
                             </td>
                             <td>
-                                <button class="btn" style="background: #141F46;">
-                                    <a href="index.php?act=view-account-detail&acc_id=<?= $acc->acc_id ?>"
-                                        class="text-white">
-                                        <i class="fa-solid fa-circle-info"></i> Xem chi tiết
-                                    </a>
-                                </button>
-                                <button class="btn btn-success ">
+                                <?php
+                                    if ($acc->acc_role == 1) {
+                                ?>
+                                <span class="badge" style="background: #FFB200;">Admin</span>
+                                <?php
+                                    } else {
+                                        ?>
+                                <span class="badge" style="background: black">Client</span>
+                                <?php
+                                    }
+                                ?>
+                            </td>
+                            <td>
+                                <button class="btn btn-success">
                                     <a href="index.php?act=read-one-account&acc_id=<?= $acc->acc_id ?>"
                                         class="text-white">
                                         <i class="fa-solid fa-pen-to-square"></i> Sửa
+                                    </a>
+                                </button>
+                                <button class="btn" style="margin-top:5px; background: #141F46;">
+                                    <a onclick="return confirm('Xác nhận đổi vai trò tài khoản #<?= $acc->acc_id?>?')"
+                                        href="index.php?act=update-role-account&acc_id=<?= $acc->acc_id ?>"
+                                        class="text-white">
+                                        <i class="fa-solid fa-arrows-rotate"></i> Đổi vai trò
                                     </a>
                                 </button>
                                 <button class="btn btn-danger" style="margin-top:5px;">
