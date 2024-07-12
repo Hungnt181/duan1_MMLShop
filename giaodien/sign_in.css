@@ -67,7 +67,7 @@ nav>ul>li>h5{
 }
 
 .largebox form input, select {
-    width: 48%;
+    width: 100%;
     padding: 15px;
     /* height: 45px; */
     margin: 10px 0;

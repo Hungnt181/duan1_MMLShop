@@ -18,11 +18,13 @@ include "admin/controller/categoryController.php";
 include 'admin/model/product.php';
 include "model/productQuery.php";
 include "model/loginQuery.php";
-include "model/account.php";
+// include "model/account.php";
 
 
 include "admin/model/category.php"; 
 include "admin/model/categoryQuery.php"; 
+include "admin/model/account.php"; 
+include "admin/model/accountQuery.php"; 
 
 // Thông tin act
 $act = $_GET['act'] ?? '' ;
