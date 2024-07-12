@@ -97,7 +97,7 @@
                         $account->acc_image="";
                         if (isset($_FILES["image_upload"]) && ($_FILES["image_upload"]["tmp_name"]) !== "") {
                             $img = $_FILES["image_upload"]["tmp_name"];
-                            $vi_tri = "img/".$_FILES["image_upload"]["name"];
+                            $vi_tri = "img/account/".$_FILES["image_upload"]["name"];
                             if (move_uploaded_file($img, $vi_tri)) {
                                 echo "Upload image thành công";
                                 $account->acc_image = $_FILES["image_upload"]["name"];
