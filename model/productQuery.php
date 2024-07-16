@@ -105,6 +105,23 @@
                 echo "<hr>";
             }
         }
+
+        public function infoOneProductDetail_color_size_proID($pro_id,$pro_size,$pro_color) {
+            try {
+                $sql = "SELECT * FROM product_detail 
+                JOIN product ON product_detail.pro_id = product.pro_id 
+                WHERE product_detail.pro_id = '$pro_id' 
+                AND product_detail.pro_color = '$pro_color' 
+                AND product_detail.pro_size = '$pro_size'";
+                
+                $data = $this->pdo->query($sql)->fetch();
+                $info = convertToObjectProductDetail($data);
+                return $info;
+            } catch (Exception $e) {
+                echo "Lỗi: ".$e ->getMessage();
+                echo "<hr>";
+            }
+        }
     
     
     }

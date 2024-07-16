@@ -30,9 +30,9 @@ include "admin/model/accountQuery.php";
 $act = $_GET['act'] ?? '' ;
 $id = $_GET['id']  ?? '';
 
-// if(!isset($_SESSION["myCart"])) {
-//   $_SESSION["myCart"] = [];
-// }
+if(!isset($_SESSION["myCart"])) {
+  $_SESSION["myCart"] = [];
+}
 
 match ($act) {
     '' => (new HomeController())->home(),

@@ -67,9 +67,17 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="number">
+                    <a href="?act=cart" class="number">
                         <i class="fa-solid fa-bag-shopping"></i>
-                        <span class="item_number">0</span>
+                        <?php
+                            if (($_SESSION['myCart'] != "")) { ?>
+                                <span class="item_number"><?=$allSlPro?></span>
+                            <?php  } else {
+                            ?>
+                                <span class="item_number">0</span>
+                            <?php
+                          }
+                        ?>
                     </a>
                 </li>
             </ul>
@@ -140,6 +148,7 @@
 
                 <div class="form">
                     <form action="?act=cart" method="post">
+                        <input type="text" name="pro_id" value="<?= $pro_one->pro_id?>" hidden>
                         <div class="color">
                             <label for="">
                                 <h3>Màu sắc</h3>
@@ -187,6 +196,15 @@
                                 <?php endforeach; ?>
                                 
                             </div>
+
+                            <div class="box_sl" style="margin-top: 20px;">
+                         
+                                <label for="quantity" style = "text-align: center;padding: 10px;font-weight: 500;
+                                font-size: 18px;  " >Số lượng sản phẩm:</label>
+                                <input type="number" id="quantity" name="soluong" min="1" max="10" value="1"  
+                                style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; width: 100px;">
+                                
+                            </div>
                         </div>
                         <div class="contact">
                             <div class="phone">
@@ -196,7 +214,7 @@
 
                             <div class="buy">
                                 <a href="">
-                                    <button type="submit" name='buy'>MUA HÀNG</button>
+                                    <button type="submit" name='addToCart'>MUA HÀNG</button>
                                 </a>
                             </div>
                         </div>
