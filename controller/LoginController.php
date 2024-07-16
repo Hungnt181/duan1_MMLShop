@@ -15,6 +15,12 @@
 
 
         public function login() {
+            $allSlPro = 0;
+            foreach ($_SESSION["myCart"] as $key => $proCart) {
+                if ($proCart['product_dt_id']) {
+                    $allSlPro++;
+                }
+            }
             $dsCategory = $this->categoryQuery->all();
              $tb = "";
 
@@ -63,6 +69,12 @@
         }
 
         public function signup() {
+            $allSlPro = 0;
+            foreach ($_SESSION["myCart"] as $key => $proCart) {
+                if ($proCart['product_dt_id']) {
+                    $allSlPro++;
+                }
+            }
             session_unset();
             $tb = "";
             $tb_pass ="";

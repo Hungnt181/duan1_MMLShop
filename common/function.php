@@ -44,6 +44,7 @@
         $proDetail -> pro_quantity = $row['pro_quantity'];
         $proDetail -> pro_id = $row['pro_id'];
         $proDetail -> pro_name = $row['pro_name'];
+        $proDetail -> pro_image = $row['pro_image'];
         $proDetail -> product_dt_status = $row['product_dt_status'];
         return $proDetail;
     }

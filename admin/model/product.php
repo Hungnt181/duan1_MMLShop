@@ -20,6 +20,7 @@ class ProductDetail {
     public $pro_quantity;
     public $pro_id;
     public $pro_name;
+    public $pro_image;
     public $product_dt_status;
 }
 

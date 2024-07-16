@@ -96,9 +96,17 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="number">
+                    <a href="?act=cart" class="number">
                         <i class="fa-solid fa-bag-shopping"></i>
-                        <span class="item_number">0</span>
+                        <?php
+                            if (($_SESSION['myCart'] != "")) { ?>
+                                <span class="item_number"><?=$allSlPro?></span>
+                            <?php  } else {
+                            ?>
+                                <span class="item_number">0</span>
+                            <?php
+                          }
+                        ?>
                     </a>
                 </li>
             </ul>
