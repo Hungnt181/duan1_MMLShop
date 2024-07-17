@@ -44,6 +44,7 @@
                     // Lưu thông tin vào session
                     $_SESSION['acc_name'] = $result->acc_name;
                     $_SESSION['acc_id'] = $result->acc_id;
+                    $_SESSION['acc_email'] = $result->acc_email;
                     $_SESSION['acc_role'] = $result->acc_role;
                     $_SESSION['acc_status'] = $result->acc_status;
                     // echo $_SESSION['acc_status'];
