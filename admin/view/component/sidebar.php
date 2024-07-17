@@ -16,7 +16,7 @@
                     </a>
                 </li>
                 <li class="list-group-item list-group-item-action rounded-0 border-0 mt-3">
-                    <a href="">
+                    <a href="index.php?act=list-bill">
                         <i class="fa-solid fa-file-invoice-dollar"></i> Danh sách đơn hàng
                     </a>
                 </li>
