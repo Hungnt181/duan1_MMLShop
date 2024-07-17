@@ -12,6 +12,7 @@ include "controller/productController.php";
 include "controller/newsController.php";
 include "controller/accountController.php";
 include "controller/commentController.php";
+include "controller/billController.php";
 
 //file trong model
 include "model/category.php";
@@ -24,6 +25,8 @@ include "model/account.php";
 include "model/accountQuery.php";
 include "model/comment.php";
 include "model/commentQuery.php";
+include "model/bill.php";
+include "model/billQuery.php";
 
 
 // Người dùng hệ thống sẽ tưởng tác với website bằng url thông qua tham số act 
@@ -47,12 +50,15 @@ match ($act) {
     /* 'delete-product-detail' => (new ProductController()) -> deleteProductDetail(), */ /* DELETE */
     'update-status-product-detail' => (new ProductController()) -> updateStatusProductDetail(), /* CHANGE STATUS - SOFT DELETE */
 
+
     // -----------CATEGORIES---------------------
     'list-category' => (new CategoryController()) -> list(),
     'create-category' => (new CategoryController()) -> create(),
     'update-category' => (new CategoryController()) -> update(),
     'delete-category' => (new CategoryController()) -> delete(),
     'restore-category' => (new CategoryController()) -> restore(),
+
+
     // -----------ACCOUNTS-----------------------
     'list-account' => (new AccountController()) -> list(),
     'create-account' => (new AccountController()) -> create(),
@@ -62,6 +68,9 @@ match ($act) {
 
 
     // -----------BILLS--------------------------
+    'list-bill' => (new BillController()) -> list(),
+    'view-bill-detail' => (new BillController()) -> readOneBill(),
+
 
 
     // -----------NEWS--------------------------
@@ -69,6 +78,7 @@ match ($act) {
     'create-news' => (new NewsController()) -> create(),
     'update-news' => (new NewsController()) -> update(),
     'delete-news' => (new NewsController()) -> deleteNews(),
+    
 
     // -----------COMMENTS--------------------------
     'list-comment' => (new CommentController()) -> list(),

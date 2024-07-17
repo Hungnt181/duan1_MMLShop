@@ -12,4 +12,14 @@ class Bill {
     public $payment_status;
 }
 
+class BillDetail {
+    public $bill_dt_id;
+    public $pro_name;
+    public $price;
+    public $quantity;
+    public $total;
+    public $bill_id;
+    public $pro_dt_id;
+}
+
 ?>

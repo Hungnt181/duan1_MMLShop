@@ -97,5 +97,16 @@
         return $bill;
     }
 
+    function convertToObjectBillDetail($row) {
+        $billDetail = new BillDetail();
+        $billDetail -> bill_dt_id = $row['bill_dt_id'];
+        $billDetail -> pro_name = $row['pro_name'];
+        $billDetail -> price = $row['price'];
+        $billDetail -> quantity = $row['quantity'];
+        $billDetail -> total = $row['total'];
+        $billDetail -> bill_id = $row['bill_id'];
+        $billDetail -> pro_dt_id = $row['pro_dt_id'];
+        return $billDetail;
+    }
 
 ?>
