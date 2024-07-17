@@ -11,7 +11,7 @@
         </div>
         <div class="belowfoot w95">
             <div class="company">
-                <a href=""><img src="../img/logo_darkblue_full.svg" alt=""></a>
+                <a href=""><img src="img/logo_darkblue_full.svg" alt=""></a>
                 <strong>MML - INTERIOR HOUSE STORE</strong>
                 <p>Địa chỉ: Tầng 4, Tòa nhà L (L401) - Số 02, đường Trịnh Văn Bô, 
                     Nam Từ Liêm, Hà Nội (Tòa nhà FPT Polytechnic)

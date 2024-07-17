@@ -18,6 +18,7 @@ include "admin/controller/categoryController.php";
 include 'admin/model/product.php';
 include "model/productQuery.php";
 include "model/loginQuery.php";
+include "model/billQuery.php";
 // include "model/account.php";
 
 
@@ -25,6 +26,7 @@ include "admin/model/category.php";
 include "admin/model/categoryQuery.php"; 
 include "admin/model/account.php"; 
 include "admin/model/accountQuery.php"; 
+include "admin/model/bill.php"; 
 
 // Thông tin act
 $act = $_GET['act'] ?? '' ;
@@ -42,6 +44,8 @@ match ($act) {
     // 'dangky' => (new LoginController()) ->dangky(),
     'cart' =>  (new HomeController())->cart(),
     'ctsp'=> (new HomeController()) -> ctsp(),
+    'order' => (new HomeController()) -> order(),
+    'end_order' => (new HomeController()) -> end_order(),
     // 'ctsp_dt' => (new HomeController()) -> ctsp_dt(),
     // 'deleteAllCart' => (new HomeController()) -> deleteAllCart(),
     

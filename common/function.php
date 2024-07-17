@@ -71,4 +71,19 @@
         return $account;
     }
 
+    function convertToObjectBill($row) {
+        $bill = new Bill();
+        $bill -> bill_id = $row['bill_id'];
+        $bill -> fullname = $row['fullname'];
+        $bill -> phone = $row['phone'];
+        $bill -> address = $row['address'];
+        $bill -> date_order = $row['date_order'];
+        $bill -> bill_total = $row['bill_total'];
+        $bill -> acc_id = $row['acc_id'];
+        $bill -> bill_status = $row['bill_status'];
+        $bill -> payment_status = $row['payment_status'];
+        return $bill;
+    }
+
+
 ?>
