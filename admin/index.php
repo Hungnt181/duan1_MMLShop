@@ -11,6 +11,7 @@ include "controller/categoryController.php";
 include "controller/productController.php";
 include "controller/newsController.php";
 include "controller/accountController.php";
+include "controller/commentController.php";
 
 //file trong model
 include "model/category.php";
@@ -21,6 +22,8 @@ include "model/news.php";
 include "model/newsQuery.php";
 include "model/account.php";
 include "model/accountQuery.php";
+include "model/comment.php";
+include "model/commentQuery.php";
 
 
 // Người dùng hệ thống sẽ tưởng tác với website bằng url thông qua tham số act 
@@ -66,6 +69,11 @@ match ($act) {
     'create-news' => (new NewsController()) -> create(),
     'update-news' => (new NewsController()) -> update(),
     'delete-news' => (new NewsController()) -> deleteNews(),
+
+    // -----------COMMENTS--------------------------
+    'list-comment' => (new CommentController()) -> list(),
+    'view-comment-detail' => (new CommentController()) -> readOneComment(),
+    'delete-comment' => (new CommentController()) -> delete(),
   };
 
 

@@ -71,6 +71,18 @@
         return $account;
     }
 
+    function convertToObjectComment($row) {
+        $comment = new Comment();
+        $comment -> com_id = $row['com_id'];
+        $comment -> com_content = $row['com_content'];
+        $comment -> com_date = $row['com_date'];
+        $comment -> account_id = $row['account_id'];
+        $comment -> pro_id = $row['pro_id'];
+        $comment -> acc_name = $row['acc_name'];
+        $comment -> pro_name = $row['pro_name'];
+        return $comment;
+    }
+
     function convertToObjectBill($row) {
         $bill = new Bill();
         $bill -> bill_id = $row['bill_id'];
