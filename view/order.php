@@ -40,6 +40,7 @@
                                 <h5>Giá: <?=$pro_Order['totalOnePro']?></h5>
                             </div>
                         </div>
+
                     <?php endforeach; ?>
                 </div>
                 
@@ -52,6 +53,20 @@
                 <h3>Địa chỉ nhận hàng</h3>
                 <form action="?act=end_order" method="post">
                     <input type="text"  name="acc_id" value="<?= $acc_id ?>" hidden>
+
+                    <?php
+                    $index = 0;
+                        foreach ($array as $pro_Order)  : ?>
+                            <input type="text"  name="product_dt_id<?=$index?>" value="<?= $pro_Order['product_dt_id'] ?>" hidden>
+                            <input type="text"  name="soluong<?=$index?>" value="<?=$pro_Order['soluong']?>" hidden>
+                            <input type="text"  name="totalOnePro<?=$index?>" value="<?=$pro_Order['totalOnePro']?>" hidden>
+                            
+                    <?php  $index ++; endforeach; 
+                    $lastIndex = $index-1;
+                    ?>
+                        <input type="number" value="<?=$lastIndex?>" name="lastIndex" hidden>
+                    
+
                     <input type="number"  name="bill_total" value="<?=$pro_Order['tongTien']?>" hidden>
                     <input type="text"  name="fullname" placeholder="Họ và tên *" required>
                     <input type="text"  name="phone" placeholder="Số điện thoai *" required>

@@ -122,7 +122,15 @@
                 echo "<hr>";
             }
         }
-    
-    
+
+        public function updateQuantityDetail(ProductDetail $proDetail, $product_dt_id) {
+            try {
+                $sql = "update product_detail set  pro_quantity = $proDetail->pro_quantity where product_dt_id = $product_dt_id";
+                $data = $this -> pdo -> prepare($sql);
+                return $data->execute();
+            } catch (Exception $e) {
+                echo "Lỗi: ".$e -> getMessage();
+            }
+        }
     }
 ?>

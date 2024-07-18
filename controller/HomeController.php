@@ -6,6 +6,7 @@
         public $productDetailQuery;
         public $accountQuery;
         public $billQuery;
+        public $billDetailQuery;
 
         public function __construct()
         {
@@ -14,6 +15,7 @@
             $this->categoryQuery = new CategoryQuery();
             $this -> accountQuery = new AccountQuery();
             $this -> billQuery= new BillQuery();
+            $this -> billDetailQuery= new BillDetailQuery();
         }
 
         public function __desstruct()
@@ -193,11 +195,13 @@
             $tongTien = $_POST['tongTien'];
             foreach($_POST as $info) {
                if ($lastIndex >= $index) {
+                $product_dt_id = $_POST['product_dt_id'.$index];
                 $pro_image = $_POST['imgInCart'.$index];
                 $pro_info = $_POST['pro_inf'.$index];
                 $totalOnePro = $_POST['totalOnePro'.$index];
                 $soluong = $_POST['soluongIncart'.$index]; 
                 $arry_Order = [
+                    'product_dt_id' => $product_dt_id,
                     'pro_image' => $pro_image,
                     'pro_info' => $pro_info,
                     'totalOnePro' => $totalOnePro,
@@ -237,6 +241,28 @@
         if (isset($_POST['btn_DatHang'])) {
             // echo "<Pre>";
             // print_r($_POST);
+            $index = 0;
+            $lastIndex = $_POST['lastIndex'];
+            $arrayBillDT = [];
+            foreach($_POST as $info) {
+                if ($lastIndex >= $index) {
+                 $product_dt_id = $_POST['product_dt_id'.$index];
+                 $totalOnePro = $_POST['totalOnePro'.$index];
+                 $soluong = $_POST['soluong'.$index]; 
+                 $arry_bill_dt = [
+                     'product_dt_id' => $product_dt_id,
+                     'totalOnePro' => $totalOnePro,
+                     'soluong' => $soluong,
+                 ];
+                 array_push($arrayBillDT,$arry_bill_dt);
+                 $index++;
+                }
+               
+             }
+
+            // echo "<Pre>";
+            // print_r($arrayBillDT);
+
             if (!isset($_SESSION['acc_name'])) {
                 ?>
                     <script>
@@ -255,18 +281,43 @@
                 $bill-> bill_status= 1;
                 $bill->payment_status = $_POST['payment_method'];
                 $result = $this->billQuery->add_bill($bill);
-                if ($result == "ok") {
-                    // header("Location: ?act=login");
+                if (is_numeric($result)) {
+                    // var_dump($result);
                     // echo "ok";
+                    foreach($arrayBillDT as $bill) {
+                        $product_dt_id_one = $this-> productDetailQuery->infoOneProductDetail($bill['product_dt_id']);
+                        // echo $bill['soluong'];
+                        // echo $bill['totalOnePro'];
+                        // var_dump($product_dt_id_one );
+                        $billDetail = new BillDetail();
+                            $billDetail->pro_name = $product_dt_id_one->pro_name;
+                            $billDetail->price = $product_dt_id_one->pro_price;
+                            $billDetail->quantity =$bill['soluong'];
+                            $billDetail->total = $bill['totalOnePro'];
+                            $billDetail->bill_id = $result;
+                            $billDetail->pro_dt_id = $product_dt_id_one->product_dt_id;
+                        $result1 = $this->billDetailQuery->add_billDetail($billDetail);
+                        if ($result1 == "ok") {
+                            // header("Location: ?act=login");
+                            // echo "ok";
+                            $lastQuantity =  $product_dt_id_one->pro_quantity - $bill['soluong'];
+
+                            $proDetail = new ProductDetail();
+                            $proDetail -> pro_quantity = $lastQuantity;
+                            $result2 = $this->productDetailQuery->updateQuantityDetail($proDetail,$product_dt_id_one->product_dt_id );
+                           $_SESSION["myCart"] = [];
+
+                        } else {
+                            echo "Đăng kí thất bại";
+                        }
+                    }
                 } else {
                     echo "Đăng kí thất bại";
-                }
+                } 
             }
-        }
+        
         include "view/end_order.php";
     }
 
-        
-
-    }
+    }  }
 ?>

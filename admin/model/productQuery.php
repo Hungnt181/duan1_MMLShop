@@ -218,5 +218,7 @@ class ProductDetailQuery {
             echo "<hr>";
         }
     }
+
+
 }
 ?>
