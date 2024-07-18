@@ -43,10 +43,10 @@
                         <i class="fa-solid fa-plus"></i>
                         <a href="index.php?act=create-product-detail&pro_id=<?php echo $_GET["pro_id"]; ?>" class="text-light">Thêm loại</a>
                     </button>
-                    <button class="btn btn-danger">
+                    <!-- <button class="btn btn-danger">
                         <i class="fa-solid fa-trash"></i>
                         <a href="" class="text-light">Xóa</a>
-                    </button>
+                    </button> -->
                 </div>
             </div>
 
@@ -98,11 +98,11 @@
                                 <?php
                                     if ($pro_dt->product_dt_status == 1) {
                                 ?>
-                                <span class="badge bg-success ">Selling</span>
+                                <span class="badge bg-success ">Đang bán</span>
                                 <?php
                                     } else {
                                         ?>
-                                <span class="badge bg-danger">Not Selling</span>
+                                <span class="badge bg-danger">Không bán</span>
                                 <?php
                                     }
                                 ?>
@@ -118,11 +118,11 @@
                                             <i class="fa-solid fa-trash"></i> Xóa
                                         </a>
                                     </button> -->
-                                    <button class="btn btn-danger">
+                                    <!-- <button class="btn btn-danger">
                                         <a onclick="return confirm('Xác nhận thay đổi trạng thái chi tiết sản phẩm #<?= $pro_dt->product_dt_id?>?')" href="index.php?act=update-status-product-detail&product_dt_id=<?= $pro_dt->product_dt_id?>&pro_id=<?php echo $_GET["pro_id"]; ?>" class="text-white">
                                         <i class="fa-solid fa-arrows-rotate"></i> Đổi trạng thái 
                                         </a>
-                                    </button>
+                                    </button> -->
                                 </td>
                             </tr>
                         <?php

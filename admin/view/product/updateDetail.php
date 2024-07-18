@@ -24,8 +24,8 @@
         ?>
 
         <!-- Main content -->
-        <div class="shadow bg-light pb-5 mt-4 ms-4 col-md-8">
-            <form action="" class="pb-5 mt-4 ms-4 me-4" method="POSt" enctype="multipart/form-data">
+        <div class="shadow bg-ligh mt-4 ms-4 col-md-8">
+            <form action="" class="mt-4 ms-4 me-4" method="POSt" enctype="multipart/form-data">
                 <div>
                     <h4 class="p-3">Cập nhật chi tiết sản phẩm "#<?php echo $_GET["pro_id"] ?>#<?php echo $_GET["product_dt_id"] ?>"</h4>
                 </div>
@@ -51,7 +51,26 @@
                         <input type="number" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập số lượng"
                             name="pro_quantity" value="<?= $info->pro_quantity ?>">
                     </div>
-                    <div class="mt-3 d-flex justify-content-center">
+                    <div class="mt-3">
+                        <span class="form-label">Trạng thái chi tiết sản phẩm</span>
+                        <div class="row ps-3 pt-2">
+                            <div class="form-check col-5">
+                                <input class="form-check-input" type="radio" value="1" name="product_dt_status"
+                                    <?= $info->product_dt_status == "1" ? "checked" : "" ?>>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Có thể bán
+                                </label>
+                            </div>
+                            <div class="form-check col-5">
+                                <input class="form-check-input" type="radio" value="0" name="product_dt_status"
+                                    <?= $info->product_dt_status != "1" ? "checked" : "" ?>>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Không bán
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 d-flex justify-content-center">
                         <button type="submit" class="btn btn-success" name="submitFormUpdateProDetail">Cập nhật</button>
                     </div>
                 </div>

@@ -66,7 +66,7 @@ class ProductQuery {
     // ------sql for editing a product parents full
     public function updateFull(Product $product, $pro_id) {
         try {
-            $sql = "update product set pro_name = '$product->pro_name', pro_image = '$product->pro_image', pro_description = '$product->pro_description', cate_id = $product->cate_id where pro_id = $pro_id";
+            $sql = "update product set pro_name = '$product->pro_name', pro_image = '$product->pro_image', pro_description = '$product->pro_description', cate_id = $product->cate_id, pro_status = '$product->pro_status' where pro_id = $pro_id";
             $data = $this -> pdo -> prepare($sql);
             return $data->execute();
         } catch (Exception $e) {
@@ -77,7 +77,7 @@ class ProductQuery {
     // ------sql for editing a product parents without image
     public function updateNoImg(Product $product, $pro_id) {
         try {
-            $sql = "update product set pro_name = '$product->pro_name', pro_description = '$product->pro_description', cate_id = $product->cate_id where pro_id = $pro_id";
+            $sql = "update product set pro_name = '$product->pro_name', pro_description = '$product->pro_description', cate_id = $product->cate_id, pro_status = '$product->pro_status' where pro_id = $pro_id";
             $data = $this -> pdo -> prepare($sql);
             return $data->execute();
         } catch (Exception $e) {
@@ -180,7 +180,7 @@ class ProductDetailQuery {
     // ------sql for editing a product detail
     public function updateDetail(ProductDetail $proDetail, $product_dt_id) {
         try {
-            $sql = "update product_detail set pro_color = '$proDetail->pro_color', pro_size = '$proDetail->pro_size', pro_price = '$proDetail->pro_price', pro_quantity = $proDetail->pro_quantity where product_dt_id = $product_dt_id";
+            $sql = "update product_detail set pro_color = '$proDetail->pro_color', pro_size = '$proDetail->pro_size', pro_price = '$proDetail->pro_price', pro_quantity = $proDetail->pro_quantity, product_dt_status = $proDetail->product_dt_status where product_dt_id = $product_dt_id";
             $data = $this -> pdo -> prepare($sql);
             return $data->execute();
         } catch (Exception $e) {

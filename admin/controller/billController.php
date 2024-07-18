@@ -20,15 +20,25 @@ class BillController {
         include "view/bill/list.php";
     }
 
-    public function readOneBill() {
-        if(isset($_GET["bill_id"]) && ($_GET["bill_id"]) > 0) {
+    // -------------Bill Detail----------------
+    public function listBillDetail() {
+        if(isset($_GET["bill_id"]) && ($_GET["bill_id"]) > 0 ) {
+            $dsBillDetail = $this->billDetailQuery->all($_GET["bill_id"]);
             $info = $this->billQuery->readOneBill($_GET["bill_id"]);
+        }
+        if (isset($_POST['submitFormUpdateBillStatus'])) {
+            $bill = new Bill();
+            $bill->bill_id = ($_POST['bill_id']);
+            $bill->bill_status = trim($_POST['bill_status']);
+            $result = $this->billQuery->updateBillStatus($bill);
+            if ($result == "ok") {
+                header("Location: ?act=view-bill-detail&bill_id=".$_GET["bill_id"]);
+             } else {
+                echo "cập nhật trạng thái đơn hàng thất bại";
+             }
         }
         include "view/bill/detail.php";
     }
-
-    // -------------Bill Detail----------------
-    
 }
 
 ?>

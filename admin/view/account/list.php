@@ -43,12 +43,12 @@
                 <div class="me-4">
                     <button class="btn btn-success">
                         <i class="fa-solid fa-plus"></i>
-                        <a href="index.php?act=create-account" class="text-light">Thêm</a>
+                        <a href="index.php?act=create-account" class="text-light">Thêm tài khoản</a>
                     </button>
-                    <button class="btn btn-danger">
+                    <!-- <button class="btn btn-danger">
                         <i class="fa-solid fa-trash"></i>
                         <a href="" class="text-light">Xóa</a>
-                    </button>
+                    </button> -->
                 </div>
             </div>
 
@@ -58,13 +58,13 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th scope="col">Stt</th>
+                            <th scope="col">STT</th>
                             <th scope="col">IDA</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Password</th>
+                            <th scope="col">Ảnh đại diện</th>
+                            <th scope="col">Tên tài khoản</th>
+                            <th scope="col">Mật khẩu</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Phone Number</th>
+                            <th scope="col">Số điện thoại</th>
                             <th scope="col">Trạng thái</th>
                             <th scope="col">Vai trò</th>
                             <th scope="col">Hành động</th>
@@ -117,11 +117,11 @@
                                 <?php
                                     if ($acc->acc_status == 1) {
                                 ?>
-                                <span class="badge bg-success ">Use</span>
+                                <span class="badge bg-success ">Đang hoạt động</span>
                                 <?php
                                     } else {
                                         ?>
-                                <span class="badge bg-danger">Unuse</span>
+                                <span class="badge bg-danger">Không hoạt động</span>
                                 <?php
                                     }
                                 ?>
@@ -146,7 +146,7 @@
                                         <i class="fa-solid fa-pen-to-square"></i> Sửa
                                     </a>
                                 </button>
-                                <button class="btn" style="margin-top:5px; background: #141F46;">
+                                <!-- <button class="btn" style="margin-top:5px; background: #141F46;">
                                     <a onclick="return confirm('Xác nhận đổi vai trò tài khoản #<?= $acc->acc_id?>?')"
                                         href="index.php?act=update-role-account&acc_id=<?= $acc->acc_id ?>"
                                         class="text-white">
@@ -159,7 +159,7 @@
                                         class="text-white">
                                         <i class="fa-solid fa-arrows-rotate"></i> Đổi trạng thái
                                     </a>
-                                </button>
+                                </button> -->
                             </td>
                         </tr>
                         <?php

@@ -68,6 +68,8 @@ class AccountController {
             $account -> acc_password = trim($_POST["acc_password"]);
             $account -> acc_email = trim($_POST["acc_email"]);
             $account -> acc_phone = trim($_POST["acc_phone"]);
+            $account -> acc_status = trim($_POST["acc_status"]);
+            $account -> acc_role = trim($_POST["acc_role"]);
             $account -> acc_image = "";
 
             if (isset($_FILES["image_upload"]) && ($_FILES["image_upload"]["tmp_name"]) !== "") {
