@@ -98,6 +98,7 @@
                         <input type="checkbox" class="me-2">
                         <img src="img/product/<?= $pro['pro_img'] ?>" width="10%" alt="">
                         <input type="text" name="imgInCart<?= $index ?>" value="img/product/<?= $pro['pro_img'] ?>" hidden>
+                        <input type="text" name="product_dt_id<?= $index ?>" value="<?= $pro['product_dt_id'] ?>" hidden>
                         <span>
                             <?= $pro['pro_name'] ?> : <?= $pro['pro_color'] ?> <?= $pro['pro_size'] ?>
                             <input type="text" value="<?= $pro['pro_name'] ?> : <?= $pro['pro_color'] ?> <?= $pro['pro_size'] ?>" name="pro_inf<?= $index ?>" hidden>
@@ -135,8 +136,10 @@
                         <input type="number" value="<?= $pro['total'] ?>.000" name="totalOnePro<?= $index ?>" hidden>
                         </td>
                         <td>
-                        <a href="?act=deleteProInCart"><button class="btn btn-danger" style="margin-left: 10px;" name="deleteProIncart">Xóa</button></a>
+                        <a href="index.php?act=deleteProInCart"><button class="btn btn-danger" style="margin-left: 10px;" name="deleteProIncart">Xóa</button></a>
+                        <a href="index.php?act=order">
                         <button class="btn bg-success" style="color: #fff;">Mua</button>
+                        </a>
                         </td>
                     </tr>
                     <?php

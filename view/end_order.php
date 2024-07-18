@@ -24,7 +24,7 @@
     ?>
     <!-- End header -->
 <main>
-       <h2>Đặt hàng thành công</h2>
+       <h2 style="text-align: center;">Đặt hàng thành công</h2>
 </main>
     <?php
         include "view/Component/footer.php"
