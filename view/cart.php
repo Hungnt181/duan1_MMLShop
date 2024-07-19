@@ -162,13 +162,6 @@
                         <a href="#" class="delete-link" data-url="index.php?act=deleteProInCart&product_dt_id=<?= $pro['product_dt_id'] ?>">
                             <button class="btn btn-danger" style="margin-left: 10px;" name="deleteProIncart" onclick="changeAction(event)">Xóa</button>
                         </a>
-                        <td class="text-center">
-                            <a href="index.php?act=deleteProInCart"><button class="btn btn-danger"
-                                    style="margin-left: 10px;" name="deleteProIncart">Xóa</button></a>
-                            <a href="index.php?act=order">
-                                <button class="btn bg-success" style="color: #fff;">Mua</button>
-                            </a>
-                        </td>
                     </tr>
                     <?php
                     $index++; // Tăng chỉ số sản phẩm
