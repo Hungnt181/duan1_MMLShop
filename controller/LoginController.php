@@ -52,7 +52,11 @@
                     if ($_SESSION['acc_status'] == 1 ) {
                         header('Location: ?act=').'';
                     }else {
-                        session_unset();
+                        unset($_SESSION['acc_name']);
+                        unset($_SESSION['acc_email']);
+                        unset($_SESSION['acc_id']);
+                        unset($_SESSION['acc_role']);
+                        unset($_SESSION['acc_status']);
                         $tb= "Tài khoản hiện tại đã bị ngừng hoạt động";
                     }
                     // echo   $_SESSION['role'];
@@ -65,7 +69,9 @@
         }
 
         public function logout() {
-            session_destroy();
+            // session_destroy();
+            // unset($_SESSION['myCart']);
+            session_unset();
             header('Location: index.php').'';
         }
 

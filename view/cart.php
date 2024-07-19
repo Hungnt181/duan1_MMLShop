@@ -103,8 +103,9 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <form action="?act=order" method="post">
-                    <?php
+                    <form action="?act=order" method="post" id="cartForm">
+                <?php
+
                 if (isset($_SESSION['myCart'])) {
                     $index = 0; // Biến chỉ số sản phẩm
 
@@ -157,6 +158,10 @@
                             <input type="number" value="<?= $pro['total'] ?>.000" name="totalOnePro<?= $index ?>"
                                 hidden>
                         </td>
+                        <td>
+                        <a href="#" class="delete-link" data-url="index.php?act=deleteProInCart&product_dt_id=<?= $pro['product_dt_id'] ?>">
+                            <button class="btn btn-danger" style="margin-left: 10px;" name="deleteProIncart" onclick="changeAction(event)">Xóa</button>
+                        </a>
                         <td class="text-center">
                             <a href="index.php?act=deleteProInCart"><button class="btn btn-danger"
                                     style="margin-left: 10px;" name="deleteProIncart">Xóa</button></a>
@@ -200,6 +205,17 @@
     include "view/component/footer.php";
     ?>
     <!-- END FOOTER -->
+    <script>
+    // Lắng nghe sự kiện click trên các nút "Xóa"
+    var deleteLinks = document.querySelectorAll('.delete-link');
+    deleteLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Ngăn chặn chuyển hướng trang mặc định
+            var url = this.dataset.url;
+            window.location.href = url; // Chuyển hướng trang đến đường dẫn trong thuộc tính data-url
+        });
+    });
+</script>
 </body>
 
 </html>

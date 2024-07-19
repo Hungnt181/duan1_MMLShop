@@ -77,6 +77,15 @@
                 $pro_color = $_POST['pro_color'];
                 $pro_id = $_POST['pro_id'];
                 $soluong = $_POST['soluong']; 
+                if (!$pro_color && !$pro_size) {
+                    ?>
+                        <script>
+                            alert("Vui lòng chọn màu sắc và kích cỡ");
+                            window.location.href = "?act=ctsp&id=<?=$pro_id?>";
+                        </script>
+                    <?php
+                     return;
+                }
                 if (!$pro_size) {
                     ?>
                         <script>
@@ -84,6 +93,7 @@
                             window.location.href = "?act=ctsp&id=<?=$pro_id?>";
                         </script>
                     <?php
+                    return;
                 } 
                 if (!$pro_color) {
                     ?>
@@ -92,6 +102,7 @@
                             window.location.href = "?act=ctsp&id=<?=$pro_id?>";
                         </script>
                     <?php
+                     return;
                 } 
                 $pro_detail_one = $this->productDetailQuery->infoOneProductDetail_color_size_proID($pro_id,$pro_size,$pro_color);
                 if ($pro_detail_one->pro_quantity <= $soluong) {
@@ -312,12 +323,37 @@
                         }
                     }
                 } else {
-                    echo "Đăng kí thất bại";
+                    echo "Order thất bại";
                 } 
             }
             include "view/end_order.php";
         }
     }  
+
+    }  
+    
+    public function deleteOneProInCart() {
+
+        if (isset($_GET['product_dt_id'])) {
+            $product_dt_id = $_GET['product_dt_id'];
+            // var_dump($product_dt_id);
+            foreach ($_SESSION["myCart"] as $key => $proCart) {
+                  if ($proCart['product_dt_id'] ==  $product_dt_id) {
+                    unset($_SESSION['myCart'][$key]);
+                  }
+            }
+        }
+        $allSlPro = 0;
+        $tongTien = 0;
+        foreach ($_SESSION["myCart"] as $key => $proCart) {
+            if ($proCart['product_dt_id']) {
+                $allSlPro++;
+                $tongTien += $proCart['total'];
+            }
+        }
+    include "view/cart.php";
+    }
+
 
     public function deleteAllCart() {
         if(isset($_SESSION["myCart"]) && ($_SESSION["myCart"]) > 0) {
