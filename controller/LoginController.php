@@ -48,6 +48,7 @@
                     $_SESSION['acc_role'] = $result->acc_role;
                     $_SESSION['acc_status'] = $result->acc_status;
                     // echo $_SESSION['acc_status'];
+                    // var_dump($_SESSION['acc_role']);
 
                     if ($_SESSION['acc_status'] == 1 ) {
                         header('Location: ?act=').'';
@@ -82,7 +83,12 @@
                     $allSlPro++;
                 }
             }
-            session_unset();
+            // session_unset();
+            unset($_SESSION['acc_name']);
+            unset($_SESSION['acc_email']);
+            unset($_SESSION['acc_id']);
+            unset($_SESSION['acc_role']);
+            unset($_SESSION['acc_status']);
             $tb = "";
             $tb_pass ="";
             $dsCategory = $this->categoryQuery->all();
