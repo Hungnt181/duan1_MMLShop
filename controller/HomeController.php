@@ -330,8 +330,6 @@
         }
     }  
 
-    }  
-    
     public function deleteOneProInCart() {
 
         if (isset($_GET['product_dt_id'])) {
