@@ -94,6 +94,7 @@
         $bill -> acc_id = $row['acc_id'];
         $bill -> bill_status = $row['bill_status'];
         $bill -> payment_status = $row['payment_status'];
+        $bill -> acc_name = $row['acc_name'];
         return $bill;
     }
 
@@ -106,6 +107,8 @@
         $billDetail -> total = $row['total'];
         $billDetail -> bill_id = $row['bill_id'];
         $billDetail -> pro_dt_id = $row['pro_dt_id'];
+        $billDetail -> pro_color = $row['pro_color'];
+        $billDetail -> pro_size = $row['pro_size'];
         return $billDetail;
     }
 

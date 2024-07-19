@@ -45,17 +45,58 @@
                     </div>
                     <div class="" style="margin-top:10px">
                         <label for="inputEmail4" class="form-label">Mật khẩu</label>
-                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập mật khẩu" name="acc_password" value="<?= $info->acc_password ?>" required >
+                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập mật khẩu"
+                            name="acc_password" value="<?= $info->acc_password ?>" required>
                     </div>
                     <div class="" style="margin-top:10px">
                         <label for="inputEmail4" class="form-label">Email</label>
-                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập email" name="acc_email" value="<?= $info->acc_email ?>" required>
+                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập email"
+                            name="acc_email" value="<?= $info->acc_email ?>" required>
                     </div>
                     <div class="" style="margin-top:10px">
                         <label for="inputEmail4" class="form-label">Số điện thoại</label>
-                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập số điện thoại" name="acc_phone" value="<?= $info->acc_phone ?>">
+                        <input type="text" class="form-control rounded-0" id="inputEmail4"
+                            placeholder="Nhập số điện thoại" name="acc_phone" value="<?= $info->acc_phone ?>">
                     </div>
-                    <div class="mt-3 d-flex justify-content-center">
+                    <div class="mt-3">
+                        <span class="form-label">Trạng thái tài khoản</span>
+                        <div class="row ps-3 pt-2">
+                            <div class="form-check col-5">
+                                <input class="form-check-input" type="radio" value="1" name="acc_status"
+                                    <?= $info->acc_status == "1" ? "checked" : "" ?>>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Hoạt động
+                                </label>
+                            </div>
+                            <div class="form-check col-5">
+                                <input class="form-check-input" type="radio" value="0" name="acc_status"
+                                    <?= $info->acc_status != "1" ? "checked" : "" ?>>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Không hoạt động
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="form-label">Vai trò quản lí tài khoản</span>
+                        <div class="row ps-3 pt-2">
+                            <div class="form-check col-5">
+                                <input class="form-check-input" type="radio" value="1" name="acc_role"
+                                    <?= $info->acc_role == "1" ? "checked" : "" ?>>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Admin - Quản trị viên
+                                </label>
+                            </div>
+                            <div class="form-check col-5">
+                                <input class="form-check-input" type="radio" value="0" name="acc_role"
+                                    <?= $info->acc_role != "1" ? "checked" : "" ?>>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Client - Khách hàng
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 d-flex justify-content-center">
                         <button type="submit" class="btn btn-success" name="submitFormUpdateAccount">Cập nhật</button>
                     </div>
                 </div>

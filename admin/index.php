@@ -42,21 +42,21 @@ match ($act) {
     'create-product' => (new ProductController()) -> create(), /* CREATE */
     'read-one-product' => (new ProductController()) -> readOneProduct(), /* UPDATE */
     /* 'delete-product' => (new ProductController()) -> deleteProduct(), */ /* DELETE */
-    'update-status-product' => (new ProductController()) -> updateStatusProduct(), /* CHANGE STATUS - SOFT DELETE */
+    /* 'update-status-product' => (new ProductController()) -> updateStatusProduct(), */ /* CHANGE STATUS - SOFT DELETE */
     // ---
     'view-product-detail' => (new ProductController()) -> listProductDetail(), /* READ */
     'create-product-detail' => (new ProductController()) -> createProductDetail(), /* CREATE */
     'update-product-detail' => (new ProductController()) -> readOneProductDetail(), /* UPDATE */
     /* 'delete-product-detail' => (new ProductController()) -> deleteProductDetail(), */ /* DELETE */
-    'update-status-product-detail' => (new ProductController()) -> updateStatusProductDetail(), /* CHANGE STATUS - SOFT DELETE */
+    /* 'update-status-product-detail' => (new ProductController()) -> updateStatusProductDetail(), */ /* CHANGE STATUS - SOFT DELETE */
 
 
     // -----------CATEGORIES---------------------
     'list-category' => (new CategoryController()) -> list(),
     'create-category' => (new CategoryController()) -> create(),
     'update-category' => (new CategoryController()) -> update(),
-    'delete-category' => (new CategoryController()) -> delete(),
-    'restore-category' => (new CategoryController()) -> restore(),
+    // 'delete-category' => (new CategoryController()) -> delete(),
+    // 'restore-category' => (new CategoryController()) -> restore(),
 
 
     // -----------ACCOUNTS-----------------------
@@ -69,7 +69,8 @@ match ($act) {
 
     // -----------BILLS--------------------------
     'list-bill' => (new BillController()) -> list(),
-    'view-bill-detail' => (new BillController()) -> readOneBill(),
+    'view-bill-detail' => (new BillController()) -> listBillDetail(),
+    'view-bill-detail-with-product-detail' => (new BillController()) -> listBillDetail(),
 
 
 
@@ -78,7 +79,7 @@ match ($act) {
     'create-news' => (new NewsController()) -> create(),
     'update-news' => (new NewsController()) -> update(),
     'delete-news' => (new NewsController()) -> deleteNews(),
-    
+
 
     // -----------COMMENTS--------------------------
     'list-comment' => (new CommentController()) -> list(),

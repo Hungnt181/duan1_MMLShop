@@ -41,11 +41,7 @@
                 <div class="me-4">
                     <button class="btn btn-success">
                         <i class="fa-solid fa-plus"></i>
-                        <a href="?act=create-category" class="text-light">Thêm</a>
-                    </button>
-                    <button class="btn btn-danger">
-                        <i class="fa-solid fa-trash"></i>
-                        <a href="" class="text-light">Xóa</a>
+                        <a href="?act=create-category" class="text-light">Thêm danh mục</a>
                     </button>
                 </div>
             </div>
@@ -84,11 +80,11 @@
 
                                     if ($cate->cate_status == 1) {
                                         ?>
-                                            <span class="badge bg-success ">Not deleted</span>
+                                            <span class="badge bg-success ">Đang hoạt động</span>
                                         <?php
                                     } else {
                                         ?>
-                                         <span class="badge bg-danger"> Delete</span>
+                                         <span class="badge bg-danger">Đã ẩn</span>
                                         <?php
                                     }
                                     ?>
@@ -96,10 +92,10 @@
                                 <td>
                                     <button class="btn btn-success ">
                                         <a href="?act=update-category&id=<?= $cate->cate_id?>" class="text-white">
-                                            <i class="fa-solid fa-pen-to-square"></i> Sửa
+                                            <i class="fa-solid fa-pen-to-square"></i> Sửa chi tiết
                                         </a>
                                     </button>
-                                    <button class="btn btn-danger">
+                                    <!-- <button class="btn btn-danger">
                                         <a onclick=" return confirm('Bạn có muốn chuyển trạng thái danh mục không?')" href="?act=delete-category&id=<?= $cate->cate_id?>" class="text-white">
                                             <i class="fa-solid fa-trash"></i> Xóa
                                         </a>
@@ -108,7 +104,7 @@
                                         <a href="?act=restore-category&id=<?= $cate->cate_id?>" class="text-white">
                                         <i class="fa-solid fa-trash-can-arrow-up"></i> Khôi phục
                                         </a>
-                                    </button>
+                                    </button> -->
                                 </td>
                             </tr>
                         <?php

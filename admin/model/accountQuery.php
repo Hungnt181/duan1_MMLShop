@@ -64,7 +64,7 @@ class AccountQuery {
     // ------sql for editing a account full
     public function updateFull(Account $account, $acc_id) {
         try {
-            $sql = "update account set acc_name = '$account->acc_name', acc_image = '$account->acc_image', acc_email = '$account->acc_email', acc_password = '$account->acc_password', acc_phone = '$account->acc_phone' where acc_id = $acc_id";
+            $sql = "update account set acc_name = '$account->acc_name', acc_image = '$account->acc_image', acc_email = '$account->acc_email', acc_password = '$account->acc_password', acc_phone = '$account->acc_phone', acc_status = '$account->acc_status', acc_role = '$account->acc_role' where acc_id = $acc_id";
             $data = $this -> pdo -> prepare($sql);
             return $data->execute();
         } catch (Exception $e) {
@@ -75,7 +75,7 @@ class AccountQuery {
     // ------sql for editing a account without image
     public function updateNoImg(Account $account, $acc_id) {
         try {
-            $sql = "update account set acc_name = '$account->acc_name', acc_email = '$account->acc_email', acc_password = '$account->acc_password', acc_phone = '$account->acc_phone' where acc_id = $acc_id";
+            $sql = "update account set acc_name = '$account->acc_name', acc_email = '$account->acc_email', acc_password = '$account->acc_password', acc_phone = '$account->acc_phone', acc_status = '$account->acc_status', acc_role = '$account->acc_role' where acc_id = $acc_id";
             $data = $this -> pdo -> prepare($sql);
             return $data->execute();
         } catch (Exception $e) {

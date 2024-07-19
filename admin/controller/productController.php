@@ -73,6 +73,7 @@ class ProductController {
             $product -> pro_name = trim($_POST["pro_name"]);
             $product -> pro_description = trim($_POST["pro_description"]);
             $product -> cate_id = trim($_POST["cate_id"]);
+            $product -> pro_status = trim($_POST["pro_status"]);
             $product -> pro_image = "";
 
             if (isset($_FILES["image_upload"]) && ($_FILES["image_upload"]["tmp_name"]) !== "") {
@@ -189,6 +190,7 @@ class ProductController {
             $proDetail -> pro_size = trim($_POST["pro_size"]);
             $proDetail -> pro_price = trim($_POST["pro_price"]);
             $proDetail -> pro_quantity = trim($_POST["pro_quantity"]);
+            $proDetail -> product_dt_status = trim($_POST["product_dt_status"]);
 
             $result = $this -> productDetailQuery -> updateDetail($proDetail, $product_dt_id);
             

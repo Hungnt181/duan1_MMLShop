@@ -10,6 +10,7 @@ class Bill {
     public $acc_id;
     public $bill_status;
     public $payment_status;
+    public $acc_name;
 }
 
 class BillDetail {
@@ -20,6 +21,8 @@ class BillDetail {
     public $total;
     public $bill_id;
     public $pro_dt_id;
+    public $pro_color;
+    public $pro_size;
 }
 
 ?>

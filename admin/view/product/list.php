@@ -43,12 +43,12 @@
                 <div class="me-4">
                     <button class="btn btn-success">
                         <i class="fa-solid fa-plus"></i>
-                        <a href="index.php?act=create-product" class="text-light">Thêm</a>
+                        <a href="index.php?act=create-product" class="text-light">Thêm sản phẩm</a>
                     </button>
-                    <button class="btn btn-danger">
+                    <!-- <button class="btn btn-danger">
                         <i class="fa-solid fa-trash"></i>
                         <a href="" class="text-light">Xóa</a>
-                    </button>
+                    </button> -->
                 </div>
             </div>
 
@@ -123,11 +123,11 @@
                                 <?php
                                     if ($pro->pro_status == 1) {
                                 ?>
-                                <span class="badge bg-success ">Active</span>
+                                <span class="badge bg-success ">Đang bán</span>
                                 <?php
                                     } else {
                                         ?>
-                                <span class="badge bg-danger">Inactive</span>
+                                <span class="badge bg-danger">Đã ẩn</span>
                                 <?php
                                     }
                                 ?>
@@ -152,13 +152,13 @@
                                         <i class="fa-solid fa-trash"></i> Xóa
                                     </a>
                                 </button> -->
-                                <button class="btn btn-danger" style="margin-top:5px;">
+                                <!-- <button class="btn btn-danger" style="margin-top:5px;">
                                     <a onclick="return confirm('Xác nhận đổi trạng thái sản phẩm #<?= $pro->pro_id?>?')"
                                         href="index.php?act=update-status-product&pro_id=<?= $pro->pro_id ?>"
                                         class="text-white">
                                         <i class="fa-solid fa-arrows-rotate"></i> Đổi trạng thái
                                     </a>
-                                </button>
+                                </button> -->
                             </td>
                         </tr>
                         <?php

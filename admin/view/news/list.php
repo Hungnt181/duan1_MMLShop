@@ -41,7 +41,7 @@
                 <div class="me-4">
                     <button class="btn btn-success">
                         <i class="fa-solid fa-plus"></i>
-                        <a href="?act=create-news" class="text-light">Thêm</a>
+                        <a href="?act=create-news" class="text-light">Thêm tin tức</a>
                     </button>
                     <button class="btn btn-danger">
                         <i class="fa-solid fa-trash"></i>

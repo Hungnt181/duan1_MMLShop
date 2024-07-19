@@ -36,18 +36,18 @@
                         </div>
                        
                         <div class="mt-3">
-                            <span class="form-label">Lựa chọn</span>
+                            <span class="form-label">Trạng thái danh mục</span>
                             <div class="row ps-3 pt-2">
                                 <div class="form-check col-2">
                                     <input class="form-check-input" type="radio"  value="1" name="cate_status" <?= $cate_one['cate_status'] =="1" ? "checked" : "" ?> >
                                     <label class="form-check-label" for="flexRadioDefault1">
-                                      Not deleted
+                                      Hoạt động
                                     </label>
                                 </div>
                                 <div class="form-check col-5">
                                     <input class="form-check-input" type="radio" value="0" name="cate_status" <?= $cate_one['cate_status'] !="1" ? "checked" : "" ?>>
                                     <label class="form-check-label" for="flexRadioDefault2">
-                                        Deleted
+                                        Không hoạt động
                                     </label>
                                 </div>
                             </div>
