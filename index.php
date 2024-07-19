@@ -47,7 +47,7 @@ match ($act) {
     'order' => (new HomeController()) -> order(),
     'end_order' => (new HomeController()) -> end_order(),
     // 'ctsp_dt' => (new HomeController()) -> ctsp_dt(),
-    // 'deleteAllCart' => (new HomeController()) -> deleteAllCart(),
+    'deleteAllCart' => (new HomeController()) -> deleteAllCart(),
     
 }
 

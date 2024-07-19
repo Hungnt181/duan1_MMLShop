@@ -315,9 +315,17 @@
                     echo "Đăng kí thất bại";
                 } 
             }
-        
-        include "view/end_order.php";
-    }
+            include "view/end_order.php";
+        }
+    }  
 
-    }  }
+    public function deleteAllCart() {
+        if(isset($_SESSION["myCart"]) && ($_SESSION["myCart"]) > 0) {
+            unset($_SESSION["myCart"]);
+            header("Location: ?act=cart");
+        } else {
+            echo "xóa thất bại";
+        }
+    }
+}
 ?>
