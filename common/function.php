@@ -80,6 +80,7 @@
         $comment -> pro_id = $row['pro_id'];
         $comment -> acc_name = $row['acc_name'];
         $comment -> pro_name = $row['pro_name'];
+        $comment -> acc_image = $row['acc_image'];
         return $comment;
     }
 

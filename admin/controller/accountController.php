@@ -34,7 +34,7 @@ class AccountController {
                 $vi_tri = "../img/account/".time().$_FILES["image_upload"]["name"];
                 if (move_uploaded_file($img, $vi_tri)) {
                     echo "Upload image thành công";
-                    $account -> pro_image = time().$_FILES["image_upload"]["name"];
+                    $account -> acc_image = time().$_FILES["image_upload"]["name"];
                 } else {
                     echo "Upload image thất bại";
                 }

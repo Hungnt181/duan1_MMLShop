@@ -8,81 +8,16 @@
     <link rel="shortcut icon" href="../img/logo_darkblue_notfull.svg" type="image/x-icon">
     <link rel="stylesheet" href="giaodien/home.css">
     <link rel="stylesheet" href="giaodien/chiTietSP.css">
+    <link rel="stylesheet" href="giaodien/comment.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://kit.fontawesome.com/6dab569175.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    
+
 </head>
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <a href=""><img src="img/logo_darkblue_notfull.svg" alt=""></a>
-        </div>
-        <div class="search">
-            <form action="">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                <input type="text" placeholder="Từ khóa tìm kiếm">
-            </form>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a href="?act=">trang chủ</a></li>
-                <li><a href="">giới thiệu</a></li>
-                <li class="box_sub_menu">
-                    <a href="">sản phẩm</a>
-                    <ul class="sub_menu">
-                        <?php foreach ($dsCategory as $cate) : ?>
-
-                            <?php
-                            if ($cate->cate_status == 1) {
-                            ?>
-                                <a href="">
-                                    <li><?= $cate->cate_name ?></li>
-                                </a>
-                            <?php
-                            }
-                            ?>
-
-                        <?php endforeach; ?>
-                    </ul>
-                </li>
-                <li><a href="">thư viện</a></li>
-                <li><a href="">tin tức</a></li>
-                <li><a href="">liên hệ</a></li>
-            </ul>
-        </div>
-        <div class="tool">
-            <ul>
-                <li>
-                    <a href="" class="icon_login" id="icon_login">
-                        <i class="fa-regular fa-user"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="number">
-                        <i class="fa-regular fa-heart"></i>
-                        <span class="item_number">0</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="?act=cart" class="number">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                        <?php
-                            if (($_SESSION['myCart'] != "")) { ?>
-                                <span class="item_number"><?=$allSlPro?></span>
-                            <?php  } else {
-                            ?>
-                                <span class="item_number">0</span>
-                            <?php
-                          }
-                        ?>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </header>
+    <?php include "view/Component/header.php" ?>
 
     <!-- End header -->
 
@@ -90,26 +25,27 @@
 
     <div class="row1">
         <ul>
-            <li><a href="">Trang chủ</a></li>
+            <li><a href="index.php">Trang chủ</a></li>
             <li><a href="#"><i class="fa-solid fa-angle-right"></i></a></li>
-            <li><a href="">
-
-                    <?php
+            <li>
+                <?php
                     if ($pro_one->cate_status == 1) {
-                         ?>
-                            <a href="">
-                            <li><?= $pro_one->cate_name?></li>
-                            </a>
-                        <?php
-                    } else { ?>
-                        <a href="">
-                            <li>Không danh mục </li>
-                        </a>  <?php
+                ?>
+                <a href="">
+                    <?= $pro_one->cate_name?>
+                </a>
+                <?php
+                    } else { 
+                ?>
+                <a href="">
+                    Không danh mục
+                </a> 
+                <?php
                     }
-                    ?>
-            </a></li>
-        <li><a href="#"><i class="fa-solid fa-angle-right"></i></a></li>
-        <li><a href=""><?= $pro_one->pro_name ?></a></li>
+                ?>
+            </li>
+            <li><a href=""><i class="fa-solid fa-angle-right"></i></a></li>
+            <li><a href=""><?= $pro_one->pro_name ?></a></li>
         </ul>
     </div>
     <main>
@@ -134,10 +70,10 @@
                     if ($pro_one->cate_status == 1) {
                          ?>
                             <?= $pro_one->cate_name ?>
-                        <?php
+                            <?php
                     } else { ?>
-                            Không danh mục 
-                      <?php
+                            Không danh mục
+                            <?php
                     }
                     ?></span>
                     </div>
@@ -165,11 +101,13 @@
                                     //  var_dump($arayColor);
                                 ?>
                                 <?php foreach ($arayColor as $color) : ?>
-                                    <input type="radio" value="<?= $color?>" name="pro_color" id="<?=$color?>" hidden class="color">
-                                    <label id ="label" for="<?=$color?>"  style="width: 100px; height: 40px; border-radius: 20px; border: 1px solid black; text-align: center;
+                                <input type="radio" value="<?= $color?>" name="pro_color" id="<?=$color?>" hidden
+                                    class="color">
+                                <label id="label" for="<?=$color?>"
+                                    style="width: 100px; height: 40px; border-radius: 20px; border: 1px solid black; text-align: center;
                                      line-height: 40px; cursor: pointer; margin-right: 10px; background-color: #fff;"><?=$color?></label>
                                 <?php endforeach; ?>
-                                
+
                             </div>
                         </div>
 
@@ -189,21 +127,23 @@
                                      }
                                     //  var_dump($araySize);
                                 ?>
-                                <?php foreach ($araySize as $size) : ?>    
-                                    <input type="radio" value="<?= $size?>" name="pro_size" id="<?=$size?>" hidden class="size">
-                                    <label id="label1" for="<?=$size?>"  style="width: 100px; height: 40px; border-radius: 20px; border: 1px solid black; text-align: center;
+                                <?php foreach ($araySize as $size) : ?>
+                                <input type="radio" value="<?= $size?>" name="pro_size" id="<?=$size?>" hidden
+                                    class="size">
+                                <label id="label1" for="<?=$size?>"
+                                    style="width: 100px; height: 40px; border-radius: 20px; border: 1px solid black; text-align: center;
                                      line-height: 40px; cursor: pointer; margin-right: 10px; background-color: #fff;"><?=$size?></label>
                                 <?php endforeach; ?>
-                                
+
                             </div>
 
                             <div class="box_sl" style="margin-top: 20px;">
-                         
-                                <label for="quantity" style = "text-align: center;padding: 10px;font-weight: 500;
-                                font-size: 18px;  " >Số lượng sản phẩm:</label>
-                                <input type="number" id="quantity" name="soluong" min="1" max="10" value="1"  
-                                style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; width: 100px;">
-                                
+
+                                <label for="quantity" style="text-align: center;padding: 10px;font-weight: 500;
+                                font-size: 18px;  ">Số lượng sản phẩm:</label>
+                                <input type="number" id="quantity" name="soluong" min="1" max="10" value="1"
+                                    style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; width: 100px;">
+
                             </div>
                         </div>
                         <div class="contact">
@@ -222,7 +162,7 @@
                     </form>
                 </div>
 
- <!-- ?act=cart&pro_id=<?= $pro_one->pro_id?>&pro_color=<?=$color?>&pro_size=<?=$size?> -->
+                <!-- ?act=cart&pro_id=<?= $pro_one->pro_id?>&pro_color=<?=$color?>&pro_size=<?=$size?> -->
 
                 <div class="icon">
                     <ul>
@@ -279,16 +219,17 @@
             </div>
         </div>
 
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                    $("#comment").load("view/form_comment.php", { pro_id: <?= $pro_one->pro_id ?> });
+            });
+        </script> -->
         <div class="row4">
             <h3>Bình luận</h3>
-            <div class="pro_description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dignissimos sint possimus nemo velit quia earum, nesciunt,
-                explicabo culpa sit adipisci esse libero reiciendis omnis pariatur aspernatur eius aliquam cupiditate
-                temporibus.
+            <div class="pro_description" id="comment">
+                <?php include "view/form_comment.php"; ?>
             </div>
-
-            <button type="submit">Gửi bình luận</button>
         </div>
 
         <div class="hot_products w95">
@@ -298,28 +239,29 @@
                 <?php
                     // var_dump($dsProduct_same);
                     foreach ($dsProduct_same as $pro_same) : ?>
-                        <div class="pro_item">
-                        <div class="quick_act">
-                            <form action="">
-                                <button><i class="fa-regular fa-heart"></i></button>
-                                <button><i class="fa-solid fa-cart-shopping"></i></button>
-                                <button><i class="fa-regular fa-eye"></i></button>
-                            </form>
+                <div class="pro_item">
+                    <div class="quick_act">
+                        <form action="">
+                            <button><i class="fa-regular fa-heart"></i></button>
+                            <button><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button><i class="fa-regular fa-eye"></i></button>
+                        </form>
+                    </div>
+                    <div class="img_pro">
+                        <a href="?act=ctsp&id=<?= $pro_same->pro_id?>"><img src="img/product/<?=$pro_same->pro_image?>"
+                                alt=""></a>
+                    </div>
+                    <div class="content_pro">
+                        <div class="name_pro">
+                            <a href="?act=ctsp&id=<?= $pro_same->pro_id?>"><?=$pro_same->pro_name?></a>
                         </div>
-                        <div class="img_pro">
-                            <a href="?act=ctsp&id=<?= $pro_same->pro_id?>"><img src="img/product/<?=$pro_same->pro_image?>" alt=""></a>
+                        <div class="price_pro">
+                            <p>Liên hệ <span></span></p>
                         </div>
-                        <div class="content_pro">
-                            <div class="name_pro">
-                                <a href="?act=ctsp&id=<?= $pro_same->pro_id?>"><?=$pro_same->pro_name?></a>
-                            </div>
-                            <div class="price_pro">
-                                <p>Liên hệ <span></span></p>
-                            </div>
-                        </div>
-                    </div> 
-                    <?php endforeach;?>
-             
+                    </div>
+                </div>
+                <?php endforeach;?>
+
                 <!-- End pro_item -->
             </div>
         </div>
@@ -335,7 +277,7 @@
     ?>
 
     <script>
-         document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         const labels = document.querySelectorAll('.color + label');
 
         labels.forEach(function(label) {
