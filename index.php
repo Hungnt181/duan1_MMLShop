@@ -1,7 +1,7 @@
 <?php
 session_start();
-// Nhúng các file cần dùng vào
 
+// Nhúng các file cần dùng vào
 
 //Common
 
