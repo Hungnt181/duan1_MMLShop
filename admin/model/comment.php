@@ -7,5 +7,6 @@
         public $pro_id;
         public $acc_name;
         public $pro_name;
+        public $acc_image;
     }
 ?>

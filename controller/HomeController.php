@@ -7,6 +7,7 @@
         public $accountQuery;
         public $billQuery;
         public $billDetailQuery;
+        public $commentQuery;
 
         public function __construct()
         {
@@ -16,6 +17,7 @@
             $this -> accountQuery = new AccountQuery();
             $this -> billQuery= new BillQuery();
             $this -> billDetailQuery= new BillDetailQuery();
+            $this -> commentQuery= new CommentQuery();
         }
 
         public function __desstruct()
@@ -60,12 +62,34 @@
                 $dsProDetail = $this->productDetailQuery->listProductDetail($pro_id);
                 $dsProduct_same = $this->productQuery->getProductSameCate_id($cate_id);
                 // var_dump($dsProDetail);
-
-             
+                if(isset($_GET['id']) && isset($_GET['id']) > 0) {
+                    $dsCmtPro = $this->commentQuery->commentFromOnePro($_GET['id']);
+                }
+                if(isset($_POST["submitFormCreateComment"])) {
+                    if(!isset($_SESSION['acc_id'])){
+                        ?>
+                            <script>
+                                alert("Vui lòng đăng nhập để bình luận!!!");
+                                window.location.href = "?act=ctsp&id=<?=$pro_id?>";
+                            </script>
+                        <?php
+                    } else {
+                        $comment = new Comment();  
+                        $comment -> pro_id = trim($_POST["pro_id"]);
+                        $comment -> com_content = trim($_POST["com_content"]);
+                        $comment -> account_id = $_SESSION['acc_id'];
+                        $comment -> com_date = date('Y-m-d H:i:s');
+                        $result = $this -> commentQuery -> createComment($comment);
+                        if ($result == "ok") {
+                            header("Location:?act=ctsp&id=$pro_id");
+                        } else {
+                            echo "Tạo bình luận thất bại";
+                        }
+                    }
+                }
+                $countComment = $this -> commentQuery -> countCommentOnePro($_GET["id"]);
             }
-
             include "view/ctsp.php";
-            
         }
 
     public function cart() {
@@ -360,6 +384,20 @@
         } else {
             echo "xóa thất bại";
         }
+    }
+
+    public function viewProfile() {
+        $allSlPro = 0;
+            foreach ($_SESSION["myCart"] as $key => $proCart) {
+                if ($proCart['product_dt_id']) {
+                    $allSlPro++;
+                }
+            }
+        if(isset($_SESSION['acc_id'])) {
+            $info = $this->accountQuery->infoOneAccount($_SESSION['acc_id']);
+        }
+        $dsCategory = $this->categoryQuery->all();
+        include "view/profile.php";
     }
 }
 ?>

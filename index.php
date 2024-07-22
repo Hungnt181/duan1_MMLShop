@@ -27,6 +27,8 @@ include "admin/model/categoryQuery.php";
 include "admin/model/account.php"; 
 include "admin/model/accountQuery.php"; 
 include "admin/model/bill.php"; 
+include "admin/model/comment.php";
+include "admin/model/commentQuery.php";
 
 // Thông tin act
 $act = $_GET['act'] ?? '' ;
@@ -51,6 +53,8 @@ match ($act) {
     'deleteProInCart' => (new HomeController()) -> deleteOneProInCart(),
 
     'deleteAllCart' => (new HomeController()) -> deleteAllCart(),
+
+    'view_profile' => (new HomeController()) -> viewProfile(),
     
 }
 
