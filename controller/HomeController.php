@@ -271,7 +271,7 @@
                 ?>
                 <script>
                      var product_dt_id_one = <?php echo json_encode($product_dt_id_one); ?>;
-                    alert("Quá số lượng hàng còn trong kho tại sản phẩm: <?=$product_dt_id_one->pro_name?> \n Xin lỗi vì sự bất tiện này, chúng tôi xin phép được liên hệ với quí khách sớm nhất để trao đổi thêm!");
+                    alert("Quá số lượng hàng còn trong kho tại sản phẩm: <?=$product_dt_id_one->pro_name?> \n Xin lỗi vì sự bất tiện này, chúng tôi xin phép được liên hệ với quý khách sớm nhất để trao đổi thêm!");
                     // alert("");
                     window.location.href = "?act=cart";
                 </script>
@@ -283,7 +283,7 @@
             if ($checkSL['soluong'] > 10  ) {
                 ?>
                 <script>
-                    alert("Xin lỗi vì sự bất tiện này, không thể đặt một lúc quá 10 sản phẩm.\n Nhân viên sẽ sớm liên hệ với quí khách để trao đổi thêm");
+                    alert("Xin lỗi vì sự bất tiện này, không thể đặt một lúc quá 10 sản phẩm.\n Nhân viên sẽ sớm liên hệ với quý khách để trao đổi thêm");
                     window.location.href = "?act=cart";
                 </script>
                 <?php

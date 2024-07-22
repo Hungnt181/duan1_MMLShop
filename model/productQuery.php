@@ -31,7 +31,7 @@
         public function getProductSameCate_id($cate_id) {
             try {
                 $sql = "select * from product inner join category on product.cate_id = category.cate_id  
-                where product.cate_id = $cate_id order by pro_id asc limit 4 ";
+                where product.cate_id = $cate_id and product.pro_status = 1 order by pro_id asc limit 4 ";
                 $data = $this ->pdo->query($sql)->fetchAll();
                 $dsProduct_same = [];
                 foreach ($data as $row) {
