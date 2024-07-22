@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Nhúng các file cần dùng vào
 
   // File common
@@ -33,63 +33,63 @@ include "model/billQuery.php";
 $act = $_GET['act'] ?? "";
 $id = $_GET['id'] ?? "" ;
 
-match ($act) { 
-  'admin' =>(new CategoryController()) -> list(),
-    '' => (new CategoryController()) -> list(),
-    
-    // -----------PRODUCTS----------------------
-    'list-product' => (new ProductController()) -> list(), /* READ */
-    'create-product' => (new ProductController()) -> create(), /* CREATE */
-    'read-one-product' => (new ProductController()) -> readOneProduct(), /* UPDATE */
-    /* 'delete-product' => (new ProductController()) -> deleteProduct(), */ /* DELETE */
-    /* 'update-status-product' => (new ProductController()) -> updateStatusProduct(), */ /* CHANGE STATUS - SOFT DELETE */
-    // ---
-    'view-product-detail' => (new ProductController()) -> listProductDetail(), /* READ */
-    'create-product-detail' => (new ProductController()) -> createProductDetail(), /* CREATE */
-    'update-product-detail' => (new ProductController()) -> readOneProductDetail(), /* UPDATE */
-    /* 'delete-product-detail' => (new ProductController()) -> deleteProductDetail(), */ /* DELETE */
-    /* 'update-status-product-detail' => (new ProductController()) -> updateStatusProductDetail(), */ /* CHANGE STATUS - SOFT DELETE */
-
-
-    // -----------CATEGORIES---------------------
-    'list-category' => (new CategoryController()) -> list(),
-    'create-category' => (new CategoryController()) -> create(),
-    'update-category' => (new CategoryController()) -> update(),
-    // 'delete-category' => (new CategoryController()) -> delete(),
-    // 'restore-category' => (new CategoryController()) -> restore(),
-
-
-    // -----------ACCOUNTS-----------------------
-    'list-account' => (new AccountController()) -> list(),
-    'create-account' => (new AccountController()) -> create(),
-    'read-one-account' => (new AccountController()) -> readOneAccount(),
-    'update-role-account' => (new AccountController()) -> updateRoleAccount(),
-    'update-status-account' => (new AccountController()) -> updateStatusAccount(),
-
-
-    // -----------BILLS--------------------------
-    'list-bill' => (new BillController()) -> list(),
-    'view-bill-detail' => (new BillController()) -> listBillDetail(),
-    'view-bill-detail-with-product-detail' => (new BillController()) -> listBillDetail(),
-
-
-
-    // -----------NEWS--------------------------
-    'list-news' => (new NewsController()) -> list(),
-    'create-news' => (new NewsController()) -> create(),
-    'update-news' => (new NewsController()) -> update(),
-    'delete-news' => (new NewsController()) -> deleteNews(),
-
-
-    // -----------COMMENTS--------------------------
-    'list-comment' => (new CommentController()) -> list(),
-    'view-comment-detail' => (new CommentController()) -> readOneComment(),
-    'delete-comment' => (new CommentController()) -> delete(),
-  };
-
-
-
-
+if ($_SESSION['acc_role'] == 1) {
+  match ($act) { 
+    'admin' =>(new CategoryController()) -> list(),
+      '' => (new CategoryController()) -> list(),
+      
+      // -----------PRODUCTS----------------------
+      'list-product' => (new ProductController()) -> list(), /* READ */
+      'create-product' => (new ProductController()) -> create(), /* CREATE */
+      'read-one-product' => (new ProductController()) -> readOneProduct(), /* UPDATE */
+      /* 'delete-product' => (new ProductController()) -> deleteProduct(), */ /* DELETE */
+      /* 'update-status-product' => (new ProductController()) -> updateStatusProduct(), */ /* CHANGE STATUS - SOFT DELETE */
+      // ---
+      'view-product-detail' => (new ProductController()) -> listProductDetail(), /* READ */
+      'create-product-detail' => (new ProductController()) -> createProductDetail(), /* CREATE */
+      'update-product-detail' => (new ProductController()) -> readOneProductDetail(), /* UPDATE */
+      /* 'delete-product-detail' => (new ProductController()) -> deleteProductDetail(), */ /* DELETE */
+      /* 'update-status-product-detail' => (new ProductController()) -> updateStatusProductDetail(), */ /* CHANGE STATUS - SOFT DELETE */
+  
+  
+      // -----------CATEGORIES---------------------
+      'list-category' => (new CategoryController()) -> list(),
+      'create-category' => (new CategoryController()) -> create(),
+      'update-category' => (new CategoryController()) -> update(),
+      // 'delete-category' => (new CategoryController()) -> delete(),
+      // 'restore-category' => (new CategoryController()) -> restore(),
+  
+  
+      // -----------ACCOUNTS-----------------------
+      'list-account' => (new AccountController()) -> list(),
+      'create-account' => (new AccountController()) -> create(),
+      'read-one-account' => (new AccountController()) -> readOneAccount(),
+      'update-role-account' => (new AccountController()) -> updateRoleAccount(),
+      'update-status-account' => (new AccountController()) -> updateStatusAccount(),
+  
+  
+      // -----------BILLS--------------------------
+      'list-bill' => (new BillController()) -> list(),
+      'view-bill-detail' => (new BillController()) -> listBillDetail(),
+      'view-bill-detail-with-product-detail' => (new BillController()) -> listBillDetail(),
+  
+  
+  
+      // -----------NEWS--------------------------
+      'list-news' => (new NewsController()) -> list(),
+      'create-news' => (new NewsController()) -> create(),
+      'update-news' => (new NewsController()) -> update(),
+      'delete-news' => (new NewsController()) -> deleteNews(),
+  
+  
+      // -----------COMMENTS--------------------------
+      'list-comment' => (new CommentController()) -> list(),
+      'view-comment-detail' => (new CommentController()) -> readOneComment(),
+      'delete-comment' => (new CommentController()) -> delete(),
+    };
+} else {
+  header('Location: index.php').'';
+}
 
 
 

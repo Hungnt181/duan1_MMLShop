@@ -136,6 +136,7 @@
                             window.location.href = "?act=ctsp&id=<?=$pro_detail_one->pro_id?>";
                         </script>
                     <?php
+                    return;
                 } 
                 $total = $pro_detail_one->pro_price * $soluong;
                 
@@ -213,6 +214,11 @@
     }
 
     public function order() {
+        if (empty($_SESSION['myCart'])) {
+            header('Location: index.php').'';
+            return;
+        }
+
         $allSlPro = 0;
         $array = [];
         foreach ($_SESSION["myCart"] as $key => $proCart) {
@@ -251,6 +257,40 @@
             // echo "<Pre>";
             // print_r($array);
         }
+
+        foreach ($array as $key => $checkSL) {
+            // echo "<Pre>";
+            // print_r($checkSL['soluong']);
+
+            $product_dt_id_one = $this-> productDetailQuery->infoOneProductDetail($checkSL['product_dt_id']);
+
+            // echo "<Pre>";
+            // print_r($product_dt_id_one);
+
+            if ($product_dt_id_one->pro_quantity - $checkSL['soluong'] <= 1  ) {
+                ?>
+                <script>
+                     var product_dt_id_one = <?php echo json_encode($product_dt_id_one); ?>;
+                    alert("Quá số lượng hàng còn trong kho tại sản phẩm: <?=$product_dt_id_one->pro_name?> \n Xin lỗi vì sự bất tiện này, chúng tôi xin phép được liên hệ với quí khách sớm nhất để trao đổi thêm!");
+                    // alert("");
+                    window.location.href = "?act=cart";
+                </script>
+                <?php
+             
+            return;
+            }
+
+            if ($checkSL['soluong'] > 10  ) {
+                ?>
+                <script>
+                    alert("Xin lỗi vì sự bất tiện này, không thể đặt một lúc quá 10 sản phẩm.\n Nhân viên sẽ sớm liên hệ với quí khách để trao đổi thêm");
+                    window.location.href = "?act=cart";
+                </script>
+                <?php
+            return;
+            }
+        }
+
         $check ="";
         if (isset($_SESSION['acc_email'])) {
             $email = $_SESSION['acc_email'];
@@ -335,13 +375,15 @@
                         if ($result1 == "ok") {
                             // header("Location: ?act=login");
                             // echo "ok";
+
+                            // Kiểm tra số hàng đặt có nhỏ hơn số lượng trong kho hay không
+                            
                             $lastQuantity =  $product_dt_id_one->pro_quantity - $bill['soluong'];
 
                             $proDetail = new ProductDetail();
                             $proDetail -> pro_quantity = $lastQuantity;
                             $result2 = $this->productDetailQuery->updateQuantityDetail($proDetail,$product_dt_id_one->product_dt_id );
-                           $_SESSION["myCart"] = [];
-
+                            $_SESSION["myCart"] = [];
                         } else {
                             echo "Đăng kí thất bại";
                         }
