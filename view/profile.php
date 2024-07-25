@@ -33,22 +33,78 @@
             </ul>
         </nav>
         <div class="profile">thông tin cá nhân</div>
-        <form action="" method="POST" enctype="multipart/form-data" class="form-profile">
+    <div class="main_content">
+            <form action="?act=update_profile" method="POST" enctype="multipart/form-data" class="form-profile">
             <div class="avatar">
-                <img src="img/account/<?= $info->acc_image ?>" alt="">
+                <?php
+                    if ($info->acc_image == "") { ?>
+                    <img src="img/account/user_default.png" alt="">     
+                  <?php  } else { ?>
+                    <img src="img/account/<?= $info->acc_image ?>" alt="">
+                <?php  }
+                ?>
+             
+              
+                <input type="text" name='acc_image' value="<?= $info->acc_image ?>" hidden>
             </div>
             <div class="detail_info">
-                <div class="hoten">Tên đăng kí: <?= $info->acc_name ?></div>
-                <div class="email">Email: <?= $info->acc_email ?></div>
-                <div class="password">Mật khẩu: <?= $info->acc_password ?></div>
-                <div class="password">Số điện thoại: <?= $info->acc_phone ?></div>
+                <div class="hoten">Tên đăng kí: <?= $info->acc_name ?>
+                    <input type="text" name='acc_name' value='<?= $info->acc_name ?>' hidden>
+                </div>
+                <div class="email">Email: <?= $info->acc_email ?>
+                    <input type="email" name='acc_email' value='<?= $info->acc_email ?>' hidden>
+                </div>
+                <div class="password">Mật khẩu: *********
+                     <input type="password" name='acc_password' value='<?= $info->acc_password ?>' hidden>
+                </div>
+                <div class="password">Số điện thoại: <?= $info->acc_phone ?>
+                    <input type="text" name='acc_phone' value='<?= $info->acc_phone ?>' hidden>
+                </div>
+                <a href="" class="btn-edit">
+                    <button name='updateProfile'>chỉnh sửa</button>
+                </a>
             </div>
+
+           
         </form>
-        <div class="btn-edit">
-            <a href="" class="btn-edit">
-                <button>chỉnh sửa</button>
-            </a>
+       
+        <div class="inf_Order">
+            <h2>Lịch sử đơn hàng</h2>
+            <div class="all_pro_order">
+
+                <?php foreach ($dsOrder as $order) : ?>
+                    <div class="one_pro_order">
+                    <div class="Oder_img">
+                        <img src="img/product/<?= $order->pro_image?>" alt="">
+                    </div>
+                    <div class="Oder_inf">
+                        <h5><?= $order->pro_name?> : <?= $order->pro_color?>, <?= $order->pro_size?></h5>
+                        <h5>Số lượng: <?= $order->quantity?></h5>
+                        <h5>Tổng tiền: <?= $order->total?></h5>
+                        <h5> <?= $order->date_order?></h5>
+                        
+                    </div>
+                        <div class="h5">
+                            <?php 
+                                if( $order->bill_status == 0 ) { ?>
+                                    <h5 class="color0">Chờ xác nhận</h5>
+                                <?php } else if($order->bill_status == 1) {
+                                   ?> <h5 class="color1">Đã xác nhận đơn hàng </h5>
+                                   <?php
+                                } else if($order->bill_status == 2) {
+                                    ?> <h5 class="color2">Đang giao hàng</h5> <?php
+                                 }else if($order->bill_status == 3) {
+                                    ?> <h5 class="color3">Giao hàng thành công</h5> <?php
+                                 }else if($order->bill_status == 4) {
+                                    ?> <h5 class="color4">Đã hủy</h5> <?php
+                                 }
+                            ?>
+                        </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
         </div>
+    </div>
 
     </main>
     <hr>

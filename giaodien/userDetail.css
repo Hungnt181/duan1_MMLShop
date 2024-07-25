@@ -10,16 +10,16 @@
 }
 
 .form-profile{
-    width: 60%;
-    height: auto;
-    margin: 50px auto;
+    width: 80%;
+    height: 250px;
+    margin: 50px 0;
     display: flex;
     justify-content: center;
     font-size: 16px;
 }
 
 .avatar{
-    width: 35%;
+    width: 40%;
     text-align: center;
     border-right: 2px solid #141F46;
 }
@@ -37,12 +37,12 @@
 
 .detail_info>div{
     padding: 5px 0;
-    margin: 0 50px;
+    margin: 0 20px;
 }
 
 .btn-edit{
     text-align: center;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 .btn-edit button{
@@ -60,4 +60,73 @@
     border: 1px solid #141F46;
     background-color: white;
     color: #141F46;
+}
+
+.main_content {
+    display: flex;
+}
+/**/
+
+.inf_Order {
+    margin: 50px 0;
+}
+
+.inf_Order h2 {
+
+}
+
+.all_pro_order {
+margin-top: 20px;
+}
+
+.one_pro_order {
+    display: flex;
+    margin-top: 20px;
+}
+
+.Oder_img {
+    width: 8%;
+    height: 8%;
+    margin-right: 30px;
+}
+
+img {
+    max-width: 100%;
+    height: 100%;
+}
+
+.Oder_inf {
+    width: 360px;
+}
+
+.Oder_inf h5 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.h5 {
+    background-color: #141F46;
+    color: #ffff;
+    width: 200px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.color0 {
+    background-color: #141F46;
+}
+.color1 {
+    background-color: #e8ab13;
+}
+.color2 {
+    background-color: rgb(143, 135, 135);
+}
+.color3 {
+    background-color: green;
+}
+.color4 {
+    background-color: red;
 }

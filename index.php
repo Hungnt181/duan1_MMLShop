@@ -19,6 +19,7 @@ include 'admin/model/product.php';
 include "model/productQuery.php";
 include "model/loginQuery.php";
 include "model/billQuery.php";
+include "model/order.php";
 // include "model/account.php";
 
 
@@ -55,6 +56,9 @@ match ($act) {
     'deleteAllCart' => (new HomeController()) -> deleteAllCart(),
 
     'view_profile' => (new HomeController()) -> viewProfile(),
+
+    'update_profile' => (new HomeController()) -> updateProfile(),
+
     
 }
 

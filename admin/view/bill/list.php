@@ -120,7 +120,7 @@
                                 <?php
                                     } else if ($bill->bill_status == 0) {
                                 ?>
-                                <span class="badge bg-danger">Đã hủy đơn</span>
+                                <span class="badge bg-danger">Chờ xác nhận</span>
                                 <?php
                                     } else {
                                 ?>

@@ -1,0 +1,27 @@
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.form-profile {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40%;
+}
+
+label{
+    margin: 10px 0;
+}
+
+input {
+    width: 50%;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.form-profile a {
+    margin-top: 20px;
+    margin-left: -377px;
+}
