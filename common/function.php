@@ -113,4 +113,17 @@
         return $billDetail;
     }
 
+    function convertToObjectOrder($row) {
+        $order = new Order();
+        $order -> pro_name = $row['pro_name'];
+        $order -> pro_color = $row['pro_color'];
+        $order -> pro_size = $row['pro_size'];
+        $order -> pro_image = $row['pro_image'];
+        $order -> quantity = $row['quantity'];
+        $order -> total = $row['total'];
+        $order -> bill_status = $row['bill_status'];
+        $order -> date_order = $row['date_order'];
+        return $order;
+    }
+
 ?>

@@ -116,6 +116,29 @@ class AccountQuery {
             echo "<hr>";
         }
     }
+
+     // ------sql for editing a account propfile
+     public function updateProfile(Account $account, $email) {
+        try {
+            $sql = "UPDATE `account` SET `acc_name`='$account->acc_name',`acc_password`='$account->acc_password',
+            `acc_phone`='$account->acc_phone',`acc_image`='$account->acc_image' WHERE `acc_email` = '$email' ";
+            $data = $this -> pdo -> prepare($sql);
+            return $data->execute();
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e -> getMessage();
+        }
+    }
+
+    public function updateProfile_NoImg(Account $account, $email) {
+        try {
+            $sql = "UPDATE `account` SET `acc_name`='$account->acc_name',`acc_password`='$account->acc_password',
+            `acc_phone`='$account->acc_phone' WHERE `acc_email` = '$email' ";
+            $data = $this -> pdo -> prepare($sql);
+            return $data->execute();
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e -> getMessage();
+        }
+    }
 }
 
 ?>

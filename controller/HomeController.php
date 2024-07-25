@@ -353,7 +353,7 @@
                 $bill->date_order = trim($_POST['date_order']);
                 $bill->bill_total = trim($_POST['bill_total']);
                 $bill->acc_id = trim($_POST['acc_id']);
-                $bill-> bill_status= 1;
+                $bill-> bill_status= 0;
                 $bill->payment_status = $_POST['payment_method'];
                 $result = $this->billQuery->add_bill($bill);
                 if (is_numeric($result)) {
@@ -436,10 +436,63 @@
                 }
             }
         if(isset($_SESSION['acc_id'])) {
+            // var_dump($_SESSION['acc_id']);
             $info = $this->accountQuery->infoOneAccount($_SESSION['acc_id']);
+            $dsOrder = $this->billQuery->showBillOfAcc($_SESSION['acc_id']);
+            // echo "<Pre>";
+            // print_r($dsOrder);
         }
+
+
+
+
         $dsCategory = $this->categoryQuery->all();
         include "view/profile.php";
+    }
+
+    public function updateProfile() {
+        $allSlPro = 0;
+        foreach ($_SESSION["myCart"] as $key => $proCart) {
+            if ($proCart['product_dt_id']) {
+                $allSlPro++;
+            }
+        }
+        $dsCategory = $this->categoryQuery->all();
+
+        if (isset($_POST['updateProfile'])) {
+            // echo "<Pre>";
+            // print_r($_POST);
+        }
+        if (isset($_POST['updateFormProfile'])) {
+            // echo "<Pre>";
+            // print_r($_POST);
+            $email = $_POST["acc_email"];
+            // print_r($acc_email);
+            $account = new Account();
+            $account -> acc_name = trim($_POST["acc_name"]);
+            $account -> acc_password = trim($_POST["acc_password"]);
+            // $account -> acc_email = trim($_POST["acc_email"]);
+            $account -> acc_phone = trim($_POST["acc_phone"]);
+            $account -> acc_image = "";
+
+            if (isset($_FILES["image_upload"]) && ($_FILES["image_upload"]["tmp_name"]) !== "") {
+                $img = $_FILES["image_upload"]["tmp_name"];
+                $vi_tri = "img/account/".time()."_".$_FILES["image_upload"]["name"];
+                if (move_uploaded_file($img, $vi_tri)) {
+                    echo "Upload image thành công";
+                    $account -> acc_image = time()."_".$_FILES["image_upload"]["name"];
+                } else {
+                    echo "Upload image thất bại";
+                }
+                $result = $this -> accountQuery -> updateProfile($account, $email); 
+                $_SESSION['acc_name'] = $_POST["acc_name"];
+            } else {
+                $result = $this -> accountQuery ->updateProfile_NoImg($account, $email); 
+            }
+            header("Location: ?act=view_profile");
+        }
+
+        include "view/updateProfile.php";
     }
 }
 ?>
