@@ -4,9 +4,9 @@
 
     </div>
     <div class="search">
-        <form action="">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
-            <input type="text" placeholder="Từ khóa tìm kiếm">
+        <form action="?act=searchPro" method="post">
+            <button name='searchKeyPro'><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input type="text"  name="searchPro"  placeholder="Từ khóa tìm kiếm">
         </form>
     </div>
     <div class="menu">
@@ -26,7 +26,7 @@
                         <?php
                         if ($cate->cate_status == 1) {
                         ?>
-                            <a href="">
+                            <a href="?act=showAllProOfCate&cate_id=<?= $cate->cate_id ?>">
                                 <li><?= $cate->cate_name ?></li>
                             </a>
                         <?php

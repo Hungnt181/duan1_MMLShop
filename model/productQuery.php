@@ -60,6 +60,40 @@
             }
             
         }
+
+        public function searchPro($key) {
+            try {
+                $sql = "select * from product inner join category on product.cate_id = category.cate_id where pro_name like '%$key%' ";
+                $data = $this ->pdo->query($sql)->fetchAll();
+                $dsProduct_search = [];
+                foreach ($data as $row) {
+                    $dsProduct_search[] = convertToObjectProduct($row);
+                 }
+                 return $dsProduct_search;
+            } catch (Exception $e) {
+                echo "Lỗi: ".$e->getMessage();
+                echo "<hr>";
+            }
+            
+        }
+
+        
+        public function getAllProSameCate_id($cate_id) {
+            try {
+                $sql = "select * from product inner join category on product.cate_id = category.cate_id  
+                where product.cate_id = $cate_id and product.pro_status = 1 order by pro_id asc ";
+                $data = $this ->pdo->query($sql)->fetchAll();
+                $dsAllProduct_same = [];
+                foreach ($data as $row) {
+                    $dsAllProduct_same[] = convertToObjectProduct($row);
+                 }
+                 return $dsAllProduct_same;
+
+            } catch (Exception $e) {
+                echo "Lỗi" .$e->getMessage();
+                echo "<hr>";
+            }
+        }
     }
 
     class ProductDetailQuery {

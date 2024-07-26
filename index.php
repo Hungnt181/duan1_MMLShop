@@ -58,6 +58,10 @@ match ($act) {
     'view_profile' => (new HomeController()) -> viewProfile(),
 
     'update_profile' => (new HomeController()) -> updateProfile(),
+    
+    'searchPro' => (new HomeController()) -> searchPro(),
+
+    'showAllProOfCate'=> (new HomeController()) -> showAllProOfCate(),
 
     
 }
