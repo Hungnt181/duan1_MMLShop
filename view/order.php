@@ -81,7 +81,7 @@
                     ?> 
 
                     <input type="text"  name="address" placeholder="Địa chỉ *" required>
-                    <input type="datetime-local"  name="date_order">
+                    <!-- <input type="datetime-local"  name="date_order"> -->
                     <input type="radio" id="paypal" name="payment_method" value="1" required checked
                     style="    width: 22px; height: 22px; margin-left: 5%;">
                     <label for="paypal" style="line-height: 60px; margin-left: 16px;">Thanh toán khi nhận hàng (COD)</label><br>

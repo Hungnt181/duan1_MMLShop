@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ hàng</title>
-    <link rel="shortcut icon" href="img/Group 2.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo_darkblue_notfull.svg" type="image/x-icon">
     <link rel="stylesheet" href="giaodien/Clientstyle.css">
     <link rel="stylesheet" href="giaodien/home.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -86,9 +86,9 @@
         </div>
         <div class="d-flex justify-content-between mb-3" style="float:right;">
             <div>
-                <a onclick="return confirm('Xác nhận xóa toàn bộ sản phẩm trong giỏ hàng?')"
+                <a onclick="return confirm('Xác nhận xóa toàn bộ sản phẩm trong giỏ hàng?')" 
                     href="index.php?act=deleteAllCart">
-                    <button class="btn btn-danger"><i class="fa-solid fa-trash"></i> Xóa giỏ hàng</button>
+                    <button class="btn btn-danger"><i class="fa-solid fa-trash"></i> Xóa giỏ hàng </button>
                 </a>
             </div>
         </div>

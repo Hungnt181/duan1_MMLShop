@@ -127,15 +127,15 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th scope="col">Stt</th>
-                            <th scope="col">IDBD</th>
+                            <th scope="col">STT</th>
+                            <!-- <th scope="col">IDBD</th> -->
                             <th scope="col">Tên sản phẩm</th>
                             <th scope="col">Màu sắc</th>
                             <th scope="col">Kích thước</th>
                             <th scope="col">Đơn giá</th>
                             <th scope="col">Số lượng</th>
                             <th scope="col">Tổng tiền</th>
-                            <th scope="col">IDPD</th>
+                            <!-- <th scope="col">IDPD</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -151,9 +151,9 @@
                             <td scope="row">
                                 <?= $i++?>
                             </td>
-                            <td scope="row">
+                            <!-- <td scope="row">
                                 <?= $bill_dt->bill_dt_id?>
-                            </td>
+                            </td> -->
                             <td scope="row">
                                 <?= $bill_dt->pro_name?>
                             </td>
@@ -172,9 +172,9 @@
                             <td scope="row">
                                 <?= $bill_dt->total?>
                             </td>
-                            <td scope="row">
+                            <!-- <td scope="row">
                                 <?= $bill_dt->pro_dt_id?>
-                            </td>
+                            </td> -->
                         </tr>
                         <?php
                             }

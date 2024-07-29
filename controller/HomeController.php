@@ -8,6 +8,7 @@
         public $billQuery;
         public $billDetailQuery;
         public $commentQuery;
+        public $newsQuery;
 
         public function __construct()
         {
@@ -18,9 +19,10 @@
             $this -> billQuery= new BillQuery();
             $this -> billDetailQuery= new BillDetailQuery();
             $this -> commentQuery= new CommentQuery();
+            $this -> newsQuery= new NewsQuery();
         }
 
-        public function __desstruct()
+        public function __destruct()
         {
             
         }
@@ -35,11 +37,9 @@
             $dsCategory = $this->categoryQuery->all();
 
             $dsProduct = $this->productQuery->getTop16ProductLatest();
-            
-            // var_dump($dsProduct);
-          
-            // Hiển thị view trang chủ
-            
+
+            $dsNews = $this->newsQuery->latestNews();
+
             include "view/home.php";
         
         }
@@ -350,7 +350,7 @@
                 $bill->fullname = trim($_POST['fullname']);
                 $bill->phone = trim($_POST['phone']);
                 $bill->address = trim($_POST['address']);
-                $bill->date_order = trim($_POST['date_order']);
+                $bill->date_order = date('Y-m-d H:i:s');
                 $bill->bill_total = trim($_POST['bill_total']);
                 $bill->acc_id = trim($_POST['acc_id']);
                 $bill-> bill_status= 0;
@@ -389,7 +389,8 @@
                         }
                     }
                 } else {
-                    echo "Order thất bại";
+                    $popup = "Đặt hàng không thành công. Vui lòng kiểm tra lại đơn đặt hàng!";
+                    // echo "Đặt hàng thất bại";
                 } 
             }
             include "view/end_order.php";

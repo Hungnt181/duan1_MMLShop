@@ -32,30 +32,39 @@
                 </li>
             </ul>
         </nav>
-        <div class="profile"> Cập nhật thông tin cá nhân</div>
+        <div class="profile"> Cập nhật thông tin tài khoản</div>
         <div class="Profile_content">
-            <form action="" method="POST" enctype="multipart/form-data" class="form-profile">
-                <img src="img/account/<?= $_POST['acc_image'] ?>" alt="">
-                <input type="file" name='image_upload' value="">
-                <label for="">Tên đăng kí</label>
-                <input type="text" name='acc_name' value='<?= $_POST['acc_name'] ?>'>
-                <label for="">Email</label>
+            <form action="" method="POST" enctype="multipart/form-data" class="form-edit-profile">
+                <div class="main-form">
+                    <div class="col">
+                        <?php if($_POST['acc_image'] == "") { ?>
+                            <img src="img/account/user_default.png" alt="">
+                        <?php } else { ?>
+                            <img src="img/account/<?= $_POST['acc_image'] ?>" alt="">     
+                        <?php }; ?>
+                            <input type="file" name='image_upload' value="">
+                    </div>
 
-                <input type="email" name='acc_email' value='<?= $_POST['acc_email'] ?>' readonly>
-                <label for="">Mật khẩu</label>
+                    <div class="col">
+                        <label for="">Tên đăng kí</label>
+                        <input type="text" name='acc_name' value='<?= $_POST['acc_name'] ?>' required>
+                        <label for="">Email</label>
+                        <input type="email" name='acc_email' value='<?= $_POST['acc_email'] ?>' readonly>
+                    </div>
 
-                <input type="password" name='acc_password' value='<?= $_POST['acc_password'] ?>'>
-                <label for="">Số điện thoại</label>
-
-                <input type="text" name='acc_phone' value='<?= $_POST['acc_phone'] ?>'>
+                    <div class="col">
+                        <label for="">Mật khẩu</label>
+                        <input type="password" name='acc_password' value='<?= $_POST['acc_password'] ?>' required>
+                        <label for="">Số điện thoại</label>
+                        <input type="text" name='acc_phone' value='<?= $_POST['acc_phone'] ?>' required>
+                    </div>
+                </div>
 
                 <a href="" class="btn-edit">
                     <button name='updateFormProfile'>Cập nhật</button>
                 </a>
+            </form>
         </div>
-        </form>
-        </div>
-
     </main>
     <hr>
 </body>

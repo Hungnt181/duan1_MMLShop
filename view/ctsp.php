@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết sản phẩm</title>
-    <link rel="shortcut icon" href="../img/logo_darkblue_notfull.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo_darkblue_notfull.svg" type="image/x-icon">
     <link rel="stylesheet" href="giaodien/home.css">
     <link rel="stylesheet" href="giaodien/chiTietSP.css">
     <link rel="stylesheet" href="giaodien/comment.css">

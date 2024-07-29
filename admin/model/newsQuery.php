@@ -31,6 +31,25 @@ class NewsQuery {
 
     }
 
+    public function latestNews() {
+        try {
+            $sql = "select * from news order by rand() limit 3";
+            $data = $this->pdo->query($sql)->fetchAll();
+            $dsNews = [];
+
+            foreach ($data as $row) {
+                $dsNews[] = convertToObjectNews($row);
+            }
+
+            return $dsNews;
+            
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
+        }
+
+    }
+
     public function create(News $news) {
         try {
             $sql = "INSERT INTO `news`(`news_id`, `news_title`, `news_img`,`news_content` ) VALUES (NULL,'$news->news_title','$news->news_img','$news->news_content')";
