@@ -58,8 +58,8 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th scope="col">Stt</th>
-                            <th scope="col">IDP</th>
+                            <th scope="col">STT</th>
+                            <!-- <th scope="col">IDP</th> -->
                             <th scope="col">Danh mục</th>
                             <th scope="col">Tên sản phẩm</th>
                             <th scope="col">Ảnh sản phẩm</th>
@@ -81,9 +81,9 @@
                                 <td scope="row">
                                     <?= $i++?>
                                 </td>
-                                <td scope="row">
+                                <!-- <td scope="row">
                                     <?= $pro->pro_id?>
-                                </td>
+                                </td> -->
                                 
                                 <?php
                                     if ($pro->cate_status != 1 ) { ?>
@@ -133,16 +133,16 @@
                                 ?>
                             </td>
                             <td>
-                                <button class="btn" style="background: #141F46;">
+                                <!-- <button class="btn" style="background: #141F46;">
                                     <a href="index.php?act=view-product-detail&pro_id=<?= $pro->pro_id ?>"
                                         class="text-white">
                                         <i class="fa-solid fa-circle-info"></i> Xem chi tiết
                                     </a>
-                                </button>
-                                <button class="btn btn-success ">
+                                </button> -->
+                                <button class="btn" style="background: #141F46;">
                                     <a href="index.php?act=read-one-product&pro_id=<?= $pro->pro_id ?>"
                                         class="text-white">
-                                        <i class="fa-solid fa-pen-to-square"></i> Sửa
+                                        <i class="fa-solid fa-pen-to-square"></i> Chi tiết sản phẩm
                                     </a>
                                 </button>
                                 <!-- <button class="btn btn-danger">

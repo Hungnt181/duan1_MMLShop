@@ -59,10 +59,10 @@
                         <tr>
                             <th></th>
                             <th scope="col">STT</th>
-                            <th scope="col">IDA</th>
+                            <!-- <th scope="col">IDA</th> -->
                             <th scope="col">Ảnh đại diện</th>
                             <th scope="col">Tên tài khoản</th>
-                            <th scope="col">Mật khẩu</th>
+                            <!-- <th scope="col">Mật khẩu</th> -->
                             <th scope="col">Email</th>
                             <th scope="col">Số điện thoại</th>
                             <th scope="col">Trạng thái</th>
@@ -83,9 +83,9 @@
                             <td scope="row">
                                 <?= $i++?>
                             </td>
-                            <td scope="row">
+                            <!-- <td scope="row">
                                 <?= $acc->acc_id?>
-                            </td>
+                            </td> -->
                             <td>
                                 <img src="../img/account/<?= $acc->acc_image ?>" alt="" style="width:80px;">
                             </td>
@@ -95,12 +95,12 @@
                                     <?= $acc->acc_name?>
                                 </div>
                             </td>
-                            <td>
+                            <!-- <td>
                                 <div
                                     style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
                                     <?= $acc->acc_password?>
                                 </div>
-                            </td>
+                            </td> -->
                             <td>
                                 <div
                                     style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 150px;">

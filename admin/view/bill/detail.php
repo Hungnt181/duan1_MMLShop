@@ -25,7 +25,7 @@
 
         <!-- Main content -->
         <div class="shadow bg-light pb-5 mt-4 ms-4 mb-4 col-md-10">
-            <h4 class="p-3">Chi tiết đơn hàng "IDB# <?php echo $_GET["bill_id"]; ?>"</h4>
+            <h4 class="p-3">Chi tiết đơn hàng MDH - <?php echo $_GET["bill_id"]; ?></h4>
             <hr>
             <div class="d-flex justify-content-between align-items-center">
                 <form action="" class="ms-4">
@@ -76,23 +76,37 @@
                     <div class="mt-3">
                         <span class="form-label">Trạng thái đơn hàng</span>
                         <div class="row ps-3 pt-2">
-                            <div class="form-check col-5">
+                            <div class="form-check col-2">
+                                <input class="form-check-input" type="radio" value="0" name="bill_status"
+                                    <?= $info->bill_status =="0" ? "checked" : "" ?>>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Chờ xác nhận
+                                </label>
+                            </div>
+                            <div class="form-check col-2">
                                 <input class="form-check-input" type="radio" value="1" name="bill_status"
                                     <?= $info->bill_status =="1" ? "checked" : "" ?>>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Đã xác nhận
+                                </label>
+                            </div>
+                            <div class="form-check col-2">
+                                <input class="form-check-input" type="radio" value="2" name="bill_status"
+                                    <?= $info->bill_status =="2" ? "checked" : "" ?>>
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Đang giao hàng
                                 </label>
                             </div>
-                            <div class="form-check col-5">
-                                <input class="form-check-input" type="radio" value="2" name="bill_status"
-                                    <?= $info->bill_status =="2" ? "checked" : "" ?>>
+                            <div class="form-check col-2">
+                                <input class="form-check-input" type="radio" value="3" name="bill_status"
+                                    <?= $info->bill_status =="3" ? "checked" : "" ?>>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Đã nhận hàng
                                 </label>
                             </div>
                             <div class="form-check col-2">
-                                <input class="form-check-input" type="radio" value="0" name="bill_status"
-                                    <?= $info->bill_status =="0" ? "checked" : "" ?>>
+                                <input class="form-check-input" type="radio" value="4" name="bill_status"
+                                    <?= $info->bill_status =="4" ? "checked" : "" ?>>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Hủy đơn
                                 </label>

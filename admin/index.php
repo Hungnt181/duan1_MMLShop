@@ -45,7 +45,7 @@ if ($_SESSION['acc_role'] == 1) {
       /* 'delete-product' => (new ProductController()) -> deleteProduct(), */ /* DELETE */
       /* 'update-status-product' => (new ProductController()) -> updateStatusProduct(), */ /* CHANGE STATUS - SOFT DELETE */
       // ---
-      'view-product-detail' => (new ProductController()) -> listProductDetail(), /* READ */
+      /*'view-product-detail' => (new ProductController()) -> listProductDetail(),*/ /* READ */
       'create-product-detail' => (new ProductController()) -> createProductDetail(), /* CREATE */
       'update-product-detail' => (new ProductController()) -> readOneProductDetail(), /* UPDATE */
       /* 'delete-product-detail' => (new ProductController()) -> deleteProductDetail(), */ /* DELETE */

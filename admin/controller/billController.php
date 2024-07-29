@@ -32,7 +32,7 @@ class BillController {
             $bill->bill_status = trim($_POST['bill_status']);
             $result = $this->billQuery->updateBillStatus($bill);
             if ($result == "ok") {
-                header("Location: ?act=view-bill-detail&bill_id=".$_GET["bill_id"]);
+                header("Location: ?act=list-bill");
              } else {
                 echo "cập nhật trạng thái đơn hàng thất bại";
              }

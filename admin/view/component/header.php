@@ -12,8 +12,8 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end align-items-center">
-                    <i class="fa-solid fa-user me-2"></i>  
-                     Xin chào admin
+                    <i class="fa-solid fa-user me-2"></i>
+                     Xin chào <?php echo $_SESSION["acc_name"]?>
                 </div>
             </div>
             <!-- End header top -->

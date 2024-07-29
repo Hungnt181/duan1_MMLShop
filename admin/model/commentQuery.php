@@ -13,7 +13,7 @@ class CommentQuery {
 
     public function all() {
         try {
-            $sql = "select * from comment join product on comment.pro_id = product.pro_id join account on comment.account_id = account.acc_id";
+            $sql = "select * from comment join product on comment.pro_id = product.pro_id join account on comment.account_id = account.acc_id order by product.pro_name asc";
             $data = $this->pdo->query($sql)->fetchAll();
             $dsCmt = [];
 

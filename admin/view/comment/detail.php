@@ -31,18 +31,18 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="">
+                    <!-- <div class="">
                         <label for="inputEmail4" class="form-label">Mã bình luận</label>
                         <input type="text" class="form-control rounded-0" id="inputEmail4" value="<?= $info->com_id ?>"
                             disabled>
-                    </div>
+                    </div> -->
                     <div class="" style="margin-top:10px">
-                        <label for="inputEmail4" class="form-label">Tài khoản</label>
+                        <label for="inputEmail4" class="form-label">Tài khoản bình luận</label>
                         <input type="text" class="form-control rounded-0" id="inputEmail4"
                             value="<?= $info->acc_name ?>" disabled>
                     </div>
                     <div class="" style="margin-top:10px">
-                        <label for="inputEmail4" class="form-label">Sản phẩm</label>
+                        <label for="inputEmail4" class="form-label">Tên sản phẩm</label>
                         <input type="text" class="form-control rounded-0" id="inputEmail4"
                             value="<?= $info->pro_name ?>" disabled>
                     </div>

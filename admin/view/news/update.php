@@ -27,7 +27,7 @@
         <div class="shadow bg-light pb-5 mt-4 ms-4 col-md-8">
             <form action="" class="pb-5 mt-4 ms-4 me-4" method="POSt" enctype="multipart/form-data">
                 <div>
-                    <h4 class="p-3">Cập nhật tin tức</h4>
+                    <h4 class="p-3">Cập nhật tin tức "MT - <?php echo $_GET["id"] ?>"</h4>
                 </div>
                 <hr>
                 <div class="row">
