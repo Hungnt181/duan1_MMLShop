@@ -8,7 +8,6 @@
     <link rel="shortcut icon" href="img/logo_darkblue_notfull.svg" type="image/x-icon">
     <link rel="stylesheet" href="giaodien/home.css">
     <link rel="stylesheet" href="giaodien/sign_in.css">
-
     <link rel="stylesheet" href="giaodien/userDetail.css">
     <link rel="stylesheet" href="giaodien/updateProfile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">

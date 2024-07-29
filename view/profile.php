@@ -89,7 +89,7 @@
                                 if( $order->bill_status == 0 ) { ?>
                                     <h5 class="color0">Chờ xác nhận</h5>
                                 <?php } else if($order->bill_status == 1) {
-                                   ?> <h5 class="color1">Đã xác nhận đơn hàng </h5>
+                                   ?> <h5 class="color1"> Đơn hàng đã được xác nhận </h5>
                                    <?php
                                 } else if($order->bill_status == 2) {
                                     ?> <h5 class="color2">Đang giao hàng</h5> <?php
