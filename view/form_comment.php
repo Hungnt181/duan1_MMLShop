@@ -12,7 +12,7 @@
 
     <div class="form_comment">
         <form action="" method="post">
-            <textarea name="com_content" id="" placeholder="Mời bạn để lại bình luận"></textarea>
+            <textarea name="com_content" id="" placeholder="Mời bạn để lại bình luận" required></textarea>
             <input type="hidden" name="pro_id" value="<?php echo $_GET["id"] ?>">
             <input type="submit" name="submitFormCreateComment" value="GỬI BÌNH LUẬN">
         </form>

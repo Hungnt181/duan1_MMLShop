@@ -56,14 +56,17 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th scope="col">ID</th>
+                            <!-- <th scope="col">Mã tin</th> -->
+                            <th>STT</th>
                             <th scope="col">Tiêu đề</th>
-                            <th scope="col">Ảnh</th>
+                            <th scope="col">Ảnh minh họa</th>
                             <th scope="col">Nội dung</th>
+                            <th scope="col">Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+                        $i = 1;
                         foreach ($dsNews as $key => $news) {
                         ?>
 
@@ -71,15 +74,15 @@
                                 <td>
                                     <input type="checkbox">
                                 </td>
-                                <td scope="row"><?= $news->news_id?></td>
-                                
+                                <!-- <td scope="row"><?= $news->news_id?></td> -->
+                                <td><?= $i ++; ?></td>
                                 <td>
-                                    <div style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                    <div style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 150px;">
                                     <?= $news->news_title?>
                                     </div>
                                 </td>
                                 <td>
-                                    <img src="../img/<?= $news->news_img ?>" alt="" style="width:150px;">
+                                    <img src="../img/<?= $news->news_img ?>" alt="" style="width:170px;">
                                 </td>
                                 <td>
                                     <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 150px;">

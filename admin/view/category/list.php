@@ -52,7 +52,7 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th scope="col">Stt</th>
+                            <th scope="col">STT</th>
                             <th scope="col">Tên danh mục</th>
                             <th scope="col">Trạng thái</th>
                             <th scope="col">Hành động</th>

@@ -30,10 +30,13 @@ include "admin/model/accountQuery.php";
 include "admin/model/bill.php"; 
 include "admin/model/comment.php";
 include "admin/model/commentQuery.php";
+include "admin/model/news.php";
+include "admin/model/newsQuery.php";
 
 // Thông tin act
 $act = $_GET['act'] ?? '' ;
 $id = $_GET['id']  ?? '';
+date_default_timezone_set('Asia/Jakarta');
 
 if(!isset($_SESSION["myCart"])) {
   $_SESSION["myCart"] = [];

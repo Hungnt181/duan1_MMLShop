@@ -27,7 +27,7 @@
         <div class="shadow bg-ligh mt-4 ms-4 col-md-8">
             <form action="" class="mt-4 ms-4 me-4" method="POSt" enctype="multipart/form-data">
                 <div>
-                    <h4 class="p-3">Cập nhật chi tiết sản phẩm "#<?php echo $_GET["pro_id"] ?>#<?php echo $_GET["product_dt_id"] ?>"</h4>
+                    <h4 class="p-3">Cập nhật sản phẩm "<?= $info->pro_name ?>" Loại "<?= $info->pro_color ?> - <?= $info->pro_size ?>"</h4>
                 </div>
                 <hr>
                 <div class="row">

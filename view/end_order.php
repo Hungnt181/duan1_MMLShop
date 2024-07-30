@@ -24,7 +24,14 @@
     ?>
     <!-- End header -->
 <main>
-       <h2 style="text-align: center;">Đặt hàng thành công</h2>
+        <h2 style="text-align: center;">
+            <?php if(isset($popup)) {
+                echo $popup;
+            } else {
+                echo "Đặt hàng thành công.<br>Theo dõi đơn hàng của bạn tại trang thông tin cá nhân!!!";
+            } ?>
+           
+        </h2>
 </main>
     <?php
         include "view/Component/footer.php"

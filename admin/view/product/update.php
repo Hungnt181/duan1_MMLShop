@@ -24,10 +24,10 @@
         ?>
 
         <!-- Main content -->
-        <div class="shadow bg-light mt-4 ms-4 col-md-8">
-            <form action="" class="pb-5 mt-4 ms-4 me-4" method="POSt" enctype="multipart/form-data">
+        <div class="shadow bg-light mt-4 ms-4 col-md-3">
+            <form action="" class="pb-3 mt-4 ms-4 me-4" method="POSt" enctype="multipart/form-data">
                 <div>
-                    <h4 class="p-3">Cập nhật sản phẩm</h4>
+                    <h4 class="">Tổng quan</h4>
                 </div>
                 <hr>
                 <div class="row">
@@ -88,11 +88,108 @@
                         </div>
                     </div>
 
-                    <div class="mt-5 d-flex justify-content-center">
+                    <div class="mt-3 d-flex justify-content-center">
                         <button type="submit" class="btn btn-success" name="submitFormUpdatePro">Cập nhật</button>
                     </div>
                 </div>
             </form>
+        </div>
+        <!--  -->
+        <div class="shadow bg-light pb-5 mt-4 ms-4 mb-4 col-md-7">
+            <h4 class="p-3">Chi tiết sản phẩm "<?= $info->pro_name ?>"</h4>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center">
+                <form action="" class="ms-4">
+                    <div class="input-group input-group-sm">
+                        <input class="form-control rounded-0 mb-2" type="search" id="search" name="search"
+                            placeholder="Nhập từ khóa tìm kiếm" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm">
+                        <div class="input-group-sm">
+                            <button type="button" class="btn btn-secondary rounded-0">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div class="me-4">
+                    <button class="btn btn-success">
+                        <i class="fa-solid fa-plus"></i>
+                        <a href="index.php?act=create-product-detail&pro_id=<?php echo $_GET["pro_id"]; ?>"
+                            class="text-light">Thêm loại</a>
+                    </button>
+                </div>
+            </div>
+            <div class="pt-4 ms-4 me-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th scope="col">STT</th>
+                            <!-- <th scope="col">IDPD</th> -->
+                            <th scope="col">Bảng màu</th>
+                            <th scope="col">Kích cỡ</th>
+                            <th scope="col">Đơn giá</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col">Trạng thái</th>
+                            <th scope="col">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $i = 1;
+                        foreach ($dsProductDetail as $key => $pro_dt) {
+                        ?>
+
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td scope="row">
+                                <?= $i++?>
+                            </td>
+                            <!-- <td scope="row">
+                                <?= $pro_dt->product_dt_id?>
+                            </td> -->
+                            <td>
+                                <?= $pro_dt->pro_color?>
+                            </td>
+                            <td>
+                                <?= $pro_dt->pro_size ?>
+                            </td>
+                            <td>
+                                <?= $pro_dt->pro_price?>
+                            </td>
+                            <td>
+                                <?= $pro_dt->pro_quantity?>
+                            </td>
+                            <td>
+                                <?php
+                                    if ($pro_dt->product_dt_status == 1) {
+                                ?>
+                                <span class="badge bg-success ">Đang bán</span>
+                                <?php
+                                    } else {
+                                        ?>
+                                <span class="badge bg-danger">Không bán</span>
+                                <?php
+                                    }
+                                ?>
+                            </td>
+                            <td>
+                                <button class="btn btn-success ">
+                                    <a href="index.php?act=update-product-detail&product_dt_id=<?= $pro_dt->product_dt_id?>&pro_id=<?php echo $_GET["pro_id"]; ?>"
+                                        class="text-white">
+                                        <i class="fa-solid fa-pen-to-square"></i> Sửa
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <!-- End main content -->
     </main>

@@ -63,6 +63,9 @@ class ProductController {
             
         }
         $dsCate = $this -> categoryQuery -> all();
+        if(isset($_GET["pro_id"])) {
+            $dsProductDetail = $this->productDetailQuery->listProductDetail($_GET["pro_id"]);
+        }
         include "view/product/update.php";
     }
 
@@ -89,7 +92,7 @@ class ProductController {
             } else {
                 $result = $this -> productQuery -> updateNoImg($product, $pro_id);
             }
-            header("Location: ?act=list-product");      
+            header("Location: ?act=read-one-product&pro_id=$pro_id");      
         }
     }
 
@@ -121,7 +124,7 @@ class ProductController {
             $result = $this->productQuery->updateStatusProduct($product); 
         }
         if ($result == "ok") {
-            header("Location: ?act=list-product");
+            header("Location: ?act=read-one-product&pro_id=".$_GET['pro_id']);
         } else {
             echo "Thay đổi trạng thái sản phẩm thất bại";
         }
@@ -151,7 +154,7 @@ class ProductController {
 
             $result = $this -> productDetailQuery -> createProductDetail($proDetail, $_GET["pro_id"]);
             if ($result == "ok") {
-                header("Location: ?act=view-product-detail&pro_id=$proDetail->pro_id");
+                header("Location: ?act=read-one-product&pro_id=$proDetail->pro_id");
             } else {
                 echo "Tạo mới chi tiết sản phẩm thất bại. Mời nhập lại";
             }
@@ -165,7 +168,7 @@ class ProductController {
         if(isset($_GET["product_dt_id"]) && isset($_GET["pro_id"]) && isset($_GET["pro_id"]) > 0) {
             $this -> productDetailQuery -> delete($_GET["product_dt_id"]);
             echo "Xóa 1 chi tiết sản phẩm thành công";
-            header("Location: ?act=view-product-detail&pro_id=".$_GET["pro_id"]);
+            header("Location: ?act=read-one-product&pro_id=".$_GET["pro_id"]);
         } else {
             echo "xóa thất bại";
         }
@@ -194,7 +197,7 @@ class ProductController {
 
             $result = $this -> productDetailQuery -> updateDetail($proDetail, $product_dt_id);
             
-            header("Location: ?act=view-product-detail&pro_id=".$_GET["pro_id"]);      
+            header("Location: ?act=read-one-product&pro_id=".$_GET["pro_id"]);      
         }
     }
 
@@ -213,7 +216,7 @@ class ProductController {
             $result = $this->productDetailQuery->updateStatusProductDetail($proDetail); 
         }
         if ($result == "ok") {
-            header("Location: ?act=view-product-detail&pro_id=".$_GET["pro_id"]);
+            header("Location: ?act=read-one-product&pro_id=".$_GET["pro_id"]);
         } else {
             echo "Thay đổi trạng thái chi tiết sản phẩm thất bại";
         }

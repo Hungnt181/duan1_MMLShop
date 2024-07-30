@@ -54,9 +54,10 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th scope="col">ID</th>
-                            <th scope="col">Mã tài khoản</th>
-                            <th scope="col">Mã sản phẩm</th>
+                            <th>STT</th>
+                            <!-- <th scope="col">ID</th> -->
+                            <!-- <th scope="col">Mã tài khoản</th> -->
+                            <th scope="col">Sản phẩm</th>
                             <th scope="col">Nội dung</th>
                             <th scope="col">Ngày bình luận</th>
                             <th scope="col">Hành động</th>
@@ -64,15 +65,16 @@
                     </thead>
                     <tbody>
                         <?php
-                        
+                        $i = 1;
                         foreach ($dsCmt as $key => $com) :
                         ?>
 
                         <tr>
                             <td><input type="checkbox"></td>
-                            <td scope="row"><?= $com->com_id?></td>
-                            <td scope="row"><?= $com->account_id?></td>
-                            <td scope="row"><?= $com->pro_id?></td>
+                            <td><?= $i++ ?></td>
+                            <!-- <td scope="row"><?= $com->com_id?></td> -->
+                            <!-- <td scope="row"><?= $com->account_id?></td> -->
+                            <td scope="row"><?= $com->pro_name?></td>
                             <td>
                                 <div
                                     style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 150px;">

@@ -149,14 +149,15 @@
                 tin mới nhất
             </div>
             <div class="list_news">
+                <?php foreach ($dsNews as $key => $news ) :?>
                 <div class="news_item">
                     <div class="img_news">
-                        <a href=""><img src="img/news1.jpg" alt=""></a>
+                        <a href=""><img src="img/<?= $news->news_img ?>" alt=""></a>
                     </div>
                     <div class="news_content">
                         <div class="main_title">
                             <a href="">
-                                Thi công nội thất căn hộ Midtown M7 Phú Mỹ Hưng 115m2
+                                <?= $news->news_title ?>
                             </a>
                         </div>
                         <div class="date">
@@ -164,63 +165,11 @@
                             01 tháng 06, 2024
                         </div>
                         <div class="intro">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Amet sapien dignissim a elementum. Sociis metus, 
-                            hendrerit mauris id in. Quis sit sit ultrices 
-                            tincidunt euismod luctus diam. Turpis sodales orci etiam 
-                            phasellus lacus id leo. Amet turpis nunc, nulla massa est viverra 
-                            interdum
+                            <?= $news->news_content ?>
                         </div>
                     </div>
                 </div>
-                <div class="news_item">
-                    <div class="img_news">
-                        <a href=""><img src="img/news2.jpg" alt=""></a>
-                    </div>
-                    <div class="news_content">
-                        <div class="main_title">
-                            <a href="">
-                                Thi công nội thất nhà phố D7 An Thiên Lý Thủ Đức
-                            </a>
-                        </div>
-                        <div class="date">
-                            <i class="fa-solid fa-calendar-days"></i>
-                            01 tháng 06, 2024
-                        </div>
-                        <div class="intro">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Amet sapien dignissim a elementum. Sociis metus, 
-                            hendrerit mauris id in. Quis sit sit ultrices 
-                            tincidunt euismod luctus diam. Turpis sodales orci etiam 
-                            phasellus lacus id leo. Amet turpis nunc, nulla massa est viverra 
-                            interdum
-                        </div>
-                    </div>
-                </div>
-                <div class="news_item">
-                    <div class="img_news">
-                        <a href=""><img src="img/news3.jpg" alt=""></a>
-                    </div>
-                    <div class="news_content">
-                        <div class="main_title">
-                            <a href="">
-                                Thi công nội thất nhà phố KDC Bến Lức quận 8
-                            </a>
-                        </div>
-                        <div class="date">
-                            <i class="fa-solid fa-calendar-days"></i>
-                            01 tháng 06, 2024
-                        </div>
-                        <div class="intro">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Amet sapien dignissim a elementum. Sociis metus, 
-                            hendrerit mauris id in. Quis sit sit ultrices 
-                            tincidunt euismod luctus diam. Turpis sodales orci etiam 
-                            phasellus lacus id leo. Amet turpis nunc, nulla massa est viverra 
-                            interdum
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
         <div class="brand">

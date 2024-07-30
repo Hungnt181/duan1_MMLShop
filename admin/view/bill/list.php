@@ -58,9 +58,9 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th scope="col">Stt</th>
-                            <th scope="col">ID Đơn hàng</th>
-                            <th scope="col">ID Tài khoản</th>
+                            <th scope="col">STT</th>
+                            <th scope="col">Mã đơn hàng</th>
+                            <!-- <th scope="col">ID Tài khoản</th> -->
                             <th scope="col">Tên khách hàng</th>
                             <th scope="col">Số điện thoại</th>
                             <th scope="col">Địa chỉ nhận hàng</th>
@@ -87,9 +87,9 @@
                             <td scope="row">
                                 <?= $bill->bill_id?>
                             </td>
-                            <td scope="row">
+                            <!-- <td scope="row">
                                 <?= $bill->acc_id?>
-                            </td>
+                            </td> -->
                             <td scope="row">
                                 <?= $bill->fullname?>
                             </td>
@@ -110,17 +110,25 @@
                             </td>
                             <td scope="row">
                                 <?php
-                                    if ($bill->bill_status == 1) {
+                                    if ($bill->bill_status == 2) {
                                 ?>
-                                <span class="badge" style="background: #FFB200;">Đang giao hàng</span>
+                                <span class="badge" style="background: #FFAF00;">Đang giao hàng</span>
                                 <?php
-                                    } else if ($bill->bill_status == 2) {
+                                    } else if ($bill->bill_status == 3) {
                                 ?>
                                 <span class="badge bg-success">Đã nhận hàng</span>
                                 <?php
+                                    } else if ($bill->bill_status == 1) {
+                                ?>
+                                <span class="badge" style="background: #03346E;">Đã xác nhận</span>
+                                <?php
                                     } else if ($bill->bill_status == 0) {
                                 ?>
-                                <span class="badge bg-danger">Chờ xác nhận</span>
+                                <span class="badge" style="background: #6EACDA;">Chờ xác nhận</span>
+                                <?php
+                                    } else if ($bill->bill_status == 4) {
+                                ?>
+                                <span class="badge bg-danger">Đã hủy đơn</span>
                                 <?php
                                     } else {
                                 ?>
