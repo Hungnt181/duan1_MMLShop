@@ -96,6 +96,7 @@
         $bill -> bill_status = $row['bill_status'];
         $bill -> payment_status = $row['payment_status'];
         $bill -> acc_name = $row['acc_name'];
+        $bill -> voucher_id = $row['voucher_id'];
         return $bill;
     }
 
@@ -124,6 +125,14 @@
         $order -> bill_status = $row['bill_status'];
         $order -> date_order = $row['date_order'];
         return $order;
+    }
+
+    function convertToObjectVoucher($row) {
+        $voucher = new Voucher();
+        $voucher -> voucher_id = $row['voucher_id'];
+        $voucher -> voucher_name = $row['voucher_name'];
+        $voucher -> value = $row['value'];
+        return $voucher;
     }
 
 ?>

@@ -9,6 +9,7 @@
         public $billDetailQuery;
         public $commentQuery;
         public $newsQuery;
+        public $voucherQuery;
 
         public function __construct()
         {
@@ -20,6 +21,7 @@
             $this -> billDetailQuery= new BillDetailQuery();
             $this -> commentQuery= new CommentQuery();
             $this -> newsQuery= new NewsQuery();
+            $this -> voucherQuery = new VoucherQuery();
         }
 
         public function __destruct()
@@ -233,7 +235,18 @@
             // print_r($_POST);
             $index = 0;
             $lastIndex = $_POST['lastIndex'];
-            $tongTien = $_POST['tongTien'];
+            $tongTien = $_POST['tongTien'];  
+
+            $checkVoucher = '';
+            if ($tongTien >= 1000) {
+                $checkVoucher = 2;
+                $dsVoucher = $this->voucherQuery->all();
+            }  else if ($tongTien >= 500) {
+                $checkVoucher = 1;
+                $voucher5 = $this->voucherQuery->getVoucher500K();
+            }
+
+
             foreach($_POST as $info) {
                if ($lastIndex >= $index) {
                 $product_dt_id = $_POST['product_dt_id'.$index];
@@ -355,6 +368,7 @@
                 $bill->acc_id = trim($_POST['acc_id']);
                 $bill-> bill_status= 0;
                 $bill->payment_status = $_POST['payment_method'];
+                $bill->voucher_id = $_POST['voucher_id'];
                 $result = $this->billQuery->add_bill($bill);
                 if (is_numeric($result)) {
                     // var_dump($result);

@@ -32,6 +32,9 @@ include "admin/model/comment.php";
 include "admin/model/commentQuery.php";
 include "admin/model/news.php";
 include "admin/model/newsQuery.php";
+include "admin/model/voucher.php";
+include "admin/model/voucherQuery.php";
+
 
 // Thông tin act
 $act = $_GET['act'] ?? '' ;
