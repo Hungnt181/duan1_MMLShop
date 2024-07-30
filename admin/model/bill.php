@@ -11,6 +11,7 @@ class Bill {
     public $bill_status;
     public $payment_status;
     public $acc_name;
+    public $voucher_id;
 }
 
 class BillDetail {

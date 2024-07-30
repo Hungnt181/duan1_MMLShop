@@ -80,3 +80,33 @@ padding-left: 10px;
     color: #141F46;
     font-weight: 600;
 }
+
+/**/
+
+.voucher{
+    width: 400px;
+    height: 120px;
+    background: aliceblue;
+    padding-left: 20px;
+    margin-bottom: 24px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: #ccc 8px 8px;
+}
+
+.voucher h5 {
+    margin: 10px 0;
+    padding-top: 10px;
+    color: red;
+    font-size: 16px;
+}
+
+.voucher input {
+ margin-top: 10px;
+ width: 18px;
+    height: 16px;
+}
+
+.voucher label {
+    font-size: 18px;
+}
