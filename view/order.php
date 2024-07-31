@@ -51,7 +51,7 @@
                        <div class="voucher">
                        <h5>Voucher</h5>
                             <?php
-                                foreach ($dsVoucher as $voucher) { 
+                                foreach ($mang as $voucher) { 
                                  if ($voucher -> voucher_id !== 3 ) {  ?>
                                     <div class="value">
                                     <input type="radio" id="voucher" value="<?= $voucher->value?>" name="voucher" onchange="updateTotalBill(<?= $voucher->value?>)">
@@ -64,8 +64,16 @@
                 <?php } else if($checkVoucher == 1) {?>
                     <div class="voucher">
                     <h5>Voucher</h5>
-                        <input type="radio" id="voucher" value="<?= $voucher5->value?>" name="voucher" onchange="updateTotalBill(<?= $voucher5->value?>)">
-                         <label for=""><?=$voucher5->voucher_name?></label>
+                         <?php
+                                foreach ($mang as $voucher) { 
+                                 if ($voucher -> voucher_id !== 3 ) {  ?>
+                                    <div class="value">
+                                        <input type="radio" id="voucher" value="<?= $voucher->value?>" name="voucher" onchange="updateTotalBill(<?= $voucher->value?>)">
+                                        <label for=""><?=$voucher->voucher_name?></label>
+                                    </div>
+                              <?php   }  
+                             }
+                            ?>
                     </div>
                 <?php }?>
 
