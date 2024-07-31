@@ -131,7 +131,10 @@
         $voucher = new Voucher();
         $voucher -> voucher_id = $row['voucher_id'];
         $voucher -> voucher_name = $row['voucher_name'];
-        $voucher -> value = $row['value'];
+        $voucher -> start_time = $row['start_time'];
+        $voucher -> end_time = $row['end_time'];
+        $voucher -> voucher_status = $row['voucher_status'];
+        $voucher -> voucher_quantity = $row['voucher_quantity'];
         return $voucher;
     }
 

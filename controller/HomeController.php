@@ -237,13 +237,31 @@
             $lastIndex = $_POST['lastIndex'];
             $tongTien = $_POST['tongTien'];  
 
+            $timeNow =date('Y-m-d H:i:s');
+
             $checkVoucher = '';
-            if ($tongTien >= 1000) {
+           
+
+            $mang= [];
+            if ($tongTien >= 1000) { 
                 $checkVoucher = 2;
-                $dsVoucher = $this->voucherQuery->all();
+                $dsVoucher = $this->voucherQuery->all_active();
+                foreach($dsVoucher as $voucher) {
+                    if ($timeNow <= $voucher->end_time && $timeNow >= $voucher->start_time ) {
+                        array_push($mang,$voucher);
+                    }
+                }
+            // echo "<Pre>";
+            // print_r($_POST);
+
             }  else if ($tongTien >= 500) {
                 $checkVoucher = 1;
-                $voucher5 = $this->voucherQuery->getVoucher500K();
+                $voucher5 = $this->voucherQuery->getVoucher500K_active();
+                foreach($voucher5 as $voucher) {
+                    if ($timeNow <= $voucher->end_time && $timeNow >= $voucher->start_time ) {
+                        array_push($mang,$voucher);
+                    }
+                }
             }
 
 
