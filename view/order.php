@@ -142,6 +142,7 @@
 </body>
 <script>
         function updateTotalBill(voucherAmount) {
+        console.log(voucherAmount);
             var billAmount = <?=$pro_Order['tongTien']?>; // Giả sử tổng bill ban đầu là 1000
             var totalBill = billAmount - parseInt(voucherAmount/100*billAmount);
             document.getElementById("totalBill").innerText = 'Tổng tiền : ' + totalBill +'.000';

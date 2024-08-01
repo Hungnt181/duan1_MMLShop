@@ -66,5 +66,31 @@ class VoucherQuery {
         }
 
     }
+
+    public function getOneVoucher($id) {
+        try {
+            $sql = "select * from voucher where voucher_id = $id ";
+            $data = $this->pdo->query($sql)->fetch();
+           
+                $voucher_one= convertToObjectVoucher($data);
+
+            return $voucher_one;
+            
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
+        }
+    }
+
+    public function updateQuantityVoucher($id,$voucher_quantity) {
+        try {
+            $sql = "update voucher set voucher_quantity = $voucher_quantity where voucher_id = $id";
+            $data = $this -> pdo -> prepare($sql);
+            return $data->execute();
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
+        }
+    }
 }
 ?>
