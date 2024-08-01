@@ -139,4 +139,12 @@
         return $voucher;
     }
 
+    function convertToObjectThongKe($row) {
+        $thongKe = new ThongKe();
+        $thongKe -> cate_id = $row['cate_id'];
+        $thongKe -> cate_name = $row['cate_name'];
+        $thongKe -> total_quantity = $row['total_quantity'];
+        return $thongKe;
+    }
+
 ?>

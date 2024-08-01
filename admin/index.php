@@ -13,6 +13,8 @@ include "controller/newsController.php";
 include "controller/accountController.php";
 include "controller/commentController.php";
 include "controller/billController.php";
+include "controller/thongKeController.php";
+
 
 //file trong model
 include "model/category.php";
@@ -27,6 +29,8 @@ include "model/comment.php";
 include "model/commentQuery.php";
 include "model/bill.php";
 include "model/billQuery.php";
+include "model/thongke.php";
+include "model/thongKeQuery.php";
 
 
 // Người dùng hệ thống sẽ tưởng tác với website bằng url thông qua tham số act 
@@ -86,6 +90,10 @@ if ($_SESSION['acc_role'] == 1) {
       'list-comment' => (new CommentController()) -> list(),
       'view-comment-detail' => (new CommentController()) -> readOneComment(),
       'delete-comment' => (new CommentController()) -> delete(),
+
+       // -----------THỐNG KÊ--------------------------
+       'show_thongke' => (new thongKeController()) ->show(),
+
     };
 } else {
   header('Location: index.php').'';
