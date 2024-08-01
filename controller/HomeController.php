@@ -252,7 +252,7 @@
                     }
                 }
             // echo "<Pre>";
-            // print_r($_POST);
+            // print_r($mang);
 
             }  else if ($tongTien >= 500) {
                 $checkVoucher = 1;
@@ -377,6 +377,16 @@
                     </script>
                 <?php
             } else {
+                $voucher_quantityNew= '';
+                $voucher_id = $_POST['voucher_id'];
+                $voucher_one = $this->voucherQuery->getOneVoucher($voucher_id);
+
+                if ($voucher_id == 3) {
+                    $voucher_quantityNew = 0;
+                } else {
+                    $voucher_quantityNew = $voucher_one->voucher_quantity - 1 ;
+                }
+                
                 $bill = new Bill();
                 $bill->fullname = trim($_POST['fullname']);
                 $bill->phone = trim($_POST['phone']);
@@ -409,12 +419,13 @@
                             // echo "ok";
 
                             // Kiểm tra số hàng đặt có nhỏ hơn số lượng trong kho hay không
-                            
+  
                             $lastQuantity =  $product_dt_id_one->pro_quantity - $bill['soluong'];
 
                             $proDetail = new ProductDetail();
                             $proDetail -> pro_quantity = $lastQuantity;
                             $result2 = $this->productDetailQuery->updateQuantityDetail($proDetail,$product_dt_id_one->product_dt_id );
+                            $updateVoucher_Quantity = $this->voucherQuery->updateQuantityVoucher( $voucher_id, $voucher_quantityNew);
                             $_SESSION["myCart"] = [];
                         } else {
                             echo "Đăng kí thất bại";
