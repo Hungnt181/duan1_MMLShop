@@ -35,5 +35,67 @@ class ThongKeQuery {
         }
 
     }  
+
+    public function getTopProduct_M7_Y24() {
+        try {
+            $sql = "SELECT bill_detail.pro_name, SUM(bill_detail.quantity) AS total_pro_bill
+                    FROM bill_detail 
+                    LEFT JOIN bill ON bill_detail.bill_id = bill.bill_id 
+                    WHERE MONTH(bill.date_order) = 7 AND YEAR(bill.date_order) = 2024 
+                    GROUP BY bill_detail.pro_name 
+                    ORDER BY total_pro_bill DESC;";
+            $data = $this->pdo->query($sql)->fetchAll();
+            $dsThongKe = [];
+
+            foreach ($data as $row) {
+                $dsThongKe[] = convertToObjectThongKe($row);
+            }
+
+            return $dsThongKe;
+            
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
+        }
+
+    }  
+
+
+}
+
+class ThongKeMounthlyQuery {
+    public $pdo;
+
+    public function __construct() {
+        $this->pdo = connectDB();
+    }
+
+    public function __destruct() {
+        $this -> pdo = null;
+    }
+
+    public function getTopProduct_M7_Y24() {
+        try {
+            $sql = "SELECT bill_detail.pro_name, SUM(bill_detail.quantity) AS total_pro_bill
+                    FROM bill_detail 
+                    LEFT JOIN bill ON bill_detail.bill_id = bill.bill_id 
+                    WHERE MONTH(bill.date_order) = 7 AND YEAR(bill.date_order) = 2024 
+                    GROUP BY bill_detail.pro_name 
+                    ORDER BY total_pro_bill DESC;";
+            $data = $this->pdo->query($sql)->fetchAll();
+            $dsThongKe = [];
+
+            foreach ($data as $row) {
+                $dsThongKe[] = convertToObjectThongKeMounthly($row);
+            }
+
+            return $dsThongKe;
+            
+        } catch (Exception $e) {
+            echo "Lỗi: ".$e ->getMessage();
+            echo "<hr>";
+        }
+
+    }  
 }
 ?>
