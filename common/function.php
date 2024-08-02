@@ -147,4 +147,11 @@
         return $thongKe;
     }
 
+    function convertToObjectThongKeMounthly($row) {
+        $thongKeMounthly = new ThongKeMounthly();
+        $thongKeMounthly -> pro_name = $row['pro_name'];
+        $thongKeMounthly -> total_pro_bill = $row['total_pro_bill'];
+        return $thongKeMounthly;
+    }
+
 ?>

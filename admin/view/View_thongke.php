@@ -17,50 +17,134 @@
     ?>
     <!-- END HEADER -->
     <!-- CONTENT -->
-    <main class="d-flex container">
+    <main class="d-flex container" style="display: flex;">
         <!-- Sidebar trái -->
         <?php
         include "view/component/sidebar.php"
         ?>
 
         <!-- Main content -->
-        <h1>My Web Page</h1>
+        <div class="bieudo1">
+            <div class="pt-4 ms-4 me-4">
+                <h3>Thông kê sản phẩm theo danh mục</h3>
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tên danh mục</th>
+                            <th scope="col">Số lượng Sản phẩm</th>
+                            <!-- <th scope="col">Hành động</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($dsthongKe as $key => $tk) {
+                        ?>
 
-        <div id="piechart"></div>
+                            <tr>
+                                <td scope="row"><?= $tk->cate_id ?></td>
 
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                <td>
+                                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                        <?= $tk->cate_name ?>
+                                    </div>
+                                </td>
 
-        <script type="text/javascript">
-            // Load google charts
-            google.charts.load('current', {
-                'packages': ['corechart']
-            });
-            google.charts.setOnLoadCallback(drawChart);
-            // Draw the chart and set the chart values
-            function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                    ['Tên danh mục', 'Tổng số sản phẩm'],
+                                <td>
+                                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                        <?= $tk->total_quantity ?>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php
+                        }
 
-                    <?php
-                       var_dump($dsthongKe) ;
-                       foreach ($dsthongKe as $thongke) { ?> 
-                            ['<?=$thongke->cate_name?>' , '<?=$thongke->total_quantity?>']
-                    <?php   }
-                    ?>
-                ]);
+                        ?>
+                    </tbody>
+                </table>
+            </div>
 
-                // Optional; add a title and set the width and height of the chart
-                var options = {
-                    'title': 'Thống kể sản phảm danh mục',
-                    'width': 550,
-                    'height': 400
-                };
+            <div class="chart1" style=" margin-left: 35px;">
+                <h3 style="text-align: center">Biểu đồ</h3>
 
-                // Display the chart inside the <div> element with id="piechart"
-                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-                chart.draw(data, options);
-            }
-        </script>
+                <div id="piechart"></div>
+
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+                <script type="text/javascript">
+                    // Load google charts
+                    google.charts.load('current', {
+                        'packages': ['corechart']
+                    });
+                    google.charts.setOnLoadCallback(drawChart);
+
+                    // Draw the chart and set the chart values
+                    function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                            ['Tên danh mục', 'Số lượng sản phẩm'],
+                            <?php foreach ($dsthongKe as $tk) : ?>['<?= $tk->cate_name ?>', <?= $tk->total_quantity ?>],
+                            <?php endforeach; ?>
+
+                        ]);
+
+                        // Optional; add a title and set the width and height of the chart
+                        var options = {
+                            'title': 'Thống kê sản phẩm theo danh mục',
+                            'width': 550,
+                            'height': 400
+                        };
+
+                        // Display the chart inside the <div> element with id="piechart"
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                        chart.draw(data, options);
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div class="bieudo2">
+            <div class="pt-4 ms-4 me-4">
+                <h3>Thông kê sản phẩm đã bán trong 7/2024</h3>
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tên sản phẩm</th>
+                            <th scope="col">Số lượng Sản phẩm</th>
+                            <!-- <th scope="col">Hành động</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($dsSold_M7 as $key => $tk) {
+                        ?>
+
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                        <?= $tk->pro_name ?>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                        <?= $tk->total_pro_bill ?>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
         <!-- End main content -->
     </main>
     <!-- FOOTER -->
@@ -68,6 +152,8 @@
     include "view/component/footer.php"
     ?>
     <!-- END FOOTER -->
+
+
 </body>
 
 </html>

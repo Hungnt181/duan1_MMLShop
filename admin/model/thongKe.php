@@ -5,4 +5,9 @@ class ThongKe {
     public $total_quantity ;
 }
 
+class ThongKeMounthly {
+    public $pro_name;
+    public $total_pro_bill;
+}
+
 ?>

@@ -39,8 +39,8 @@ $id = $_GET['id'] ?? "" ;
 
 if ($_SESSION['acc_role'] == 1) {
   match ($act) { 
-    'admin' =>(new CategoryController()) -> list(),
-      '' => (new CategoryController()) -> list(),
+    'admin' =>(new thongKeController()) ->show(),
+      '' => (new thongKeController()) ->show(),
       
       // -----------PRODUCTS----------------------
       'list-product' => (new ProductController()) -> list(), /* READ */
