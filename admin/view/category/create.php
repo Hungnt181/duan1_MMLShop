@@ -31,7 +31,7 @@
                        
                         <div class="">
                             <label for="inputEmail4" class="form-label">Tên danh mục</label>
-                            <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập tên sản phẩm" name="cate_name">
+                            <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập tên sản phẩm" name="cate_name" required>
                         </div>
                        
                         <div class="mt-3">
