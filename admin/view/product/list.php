@@ -142,7 +142,7 @@
                                 <button class="btn" style="background: #141F46;">
                                     <a href="index.php?act=read-one-product&pro_id=<?= $pro->pro_id ?>"
                                         class="text-white">
-                                        <i class="fa-solid fa-pen-to-square"></i> Chi tiết sản phẩm
+                                        <i class="fa-solid fa-pen-to-square"></i> Cập nhật
                                     </a>
                                 </button>
                                 <!-- <button class="btn btn-danger">

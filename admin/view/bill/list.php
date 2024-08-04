@@ -158,7 +158,7 @@
                                 <button class="btn" style="background: #141F46;">
                                     <a href="index.php?act=view-bill-detail&bill_id=<?= $bill->bill_id ?>"
                                         class="text-white">
-                                        <i class="fa-solid fa-circle-info"></i> Xem chi tiết
+                                        <i class="fa-solid fa-circle-info"></i> Cập nhật
                                     </a>
                                 </button>
                             </td>

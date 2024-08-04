@@ -90,9 +90,9 @@
                                     ?>
                                 </td>
                                 <td>
-                                    <button class="btn btn-success ">
+                                    <button class="btn" style="background: #141F46;">
                                         <a href="?act=update-category&id=<?= $cate->cate_id?>" class="text-white">
-                                            <i class="fa-solid fa-pen-to-square"></i> Sửa chi tiết
+                                            <i class="fa-solid fa-pen-to-square"></i> Cập nhật
                                         </a>
                                     </button>
                                     <!-- <button class="btn btn-danger">
