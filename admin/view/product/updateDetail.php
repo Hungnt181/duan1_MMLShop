@@ -34,22 +34,22 @@
                     <div class="">
                         <label for="inputEmail4" class="form-label">Bảng màu</label>
                         <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập bảng màu"
-                            name="pro_color" value="<?= $info->pro_color ?>">
+                            name="pro_color" value="<?= $info->pro_color ?>" required>
                     </div>
                     <div class="">
                         <label for="inputEmail4" class="form-label">Kich cỡ</label>
                         <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập kích cỡ"
-                            name="pro_size" value="<?= $info->pro_size ?>">
+                            name="pro_size" value="<?= $info->pro_size ?>" required>
                     </div>
                     <div class="">
                         <label for="inputEmail4" class="form-label">Đơn giá</label>
                         <input type="text" class="form-control rounded-0" id="inputEmail4"
-                            placeholder="Nhập đơn giá.000 VNĐ" name="pro_price" value="<?= $info->pro_price ?>">
+                            placeholder="Nhập đơn giá.000 VNĐ" name="pro_price" value="<?= $info->pro_price ?>" required>
                     </div>
                     <div class="">
                         <label for="inputEmail4" class="form-label">Số lượng</label>
                         <input type="number" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập số lượng"
-                            name="pro_quantity" value="<?= $info->pro_quantity ?>">
+                            name="pro_quantity" value="<?= $info->pro_quantity ?>" required>
                     </div>
                     <div class="mt-3">
                         <span class="form-label">Trạng thái chi tiết sản phẩm</span>

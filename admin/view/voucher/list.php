@@ -25,7 +25,7 @@
 
         <!-- Main content -->
         <div class="shadow bg-light pb-5 mt-4 ms-4 mb-4 col-md-10">
-            <h4 class="p-3">Danh sách tài khoản</h4>
+            <h4 class="p-3">Danh sách voucher</h4>
             <hr>
             <div class="d-flex justify-content-between align-items-center">
                 <form action="" class="ms-4">
@@ -43,12 +43,8 @@
                 <div class="me-4">
                     <button class="btn btn-success">
                         <i class="fa-solid fa-plus"></i>
-                        <a href="index.php?act=create-account" class="text-light">Thêm tài khoản</a>
+                        <a href="index.php?act=create-voucher" class="text-light">Tạo Voucher</a>
                     </button>
-                    <!-- <button class="btn btn-danger">
-                        <i class="fa-solid fa-trash"></i>
-                        <a href="" class="text-light">Xóa</a>
-                    </button> -->
                 </div>
             </div>
 
@@ -59,21 +55,20 @@
                         <tr>
                             <th></th>
                             <th scope="col">STT</th>
-                            <!-- <th scope="col">IDA</th> -->
-                            <th scope="col">Ảnh đại diện</th>
-                            <th scope="col">Tên tài khoản</th>
-                            <!-- <th scope="col">Mật khẩu</th> -->
-                            <th scope="col">Email</th>
-                            <th scope="col">Số điện thoại</th>
-                            <th scope="col">Trạng thái</th>
-                            <th scope="col">Vai trò</th>
+                            <th scope="col">Tên Voucher</th>
+                            <th scope="col">Giá trị</th>
+                            <th scope="col">Ngày khả dụng</th>
+                            <th scope="col">Ngày hết hạn</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col">Trạng thái hoạt động</th>
+                            <th scope="col">Trạng thái khả dụng</th>
                             <th scope="col">Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $i = 1;
-                        foreach ($dsAccount as $key => $acc) {
+                        foreach ($dsVoucher as $key => $voucher) {
                         ?>
 
                         <tr>
@@ -83,88 +78,75 @@
                             <td scope="row">
                                 <?= $i++?>
                             </td>
-                            <!-- <td scope="row">
-                                <?= $acc->acc_id?>
-                            </td> -->
-                            <td>
-                                <img src="../img/account/<?= $acc->acc_image ?>" alt="" style="width:80px;">
-                            </td>
                             <td>
                                 <div
                                     style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
-                                    <?= $acc->acc_name?>
-                                </div>
-                            </td>
-                            <!-- <td>
-                                <div
-                                    style="white-space: wrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
-                                    <?= $acc->acc_password?>
-                                </div>
-                            </td> -->
-                            <td>
-                                <div
-                                    style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 150px;">
-                                    <?= $acc->acc_email?>
+                                    <?= $voucher->voucher_name?>
                                 </div>
                             </td>
                             <td>
-                                <div
-                                    style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
-                                    <?= $acc->acc_phone?>
-                                </div>
+                                <?= $voucher->value?>% Tổng đơn hàng
+                            </td>
+                            <td>
+                                <?= $voucher->start_time?>
+                            </td>
+                            <td>
+                                <?= $voucher->end_time?>
+                            </td>
+                            <td>
+                                <?= $voucher->voucher_quantity?>
                             </td>
                             <td>
                                 <?php
-                                    if ($acc->acc_status == 1) {
+                                    if ($voucher->voucher_status == 1) {
                                 ?>
-                                <span class="badge bg-success ">Đang hoạt động</span>
+                                <span class="badge" style="background: #03346E;">Đang hoạt động</span>
                                 <?php
                                     } else {
                                         ?>
-                                <span class="badge bg-danger">Không hoạt động</span>
+                                <span class="badge" style="background: #6EACDA;">Không hoạt động</span>
                                 <?php
                                     }
                                 ?>
                             </td>
                             <td>
                                 <?php
-                                    if ($acc->acc_role == 1) {
+                                    if ($voucher->value == 0) { 
                                 ?>
-                                <span class="badge" style="background: #FFB200;">Admin</span>
+                                <span class="badge" style="background: #FFAF00;">Không thời hạn</span>
+                                <?php 
+                                    } elseif ($voucher->end_time < date('Y-m-d H:i:s')) {
+                                ?>    
+                                <span class="badge bg-danger">Đã hết hạn</span>
+                                <?php
+                                    } elseif ($voucher->start_time <= date('Y-m-d H:i:s') && $voucher->end_time >= date('Y-m-d H:i:s')) {
+                                ?>
+                                <span class="badge bg-success">Khả dụng</span>
+                                <?php 
+                                    } elseif ($voucher->start_time > date('Y-m-d H:i:s')) {
+                                ?>
+                                <span class="badge" style="background: black;">Chưa khả dụng</span>
                                 <?php
                                     } else {
-                                        ?>
-                                <span class="badge" style="background: black">Khách hàng</span>
-                                <?php
+                                ?>
+                                <span class="badge bg-danger">Không xác định</span>
+                                <?php    
                                     }
                                 ?>
                             </td>
+                            
                             <td>
-                                <button class="btn btn-success">
-                                    <a href="index.php?act=read-one-account&acc_id=<?= $acc->acc_id ?>"
+                                <button class="btn" style="background: #141F46;">
+                                    <a href="index.php?act=show-one-voucher&voucher_id=<?= $voucher->voucher_id ?>"
                                         class="text-white">
-                                        <i class="fa-solid fa-pen-to-square"></i> Sửa
+                                        <i class="fa-solid fa-pen-to-square"></i> Cập nhật
                                     </a>
                                 </button>
-                                <!-- <button class="btn" style="margin-top:5px; background: #141F46;">
-                                    <a onclick="return confirm('Xác nhận đổi vai trò tài khoản #<?= $acc->acc_id?>?')"
-                                        href="index.php?act=update-role-account&acc_id=<?= $acc->acc_id ?>"
-                                        class="text-white">
-                                        <i class="fa-solid fa-arrows-rotate"></i> Đổi vai trò
-                                    </a>
-                                </button>
-                                <button class="btn btn-danger" style="margin-top:5px;">
-                                    <a onclick="return confirm('Xác nhận đổi trạng thái tài khoản #<?= $acc->acc_id?>?')"
-                                        href="index.php?act=update-status-account&acc_id=<?= $acc->acc_id ?>"
-                                        class="text-white">
-                                        <i class="fa-solid fa-arrows-rotate"></i> Đổi trạng thái
-                                    </a>
-                                </button> -->
                             </td>
                         </tr>
                         <?php
                         }
-
+                        // var_dump(date('Y-m-d H:i:s'));
                         ?>
                     </tbody>
                 </table>

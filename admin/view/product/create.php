@@ -33,15 +33,15 @@
                 <div class="row">
                     <div class="">
                         <label for="inputEmail4" class="form-label">Ảnh sản phẩm</label>
-                        <input type="file" class="form-control rounded-0" id="inputEmail4" placeholder="" name="image_upload">
+                        <input type="file" class="form-control rounded-0" id="inputEmail4" placeholder="" name="image_upload" required>
                     </div>
                     <div class="">
                         <label for="inputEmail4" class="form-label">Tên sản phẩm</label>
-                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập tên sản phẩm" name="pro_name">
+                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập tên sản phẩm" name="pro_name" required>
                     </div>
                     <div class="">
                         <label for="inputPassword4" class="form-label">Mô tả</label>
-                        <textarea id="" cols="30" rows="3" class="form-control" placeholder="Mô tả" name="pro_description"></textarea>
+                        <textarea id="" cols="30" rows="3" class="form-control" placeholder="Mô tả" name="pro_description" required></textarea>
                     </div>
 
                     <div class="mt-3">

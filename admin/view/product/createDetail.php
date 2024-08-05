@@ -33,19 +33,19 @@
                 <div class="row">
                     <div class="">
                         <label for="inputEmail4" class="form-label">Bảng màu</label>
-                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập bảng màu" name="pro_color">
+                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập bảng màu" name="pro_color" required>
                     </div>
                     <div class="">
                         <label for="inputEmail4" class="form-label">Kich cỡ</label>
-                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập kích cỡ" name="pro_size">
+                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập kích cỡ" name="pro_size" required>
                     </div>
                     <div class="">
                         <label for="inputEmail4" class="form-label">Đơn giá</label>
-                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập đơn giá.000 VNĐ" name="pro_price">
+                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập đơn giá.000 VNĐ" name="pro_price" required>
                     </div>
                     <div class="">
                         <label for="inputEmail4" class="form-label">Số lượng</label>
-                        <input type="number" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập số lượng" name="pro_quantity">
+                        <input type="number" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập số lượng" name="pro_quantity" required>
                     </div>
                     <div class="mt-3 d-flex justify-content-center">
                         <button type="submit" class="btn btn-success" name="submitFormCreateProDetail">Tạo mới</button>

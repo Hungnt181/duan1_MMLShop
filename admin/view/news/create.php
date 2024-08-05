@@ -33,15 +33,15 @@
                 <div class="row">
                     <div class="">
                         <label for="inputEmail4" class="form-label">Ảnh tin tức</label>
-                        <input type="file" class="form-control rounded-0" id="inputEmail4" placeholder="" name="image_upload">
+                        <input type="file" class="form-control rounded-0" id="inputEmail4" placeholder="" name="image_upload" required>
                     </div>
                     <div class="">
                         <label for="inputEmail4" class="form-label">Tiêu đề</label>
-                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập tiêu đề" name="news_title">
+                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập tiêu đề" name="news_title" required>
                     </div>
                     <div class="">
                         <label for="inputPassword4" class="form-label">Nội dung</label>
-                        <textarea id="" cols="30" rows="3" class="form-control" placeholder="Nội dung bài viết" name="news_content"></textarea>
+                        <textarea id="" cols="30" rows="3" class="form-control" placeholder="Nội dung bài viết" name="news_content" required></textarea>
                     </div>
 
                     <div class="mt-3 d-flex justify-content-center">

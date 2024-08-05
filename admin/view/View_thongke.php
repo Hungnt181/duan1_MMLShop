@@ -26,45 +26,49 @@
         <!-- Main content -->
         <div class="bieudo1">
             <div class="pt-4 ms-4 me-4">
-                <h3>Thông kê sản phẩm theo danh mục</h3>
-                <table class="table table-striped table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tên danh mục</th>
-                            <th scope="col">Số lượng Sản phẩm</th>
-                            <!-- <th scope="col">Hành động</th> -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($dsthongKe as $key => $tk) {
-                        ?>
-
+                <h3 style="height:70px">Thông kê sản phẩm theo danh mục</h3>
+                <div class="">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
                             <tr>
-                                <td scope="row"><?= $tk->cate_id ?></td>
-
-                                <td>
-                                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
-                                        <?= $tk->cate_name ?>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
-                                        <?= $tk->total_quantity ?>
-                                    </div>
-                                </td>
+                                <th scope="col">#</th>
+                                <th scope="col">Tên danh mục</th>
+                                <th scope="col">Số lượng tổng kho</th>
+                                <!-- <th scope="col">Hành động</th> -->
                             </tr>
-                        <?php
-                        }
+                        </thead>
+                        <tbody>
+                            <?php
+                            $i = 1;
+                            foreach ($dsthongKe as $key => $tk) {
+                            ?>
 
-                        ?>
-                    </tbody>
-                </table>
+                                <tr>
+                                    <td scope="row"><?= $i++; ?></td>
+
+                                    <td>
+                                        <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                            <?= $tk->cate_name ?>
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                            <?= $tk->total_quantity ?>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
 
-            <div class="chart1" style=" margin-left: 35px;">
+            <div class="chart1 mt-5">
                 <h3 style="text-align: center">Biểu đồ</h3>
 
                 <div id="piechart"></div>
@@ -104,43 +108,47 @@
 
         <div class="bieudo2">
             <div class="pt-4 ms-4 me-4">
-                <h3>Thông kê sản phẩm đã bán trong 7/2024</h3>
-                <table class="table table-striped table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tên sản phẩm</th>
-                            <th scope="col">Số lượng Sản phẩm</th>
-                            <!-- <th scope="col">Hành động</th> -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($dsSold_M7 as $key => $tk) {
-                        ?>
-
+                <h3 style="height:70px">Thông kê sản phẩm đã bán - T7/2024</h3>
+                <div class="">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
                             <tr>
-                                <td>
-                                    <input type="checkbox">
-                                </td>
-                                <td>
-                                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
-                                        <?= $tk->pro_name ?>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
-                                        <?= $tk->total_pro_bill ?>
-                                    </div>
-                                </td>
+                                <th scope="col">#</th>
+                                <th scope="col">Tên sản phẩm</th>
+                                <th scope="col">Số lượng bán được</th>
+                                <!-- <th scope="col">Hành động</th> -->
                             </tr>
-                        <?php
-                        }
+                        </thead>
+                        <tbody>
+                            <?php
+                            $i = 1;
+                            foreach ($dsSold_M7 as $key => $tk) {
+                            ?>
 
-                        ?>
-                    </tbody>
-                </table>
+                                <tr>
+                                    <td>
+                                        <?= $i++; ?>
+                                    </td>
+                                    <td>
+                                        <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                            <?= $tk->pro_name ?>
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100px;">
+                                            <?= $tk->total_pro_bill ?>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
 
         </div>

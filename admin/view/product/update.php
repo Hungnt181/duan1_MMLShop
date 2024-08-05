@@ -41,12 +41,12 @@
                     <div class="">
                         <label for="inputEmail4" class="form-label">Tên sản phẩm</label>
                         <input type="text" class="form-control rounded-0" id="inputEmail4"
-                            placeholder="Nhập tên sản phẩm" name="pro_name" value="<?= $info->pro_name ?>">
+                            placeholder="Nhập tên sản phẩm" name="pro_name" value="<?= $info->pro_name ?>" required>
                     </div>
                     <div class="">
                         <label for="inputPassword5" class="form-label">Mô tả</label>
                         <textarea id="" cols="30" rows="3" class="form-control" placeholder="Mô tả"
-                            name="pro_description">
+                            name="pro_description" required>
                             <?= $info->pro_description ?>
                         </textarea>
                     </div>

@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/be9ed8669f.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../giaodien/style.css">
 </head>
 <body>
     <?php
@@ -31,22 +31,22 @@
                        
                         <div class="">
                             <label for="inputEmail4" class="form-label">Tên danh mục</label>
-                            <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập tên sản phẩm" name="cate_name">
+                            <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập tên sản phẩm" name="cate_name" required>
                         </div>
                        
                         <div class="mt-3">
-                            <span class="form-label">Lựa chọn</span>
+                            <span class="form-label">Trạng thái danh mục</span>
                             <div class="row ps-3 pt-2">
                                 <div class="form-check col-2">
                                     <input class="form-check-input" type="radio" checked value="1" name="cate_status">
                                     <label class="form-check-label" for="flexRadioDefault1">
-                                      Not deleted
+                                      Hoạt động
                                     </label>
                                 </div>
                                 <div class="form-check col-5">
                                     <input class="form-check-input" type="radio" value="2" name="cate_status">
                                     <label class="form-check-label" for="flexRadioDefault2">
-                                        Deleted
+                                      Tắt hoạt động
                                     </label>
                                 </div>
                             </div>

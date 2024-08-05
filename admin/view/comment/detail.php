@@ -46,6 +46,9 @@
                         <input type="text" class="form-control rounded-0" id="inputEmail4"
                             value="<?= $info->pro_name ?>" disabled>
                     </div>
+                    <a href="../?act=ctsp&id=<?= $info->pro_id ?>" style="font-style: italic; color: #6482AD; text-decoration:underline;">
+                        Xem chi tiết sản phẩm tại đây
+                    </a>
                     <div class="" style="margin-top:10px">
                         <label for="inputPassword5" class="form-label">Nội dung bình luận</label>
                         <textarea id="" cols="30" rows="3" class="form-control" placeholder="Mô tả" disabled>

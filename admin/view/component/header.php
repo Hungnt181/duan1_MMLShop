@@ -27,17 +27,19 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <div class="navbar-nav">
-                        <a class="nav-link" id="link1" aria-current="page" href="../index.php">Trang chủ</a>
-                        <a class="nav-link" id="link2" href="index.php?act=list-category">Danh Mục</a>
-                        <a class="nav-link" id="link3" href="index.php?act=list-product">Sản Phẩm</a>
-                        <a class="nav-link" id="link4" href="index.php?act=list-bill">Đơn Hàng</a>
-                        <a class="nav-link" id="link5" href="index.php?act=list-account">Tài Khoản</a>
-                        <a class="nav-link" id="link6" href="index.php?act=list-news">Tin Tức</a>
-                        <a class="nav-link" id="link7" href="index.php?act=list-comment">Bình Luận</a>
+                        <a class="nav-link active-menu" aria-current="page" href="../index.php">Trang chủ</a>
+                        <a class="nav-link active-menu" id="link1" href="index.php?act=list-category">Thống kê</a>
+                        <a class="nav-link active-menu" id="link2" href="index.php?act=list-category">Danh Mục</a>
+                        <a class="nav-link active-menu" id="link3" href="index.php?act=list-product">Sản Phẩm</a>
+                        <a class="nav-link active-menu" id="link4" href="index.php?act=list-bill">Đơn Hàng</a>
+                        <a class="nav-link active-menu" id="link5" href="index.php?act=list-account">Tài Khoản</a>
+                        <a class="nav-link active-menu" id="link6" href="index.php?act=list-news">Tin Tức</a>
+                        <a class="nav-link active-menu" id="link7" href="index.php?act=list-comment">Bình Luận</a>
+                        <a class="nav-link active-menu" id="link8" href="index.php?act=list-voucher">Voucher</a>
                     </div>
                     <script>
                         document.addEventListener('DOMContentLoaded', (event) => {
-                            const navLinks = document.querySelectorAll('.nav-link');
+                            const navLinks = document.querySelectorAll('.active-menu');
 
                             // Đặt class 'active' từ Local Storage
                             const activeLinkId = localStorage.getItem('activeLinkId');
