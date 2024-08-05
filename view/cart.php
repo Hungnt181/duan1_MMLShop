@@ -133,11 +133,11 @@
                         <td>
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination d-flex">
-                                    <li class="page-item">
+                                    <!-- <li class="page-item">
                                         <a class="page-link text-success" aria-label="Next">
                                             <span> - </span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <li class="page-item">
                                         <a class="page-link text-success" href="#">
                                             <?= $pro['soluong'] ?>
@@ -145,11 +145,11 @@
                                                 name="soluongIncart<?= $index ?>" hidden>
                                         </a>
                                     </li>
-                                    <li class="page-item">
+                                    <!-- <li class="page-item">
                                         <a class="page-link text-success" aria-label="Previous">
                                             <i class="fa-solid fa-plus fa-xs"></i>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </nav>
                         </td>

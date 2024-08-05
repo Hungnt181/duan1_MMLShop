@@ -58,6 +58,11 @@
 
             <div class="pro_inf">
                 <h4><?= $pro_one->pro_name?></h4>
+
+                <h5 style="color: black; font-size: 20px;">
+                    Giá: <span style="color: red;"><?=$price ?></span>
+                </h5>
+
                 <h5>Liên hệ</h5>
                 <div class="inf">
                     <div class="id">
