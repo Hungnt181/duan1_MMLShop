@@ -64,6 +64,17 @@
                 $dsProDetail = $this->productDetailQuery->listProductDetail($pro_id);
                 $dsProduct_same = $this->productQuery->getProductSameCate_id($cate_id);
                 // var_dump($dsProDetail);
+
+                $price = 1000000;
+
+                foreach ($dsProDetail as $row) {
+
+                    if ($row->pro_price < $price) {
+                        $price = $row->pro_price;
+                    }
+                }
+
+
                 if(isset($_GET['id']) && isset($_GET['id']) > 0) {
                     $dsCmtPro = $this->commentQuery->commentFromOnePro($_GET['id']);
                 }
@@ -441,6 +452,7 @@
     }  
 
     public function deleteOneProInCart() {
+        $dsCategory = $this->categoryQuery->all();
 
         if (isset($_GET['product_dt_id'])) {
             $product_dt_id = $_GET['product_dt_id'];

@@ -51,7 +51,12 @@
                     // var_dump($_SESSION['acc_role']);
 
                     if ($_SESSION['acc_status'] == 1 ) {
-                        header('Location: ?act=').'';
+                        if ( $_SESSION['acc_role'] == 1) {
+                            header('Location: /duan1_mmlshop/admin/');
+                        } else {
+                            header('Location: ?act=').'';
+                        }
+                        
                     }else {
                         unset($_SESSION['acc_name']);
                         unset($_SESSION['acc_email']);
