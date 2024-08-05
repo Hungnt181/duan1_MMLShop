@@ -37,12 +37,12 @@
             <form action="" method="POST" enctype="multipart/form-data" class="form-edit-profile">
                 <div class="main-form">
                     <div class="col">
-                        <?php if($_POST['acc_image'] == "") { ?>
+                        <?php if ($_POST['acc_image'] == "") { ?>
                             <img src="img/account/user_default.png" alt="">
                         <?php } else { ?>
-                            <img src="img/account/<?= $_POST['acc_image'] ?>" alt="">     
+                            <img src="img/account/<?= $_POST['acc_image'] ?>" alt="">
                         <?php }; ?>
-                            <input type="file" name='image_upload' value="">
+                        <input type="file" name='image_upload' value="">
                     </div>
 
                     <div class="col">
@@ -60,9 +60,12 @@
                     </div>
                 </div>
 
-                <a href="" class="btn-edit">
-                    <button name='updateFormProfile'>Cập nhật</button>
-                </a>
+                <div class="update_profile">
+                    <a href="" class="btn-edit">
+                        <button name='updateFormProfile'>Cập nhật</button>
+                    </a>
+                </div>
+
             </form>
         </div>
     </main>

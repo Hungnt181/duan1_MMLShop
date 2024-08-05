@@ -180,7 +180,7 @@
                         <input type="text" name="tongTien" value="<?= $tongTien ?>.000" hidden>
                     </td>
                     <td></td>
-                    <td>
+                    <td class="text-center">
                         <a href="">
                             <button class="btn bg-success" style="color: #fff;" name="submitInforCart">Đặt hàng</button>
                         </a>
