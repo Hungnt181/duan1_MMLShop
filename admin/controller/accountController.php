@@ -54,7 +54,7 @@ class AccountController {
     public function readOneAccount() {
         if(isset($_GET["acc_id"]) && ($_GET["acc_id"]) > 0) {
             $info = $this->accountQuery->infoOneAccount($_GET["acc_id"]);
-            (new AccountController()) -> updateAccount($_GET["acc_id"]);
+            (new AccountController()) -> updateStatusAndRoleAccount();
             
         }
         include "view/account/update.php";
@@ -88,6 +88,22 @@ class AccountController {
             header("Location: ?act=list-account");      
         }
     }
+
+    // --------------UPDATE STATUS AND ROLE ACCOUNTS-------------
+    public function updateStatusAndRoleAccount() {
+        if (isset($_GET["acc_id"]) && ($_GET["acc_id"]) > 0) {
+            if(isset($_POST["submitFormUpdateAccount"])) {
+                $account = new Account();
+                $account -> acc_id = $_GET["acc_id"];
+                $account -> acc_status = trim($_POST["acc_status"]);
+                $account -> acc_role = trim($_POST["acc_role"]);
+                $result_one = $this -> accountQuery -> updateStatusAccount($account);
+                $result_second = $this -> accountQuery -> updateRoleAccount($account);
+                header("Location: ?act=list-account");   
+            }
+        }
+        
+    }    
     
     // --------------UPDATE STATUS ACCOUNTS-------------
     public function updateStatusAccount() {
