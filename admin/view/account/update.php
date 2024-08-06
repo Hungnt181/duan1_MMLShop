@@ -32,31 +32,24 @@
                 <hr>
                 <div class="row">
                     <div class="">
-                        <label for="inputEmail4" class="form-label">Ảnh đại diện</label>
-                        <input type="file" class="form-control rounded-0" id="inputEmail4" placeholder=""
-                            name="image_upload">
-                        <img src="../img/account/<?= $info->acc_image ?>" alt="" style="width:200px; margin: 20px 0;"
+                        <label for="inputEmail4" class="form-label">Ảnh đại diện</label><br>
+                        <img src="../img/account/<?= $info->acc_image ?>" alt="" style="width:200px; margin: 5px 0 20px;"
                             name="existing_image">
                     </div>
                     <div class="">
                         <label for="inputEmail4" class="form-label">Họ và tên</label>
                         <input type="text" class="form-control rounded-0" id="inputEmail4"
-                            placeholder="Nhập đầy đủ họ và tên" name="acc_name" value="<?= $info->acc_name ?>">
-                    </div>
-                    <div class="" style="margin-top:10px">
-                        <label for="inputEmail4" class="form-label">Mật khẩu</label>
-                        <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập mật khẩu"
-                            name="acc_password" value="<?= $info->acc_password ?>" required>
+                            placeholder="Nhập đầy đủ họ và tên" name="acc_name" value="<?= $info->acc_name ?>" disabled>
                     </div>
                     <div class="" style="margin-top:10px">
                         <label for="inputEmail4" class="form-label">Email</label>
                         <input type="text" class="form-control rounded-0" id="inputEmail4" placeholder="Nhập email"
-                            name="acc_email" value="<?= $info->acc_email ?>" required>
+                            name="acc_email" value="<?= $info->acc_email ?>" disabled>
                     </div>
                     <div class="" style="margin-top:10px">
                         <label for="inputEmail4" class="form-label">Số điện thoại</label>
                         <input type="text" class="form-control rounded-0" id="inputEmail4"
-                            placeholder="Nhập số điện thoại" name="acc_phone" value="<?= $info->acc_phone ?>">
+                            placeholder="Nhập số điện thoại" name="acc_phone" value="<?= $info->acc_phone ?>"  disabled>
                     </div>
                     <div class="mt-3">
                         <span class="form-label">Trạng thái tài khoản</span>
