@@ -28,7 +28,7 @@
                 <div class="container-fluid">
                     <div class="navbar-nav">
                         <a class="nav-link active-menu" aria-current="page" href="../index.php">Trang chủ</a>
-                        <a class="nav-link active-menu" id="link1" href="index.php?act=list-category">Thống kê</a>
+                        <a class="nav-link active-menu" id="link1" href="index.php?act=show_thongke">Thống kê</a>
                         <a class="nav-link active-menu" id="link2" href="index.php?act=list-category">Danh Mục</a>
                         <a class="nav-link active-menu" id="link3" href="index.php?act=list-product">Sản Phẩm</a>
                         <a class="nav-link active-menu" id="link4" href="index.php?act=list-bill">Đơn Hàng</a>
