@@ -72,8 +72,8 @@ if ($_SESSION['acc_role'] == 1) {
       'list-account' => (new AccountController()) -> list(),
       'create-account' => (new AccountController()) -> create(),
       'read-one-account' => (new AccountController()) -> readOneAccount(),
-      'update-role-account' => (new AccountController()) -> updateRoleAccount(),
-      'update-status-account' => (new AccountController()) -> updateStatusAccount(),
+      // 'update-role-account' => (new AccountController()) -> updateRoleAccount(),
+      // 'update-status-account' => (new AccountController()) -> updateStatusAccount(),
   
   
       // -----------BILLS--------------------------
