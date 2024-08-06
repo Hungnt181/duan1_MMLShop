@@ -7,6 +7,7 @@ session_start();
 
 include "common/env.php";
 include "common/function.php";
+
 // Nhứng troàn bộ các file controller
 include "controller/HomeController.php";
 include "controller/LoginController.php";
@@ -68,7 +69,6 @@ match ($act) {
     'searchPro' => (new HomeController()) -> searchPro(),
 
     'showAllProOfCate'=> (new HomeController()) -> showAllProOfCate(),
-
     
 }
 
