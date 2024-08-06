@@ -397,6 +397,7 @@
                 } else {
                     $voucher_quantityNew = $voucher_one->voucher_quantity - 1 ;
                 }
+
                 
                 $bill = new Bill();
                 $bill->fullname = trim($_POST['fullname']);
