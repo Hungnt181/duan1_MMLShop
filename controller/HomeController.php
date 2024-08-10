@@ -14,7 +14,7 @@
         public function __construct()
         {
             $this->productQuery = new ProductQuery();
-            $this ->productDetailQuery = new ProductDetailQuery;
+            $this ->productDetailQuery = new ProductDetailQuery();
             $this->categoryQuery = new CategoryQuery();
             $this -> accountQuery = new AccountQuery();
             $this -> billQuery= new BillQuery();
@@ -30,6 +30,30 @@
         }
 
         public function home() {
+            // $dsProDetail_price = $this->productDetailQuery->listProductDetail_price();
+            $dsProduct = $this->productQuery->getTop16ProductLatest();
+
+
+        //    var_dump( $dsProDetail_price);
+            $Arr_price = [];
+            $mang_pro_id = [];
+            foreach ($dsProduct as $row) {
+                // $mang_pro_id[] = $row->pro_id;
+                 $price = "";
+                 $arr_min_price= [];
+                    $dsProDetail = $this->productDetailQuery->listProductDetail($row->pro_id);
+                    foreach ($dsProDetail as $row) {
+                        $price  = $row->pro_price;
+                        array_push($arr_min_price,$price);
+                    }
+                    $price_min = min($arr_min_price);
+
+                    array_push( $Arr_price ,$price_min);
+            }
+            // var_dump( $arr_min_price);
+        //    var_dump( $Arr_price);
+        //    var_dump( $mang_pro_id);
+
             $allSlPro = 0;
             foreach ($_SESSION["myCart"] as $key => $proCart) {
                 if ($proCart['product_dt_id']) {
