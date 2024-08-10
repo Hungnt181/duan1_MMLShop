@@ -126,6 +126,24 @@
             }
         }
 
+        public function listProductDetail_price() {
+            try {
+                $sql = "select * from product_detail join product on product_detail.pro_id = product.pro_id ";
+                $data = $this->pdo->query($sql)->fetchAll();
+                $dsProductDetail_price = [];
+    
+                foreach ($data as $row) {
+                    $dsProductDetail_price[] = convertToObjectProductDetail($row);
+                }
+    
+                return $dsProductDetail_price;
+                
+            } catch (Exception $e) {
+                echo "Lỗi: ".$e ->getMessage();
+                echo "<hr>";
+            }
+        }
+
             // ------sql for showing a product detail
         public function infoOneProductDetail($product_dt_id) {
             try {

@@ -103,7 +103,7 @@
                 </ul>
             </div>
             <div class="list_pro">
-                <?php  foreach ($dsProduct as $pro)  :?>
+                <?php  foreach ($dsProduct as $key=>$pro)  :?>
                     <div class="pro_item">
                     <div class="quick_act">
                         <form action="">
@@ -122,7 +122,16 @@
                             <a href="?act=ctsp&id=<?= $pro->pro_id?>"><?= $pro->pro_name?></a>
                         </div>
                         <div class="price_pro">
-                            <p>Liên hệ <span></span></p>
+                            <p>
+                                <?php 
+                                    foreach ($Arr_price as $index => $pr_min) {
+                                        if ($key == $index) {
+                                            echo ($pr_min); ?> VND<?php
+                                        }
+                                    }
+                                ?>
+                            <span></span>
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,7 @@ class BillQuery {
 
     public function all() {
         try {
-            $sql = "select * from bill join account on bill.acc_id = account.acc_id";
+            $sql = "select * from bill join account on bill.acc_id = account.acc_id ORDER BY bill.bill_id DESC";
             $data = $this->pdo->query($sql)->fetchAll();
             $dsBill = [];
 

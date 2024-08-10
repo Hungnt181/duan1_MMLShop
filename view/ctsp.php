@@ -59,11 +59,11 @@
             <div class="pro_inf">
                 <h4><?= $pro_one->pro_name?></h4>
 
-                <h5 style="color: black; font-size: 20px;">
+                <!-- <h5 style="color: black; font-size: 20px;">
                     Giá: <span style="color: red;"><?=$price ?></span>
-                </h5>
+                </h5> -->
 
-                <h5>Liên hệ</h5>
+                <h5><?=$price ?> <span style=" font-size: 18px;font-weight:800">VND</span></h5>
                 <div class="inf">
                     <div class="id">
                         <label for="">Mã sản phẩm:</label>
