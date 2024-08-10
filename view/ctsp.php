@@ -63,7 +63,18 @@
                     Giá: <span style="color: red;"><?=$price ?></span>
                 </h5> -->
 
-                <h5><?=$price ?> <span style=" font-size: 18px;font-weight:800">VND</span></h5>
+                <?php
+                    if ($price < $price_max) { ?>
+                        <h5><?=$price ?> - 
+                        <?=$price_max ?> <span style=" font-size: 18px;font-weight:800"> VND</span>
+                        </h5>
+
+                 <?php   } else { ?>
+                    <h5><?=$price ?><span style=" font-size: 18px;font-weight:800"> VND</span>
+                        </h5>
+               <?php  }
+                ?>
+
                 <div class="inf">
                     <div class="id">
                         <label for="">Mã sản phẩm:</label>
