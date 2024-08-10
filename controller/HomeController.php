@@ -98,6 +98,15 @@
                     }
                 }
 
+                $price_max =0;
+
+                foreach ($dsProDetail as $row) {
+
+                    if ($row->pro_price > $price_max) {
+                        $price_max = $row->pro_price;
+                    }
+                }
+
 
                 if(isset($_GET['id']) && isset($_GET['id']) > 0) {
                     $dsCmtPro = $this->commentQuery->commentFromOnePro($_GET['id']);
